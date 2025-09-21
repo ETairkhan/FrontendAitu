@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mercedes-Benz C-Class Sedan</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: #333;
+            line-height: 1.5;
+            background-color: #f8f8f8;
+        }
+        .menu {
+            display: flex;
+            gap: 30px;
+        }
+        .menu a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .menu a:hover {
+            color: #00adef;
+        }
+
+        /* Шапка с параллаксом и анимацией */
+        .logo {
+            position: relative;
+            width: 100%;
+            height: 65vh;
+            background: linear-gradient(120deg, #000000, #333333, #555555);
+            background-size: 200% 200%;
+            animation: gradientMove 8s ease infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .logo::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.4);
+        }
+        .logo h1 {
+            font-size: 3rem;
+            text-align: center;
+            color: #fff;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1.8s ease forwards;
+            z-index: 1;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.6);
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 20px 40px;
+        }
+
+        .section {
+            margin-bottom: 60px;
+        }
+        .section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #222;
+            text-align: center;
+        }
+
+        /* Галерея */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px;
+        }
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+        }
+
+        /* Карточки моделей */
+        .models {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        .model-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .model-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+        }
+        .model-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        .model-card .info {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .model-card .info h3 {
+            margin: 0 0 10px;
+            font-size: 1.3rem;
+        }
+        .model-card .info .price {
+            color: #007bff;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        /* Особенности */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .feature-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+        }
+        .feature-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+        .feature-item h4 {
+            margin: 0 0 10px;
+            font-size: 1.25rem;
+            text-align: center;
+        }
+        .feature-item p {
+            margin: 0;
+            text-align: center;
+        }
+
+        @media(max-width: 768px) {
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            .menu {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+        }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 30px; 
+            background: rgba(0, 0, 0, 0.85);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+        }
+
+        header img {
+            height: 35px; 
+        }
+
+        .header_list a {
+            color: white;
+            margin: 0 8px;
+            text-decoration: none;
+            font-size: 10px; 
+            margin-right: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Новая верхушка -->
+ <header>
+        <a href="../Yeraly/Mainpage.html"><img src="img/logo.png" alt="Mercedes-Benz Logo"></a>
+        <nav class="header_list">
+            <a href="../David/cclass.html">Сиданы - С класс</a>
+            <a href="../Bybarys/Eclass.html">Седаны - Е класс</a>
+            <a href="../Tairkhan/sclass.html">Седаны - S класс</a>
+            <a href="../Bybarys/news.html">Новости</a>
+            <a href="../David/special.html">Спец предложения</a>
+        </nav>
+    </header>
+
+<!-- Шапка -->
+<div class="logo">
+    <h1>Новый C-Class Sedan</h1>
+</div>
+
+<!-- Контент -->
+<div class="container">
+
+    <section class="section gallery">
+        <h2>Экстерьер</h2>
+        <img src="img/c-ext1.jpg" alt="C-Class Exterior 1">
+        <img src="img/c-ext2.jpg" alt="C-Class Exterior 2">
+        <img src="img/c-ext3.jpg" alt="C-Class Exterior 3">
+    </section>
+
+    <section class="section models">
+        <div class="model-card">
+            <img src="img/c180.jpg" alt="C 180">
+            <div class="info">
+                <h3>C 180</h3>
+                <div class="price">От 31 160 000 ₸</div>
+            </div>
+        </div>
+        <div class="model-card">
+            <img src="img/c200.jpg" alt="C 200">
+            <div class="info">
+                <h3>C 200</h3>
+                <div class="price">От 34 310 000 ₸</div>
+            </div>
+        </div>
+        <div class="model-card">
+            <img src="img/amg43.jpg" alt="AMG C 43 4MATIC">
+            <div class="info">
+                <h3>AMG C 43 4MATIC</h3>
+                <div class="price">От 50 000 000 ₸</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section features">
+        <div class="feature-item">
+            <img src="img/feature-digital-light.jpg" alt="Digital Light">
+            <h4>Фары DIGITAL LIGHT</h4>
+            <p>Технологичные HD-фары с функцией проекции, адаптивным освещением и ярким дизайном.</p>
+        </div>
+        <div class="feature-item">
+            <img src="img/feature-interior.jpg" alt="Интерьер">
+            <h4>Интерьер премиум-класса</h4>
+            <p>Мультиконтурные сиденья, OLED-дисплей, атмосфера комфорта и технологий.</p>
+        </div>
+        <div class="feature-item">
+            <img src="img/feature-assist.jpg" alt="Системы помощи">
+            <h4>Системы помощи водителю</h4>
+            <p>Driving Assistance, пакет безопасности, ассистенты при манёврах и в городском трафике.</p>
+        </div>
+    </section>
+
+</div>
+
+<footer style="background:#222; color:#fff; text-align:center; padding:18px 0; font-size:1rem;">
+    Tairkhan &nbsp;|&nbsp; David &nbsp;|&nbsp; Yeraly &nbsp;|&nbsp; Bybarys &nbsp; SE-2412
+</footer>
+
+</body>
+</html>

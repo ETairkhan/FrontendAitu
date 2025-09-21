@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercedes-Benz Sprinter Акция</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #222;
+            background: #fff;
+        }
+
+        /* Шапка */
+        .nav {
+            background-color: rgb(0, 0, 0);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .nav img.logo-img {
+            height: 40px; /* размер логотипа */
+            margin-right: 30px;
+        }
+
+        .nav .menu {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 0.9rem;
+            padding: 5px 8px;
+            transition: color 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: #007bff;
+        }
+
+        /* Основной блок */
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 100vh;
+            padding-top: 80px; /* чтобы контент не перекрывался шапкой */
+        }
+
+        .image-section img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .content-section {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .contact {
+            margin: 20px 0;
+        }
+
+        .contact select {
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .conditions {
+            margin: 20px 0;
+        }
+
+        .conditions li {
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background: #007bff;
+            color: #fff;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            transition: background 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: #0056b3;
+        }
+
+        .chat-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #000;
+            border-radius: 80%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+        }
+
+        .chat-button img {
+            width: 40px;
+            height: 40px;
+        }
+
+        @media(max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .image-section img {
+                height: 300px;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                padding: 15px;
+            }
+
+            .nav img.logo-img {
+                margin-bottom: 10px;
+            }
+        }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 30px; 
+            background: rgba(0, 0, 0, 0.85);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+        }
+
+        header img {
+            height: 35px; 
+        }
+
+        .header_list a {
+            color: white;
+            margin: 0 8px;
+            text-decoration: none;
+            font-size: 10px; 
+            margin-right: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Шапка -->
+ <header>
+        <a href="../Yeraly/Mainpage.html"><img src="img/logo.png" alt="Mercedes-Benz Logo"></a>
+        <nav class="header_list">
+            <a href="../David/cclass.html">Сиданы - С класс</a>
+            <a href="../Bybarys/Eclass.html">Седаны - Е класс</a>
+            <a href="../Tairkhan/sclass.html">Седаны - S класс</a>
+            <a href="../Bybarys/news.html">Новости</a>
+            <a href="../David/special.html">Спец предложения</a>
+        </nav>
+    </header>
+
+<div class="container">
+    <!-- Левая часть с изображением -->
+    <div class="image-section">
+        <img src="img/sprinter.jpg" alt="Mercedes-Benz Sprinter">
+    </div>
+
+    <!-- Правая часть с текстом -->
+    <div class="content-section">
+        <h1>Акционный продукт "Кредит без первоначального взноса на Mercedes-Benz Sprinter"</h1>
+        <p>Откройте новые возможности для бизнеса вместе с легендарным Mercedes-Benz Sprinter — теперь в кредит без первоначального взноса!</p>
+
+        <div class="contact">
+            <select>
+                <option>📞 Контактные номера</option>
+                <option>+7 (700) 000-00-00</option>
+                <option>+7 (701) 111-11-11</option>
+            </select>
+        </div>
+
+        <ul class="conditions">
+            <li>Без первоначального взноса</li>
+            <li>Срок кредитования — до 7 лет</li>
+            <li>Сумма займа — до 69 000 000 ₸</li>
+            <li>(до 73 000 000 ₸ — для постоянных клиентов)</li>
+            <li>Оформление КАСКО обязательно (за счёт Клиента)</li>
+        </ul>
+
+        <p>Идеальный момент, чтобы обновить автопарк и вывести бизнес на новый уровень.</p>
+        <p class="highlight">Срок проведения с 1 по 30 апреля 2025 года</p>
+
+        <a href="../Tairkhan/buyNow.html"><button class="btn-primary">Получить персональное предложение</button></a>
+    </div>
+</div>
+
+<!-- Плавающая кнопка чата -->
+<div class="chat-button">
+    <img src="img/logo.png" alt="Mercedes">
+</div>
+
+<footer style="background:#222; color:#fff; text-align:center; padding:18px 0; font-size:1rem;">
+    Tairkhan &nbsp;|&nbsp; David &nbsp;|&nbsp; Yeraly &nbsp;|&nbsp; Bybarys &nbsp; SE-2412
+</footer>
+
+</body>
+</html>

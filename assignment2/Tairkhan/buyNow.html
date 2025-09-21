@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercedes-Benz Enquiry Form</title>
+    <link rel="stylesheet" href="buyNow.css">
+</head>
+<body>
+    <header>
+        <a href="../Yeraly/Mainpage.html"><img src="icons/merslogo.svg" alt="Mercedes-Benz Logo"></a>
+        <nav class="header_list">
+            <a href="../David/cclass.html">Сиданы - С класс</a>
+            <a href="../Bybarys/Eclass.html">Седаны - Е класс</a>
+            <a href="../Tairkhan/sclass.html">Седаны - S класс</a>
+            <a href="../Bybarys/news.html">Новости</a>
+            <a href="../David/special.html">Спец предложения</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Contact Mercedes-Benz</h1>
+            <p>We are here to assist you with any questions about our vehicles, services, or dealerships. Please fill out the form below and we will get back to you shortly.</p>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="form-section">
+        <div class="container">
+            <div class="form-container">
+                <h2 class="form-title">Enquiry Form</h2>
+                <form id="enquiry-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstname" class="form-label">First Name *</label>
+                            <input type="text" id="firstname" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastname" class="form-label">Last Name *</label>
+                            <input type="text" id="lastname" class="form-input" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address *</label>
+                            <input type="email" id="email" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone Number *</label>
+                            <input type="tel" id="phone" class="form-input" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject" class="form-label">Subject *</label>
+                        <select id="subject" class="form-select" required>
+                            <option value="">Please select</option>
+                            <option value="vehicle">Vehicle Information</option>
+                            <option value="testdrive">Test Drive Request</option>
+                            <option value="service">Service Appointment</option>
+                            <option value="parts">Parts Inquiry</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="model" class="form-label">Vehicle Model (if applicable)</label>
+                        <select id="model" class="form-select">
+                            <option value="">Please select</option>
+                            <option value="a-class">A-Class</option>
+                            <option value="c-class">C-Class</option>
+                            <option value="e-class">E-Class</option>
+                            <option value="s-class">S-Class</option>
+                            <option value="gla">GLA</option>
+                            <option value="glc">GLC</option>
+                            <option value="gle">GLE</option>
+                            <option value="gls">GLS</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message" class="form-label">Your Message *</label>
+                        <textarea id="message" class="form-textarea" required></textarea>
+                    </div>
+                    
+                    <div class="form-check">
+                        <input type="checkbox" id="consent" class="form-check-input" required>
+                        <label for="consent" class="form-check-label">
+                            I agree to the processing of my personal data in accordance with the <a href="#">Privacy Policy</a>. *
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Submit Enquiry</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background:#222; color:#fff; text-align:center; padding:18px 0; font-size:1rem;margin-top: auto;">
+    Tairkhan &nbsp;|&nbsp; David &nbsp;|&nbsp; Yeraly &nbsp;|&nbsp; Bybarys &nbsp; SE-2412
+    </footer>
+</body>
+</html>

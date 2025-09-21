@@ -1,0 +1,242 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: #f8f8f8;
+    color: #222;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 40px;
+    background: rgba(0, 0, 0, 0.92);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+header img {
+    height: 38px;
+}
+
+.header_list a {
+    color: #fff;
+    margin: 0 18px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+.header_list a:hover {
+    color: #b6b6b6;
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 64px;
+    background: #000;
+    overflow: hidden;
+}
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+    position: absolute;
+    top: 0; left: 0;
+    z-index: 1;
+}
+.hero-text {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.hero-text h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+    letter-spacing: 1px;
+}
+.hero-text p {
+    font-size: 1.3rem;
+    margin-bottom: 24px;
+}
+.hero-btn {
+    display: inline-block;
+    background: #222;
+    color: #fff;
+    padding: 12px 32px;
+    border-radius: 24px;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: background 0.2s;
+    border: none;
+    cursor: pointer;
+}
+.hero-btn:hover {
+    background: #005baa;
+}
+
+main {
+    flex: 1;
+    padding: 40px 0 0 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-section {
+    margin-top: 32px;
+}
+.gallery-section h2 {
+    font-size: 2rem;
+    margin-bottom: 18px;
+    text-align: center;
+    color: #222;
+}
+.gallery {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.gallery img {
+    width: 320px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.09);
+    transition: transform 0.2s;
+}
+.gallery img:hover {
+    transform: scale(1.04);
+}
+
+.interior-section {
+    margin: 48px 0 0 0;
+    text-align: center;
+}
+.interior-section h2 {
+    font-size: 2rem;
+    margin-bottom: 18px;
+    color: #222;
+}
+.interior {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+.interior img {
+    width: 340px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.09);
+}
+.interior-info {
+    max-width: 400px;
+    text-align: left;
+}
+.interior-info h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #005baa;
+}
+.interior-info p {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.features-section {
+    margin: 56px 0 0 0;
+}
+.features-section h2 {
+    font-size: 2rem;
+    margin-bottom: 18px;
+    text-align: center;
+    color: #222;
+}
+.features {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.feature-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    padding: 28px 22px;
+    max-width: 280px;
+    text-align: center;
+    transition: box-shadow 0.2s;
+}
+.feature-card:hover {
+    box-shadow: 0 6px 24px rgba(0,0,0,0.13);
+}
+.feature-icon {
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+    display: block;
+}
+.feature-card h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #005baa;
+}
+.feature-card p {
+    font-size: 1rem;
+    color: #333;
+}
+
+footer {
+    background: #222;
+    color: #fff;
+    text-align: center;
+    padding: 18px 0;
+    font-size: 1rem;
+    margin-top: 48px;
+    letter-spacing: 1px;
+    border-top: 1px solid #444;
+}
+
+@media (max-width: 900px) {
+    .gallery img, .interior img {
+        width: 220px;
+        height: 140px;
+    }
+    .interior {
+        flex-direction: column;
+        gap: 18px;
+    }
+    .features {
+        flex-direction: column;
+        gap: 18px;
+        align-items: center;
+    }
+    main {
+        padding: 24px 0 0 0;
+    }
+    header {
+        padding: 8px 12px;
+    }
+}
