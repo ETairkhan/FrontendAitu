@@ -1,0 +1,212 @@
+/* ===== Интерьер ===== */
+.interior-section {
+  padding: 60px 8%;
+  
+  background: #fff;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #111;
+}
+
+.interior-section h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+  line-height: 1.4;
+}
+
+.interior-img img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 25px;
+}
+
+
+.menu-toggle {
+    display: none;
+}
+
+
+.hamburger {
+    display: none;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    z-index: 1100;
+}
+
+
+.nav-large {
+    display: flex;
+    gap: 20px;
+}
+
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -72px ;
+    width: 200px;
+    height: 100%;
+    background: #222;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding:10px;
+    transition: right 0.3s ease;
+    z-index: 1000;
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    margin: 15px 0;
+    font-weight: bold;
+}
+
+.close-btn {
+    align-self: flex-end;
+    font-size: 28px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 992px) {
+    .nav-large {
+        display: none; */
+    }
+    .hamburger {
+        display: block; 
+    }
+`
+    .menu-toggle:checked ~ .sidebar {
+        right: 0;
+    }
+}
+
+
+
+.interior-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  background: #fafafa;
+  padding: 18px;
+  border-radius: 12px;
+  justify-content: space-between;
+}
+
+.interior-features div {
+  flex: 1 1 220px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #333;
+  padding: 8px 12px;
+}
+
+/* ===== Карточки ===== */
+.features-section {
+  padding: 60px 8%;
+  background: #fff;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+}
+
+.feature-card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  overflow: hidden;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 26px rgba(0,0,0,0.12);
+}
+
+.feature-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.feature-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 16px 18px 8px;
+}
+
+.feature-card p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #444;
+  padding: 0 18px 20px;
+}
+
+.header_list a:hover {
+    color: #b6b6b6;
+}
+
+
+/* ===== Галерея ===== */
+.gallery-section {
+  padding: 60px 8%;
+  background: #f9f9f9;
+  text-align: center;
+}
+
+.gallery-section h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* всегда 3 фото в ряд */
+  gap: 20px;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+.caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  font-size: 1rem;
+  padding: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .caption {
+  opacity: 1;
+}

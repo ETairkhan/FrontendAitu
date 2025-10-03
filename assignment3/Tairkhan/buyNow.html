@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercedes-Benz Enquiry Form</title>
+    <link rel="stylesheet" href="buyNow.css">
+</head>
+<body>
+    <!-- Flexbox Navigation -->
+    <header>
+        <a href="../Yeraly/Mainpage.html"><img src="icons/merslogo.svg" alt="Mercedes-Benz Logo" class="logo"></a>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="../David/cclass.html">Седаны - С класс</a></li>
+                <li><a href="../Bibarys/Eclass.html">Седаны - Е класс</a></li>
+                <li><a href="../Tairkhan/sclass.html">Седаны - S класс</a></li>
+                <li><a href="../Bibarys/news.html">Новости</a></li>
+                <li><a href="../David/special.html">Спец предложения</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Contact Mercedes-Benz</h1>
+            <p>We are here to assist you with any questions about our vehicles, services, or dealerships. Please fill out the form below and we will get back to you shortly.</p>
+        </div>
+    </section>
+
+    <!-- Form Section with Grid Layout -->
+    <section class="form-section">
+        <div class="container">
+            <div class="form-container">
+                <h2 class="form-title">Enquiry Form</h2>
+                <form id="enquiry-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstname" class="form-label">First Name *</label>
+                            <input type="text" id="firstname" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastname" class="form-label">Last Name *</label>
+                            <input type="text" id="lastname" class="form-input" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address *</label>
+                            <input type="email" id="email" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone Number *</label>
+                            <input type="tel" id="phone" class="form-input" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject" class="form-label">Subject *</label>
+                        <select id="subject" class="form-select" required>
+                            <option value="">Please select</option>
+                            <option value="vehicle">Vehicle Information</option>
+                            <option value="testdrive">Test Drive Request</option>
+                            <option value="service">Service Appointment</option>
+                            <option value="parts">Parts Inquiry</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="model" class="form-label">Vehicle Model (if applicable)</label>
+                        <select id="model" class="form-select">
+                            <option value="">Please select</option>
+                            <option value="a-class">A-Class</option>
+                            <option value="c-class">C-Class</option>
+                            <option value="e-class">E-Class</option>
+                            <option value="s-class">S-Class</option>
+                            <option value="gla">GLA</option>
+                            <option value="glc">GLC</option>
+                            <option value="gle">GLE</option>
+                            <option value="gls">GLS</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label id="one" for="message" class="form-label">Your Message *</label>
+                        <textarea id="message" class="form-textarea" required></textarea>
+                    </div>
+                    
+                    <div class="form-check">
+                        <input type="checkbox" id="consent" class="form-check-input" required>
+                        <label for="consent" class="form-check-label">
+                            I agree to the processing of my personal data in accordance with the <a href="https://www.mercedes-benz-kazakhstan.com/site/terms-conditions/" target="_blank">Privacy Policy</a>. *
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Submit Enquiry</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Card Section with Flexbox -->
+    <section class="cards-section">
+        <div class="container">
+            <h2>Why Choose Mercedes-Benz?</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-icon">🏆</div>
+                    <h3 class="card-title">Premium Quality</h3>
+                    <p class="card-text">Experience unmatched craftsmanship and attention to detail in every Mercedes-Benz vehicle.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔧</div>
+                    <h3 class="card-title">Expert Service</h3>
+                    <p class="card-text">Our certified technicians provide exceptional maintenance and repair services.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🛡️</div>
+                    <h3 class="card-title">Comprehensive Warranty</h3>
+                    <p class="card-text">Enjoy peace of mind with our extensive warranty and roadside assistance programs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Gallery with Grid -->
+    <section class="gallery-section">
+        <div class="container">
+            <h2>Explore Our Models</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <a href="../David/cclass.html"><img src="../David/img/c180.jpg" alt="C-Class" class="gallery-img"></a>
+                     <a href="../David/cclass.html"><div class="gallery-caption">C-Class</div></a>
+                </div>
+                <div class="gallery-item">
+                    <a href="../Bibarys/Eclass.html"><img src="https://avatars.mds.yandex.net/get-verba/997355/2a00000187e6a56fc2d2c95326c2b0135d3c/cattouchretcr" alt="E-Class" class="gallery-img"></a>
+                   <a href="../Bibarys/Eclass.html"> <div class="gallery-caption">E-Class</div></a>
+                </div>
+                <div class="gallery-item">
+                    <a href="sclass.html"><img src="icons/main.jpg" alt="S-Class" class="gallery-img"></a>
+                      <a href="sclass.html"><div class="gallery-caption">S-Class</div></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        Tairkhan | David | Yeraly | Bibarys | SE-2412
+    </footer>
+</body>
+</html>
