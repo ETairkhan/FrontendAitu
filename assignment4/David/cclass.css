@@ -1,62 +1,24 @@
-
 body {
     margin: 0;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #f8f8f8;
     color: #333;
     line-height: 1.5;
-    background-color: #f8f8f8;
 }
 
-/* ---------- HEADER FLEXBOX ---------- */
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 10px;
-    background: rgba(0, 0, 0, 0.85);
-    position: fixed;
-    top: 0;
-    width: 99%;
-    z-index: 10;
+header a:hover {
+    color: #00adef !important;
 }
 
-header img {
-    height: 40px;
-}
-
-nav.header_list {
-    display: flex;
-    gap: 20px;
-}
-nav.header_list a {
-    text-decoration: none;
-    color: white;
-    font-size: 0.95rem;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-nav.header_list a:hover {
-    color: #00adef;
-}
-
-/* ---------- HERO ---------- */
+/* HERO */
 .logo {
-    position: relative;
     width: 100%;
     height: 65vh;
     background: linear-gradient(120deg, #000000, #333333, #555555);
     background-size: 200% 200%;
     animation: gradientMove 8s ease infinite;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
     margin-top: 60px;
-}
-@keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    position: relative;
 }
 .logo::after {
     content: "";
@@ -66,65 +28,22 @@ nav.header_list a:hover {
 }
 .logo h1 {
     font-size: 3rem;
-    text-align: center;
-    color: #fff;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 1.8s ease forwards;
     z-index: 1;
     text-shadow: 0 4px 12px rgba(0,0,0,0.6);
+    animation: fadeInUp 1.8s ease forwards;
+    opacity: 0;
+    transform: translateY(20px);
 }
 @keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
-/* ---------- GRID LAYOUT ---------- */
-.page-layout {
-    display: grid;
-    grid-template-areas:
-    "sidebar main";
-    grid-template-columns: 250px 1fr;
-    gap: 30px;
-    padding: 40px;
-}
-
-/* sidebar */
-.sidebar {
-    grid-area: sidebar;
-    background: #fff;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-/* main content */
-.main {
-    grid-area: main;
-}
-
-/* ---------- GALLERY GRID ---------- */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 20px;
-}
-.gallery-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 8px;
-}
-.gallery-item img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-.gallery-item:hover img {
-    transform: scale(1.05);
-}
+/* Gallery caption */
 .gallery-caption {
     position: absolute;
     bottom: 0;
@@ -133,64 +52,15 @@ nav.header_list a:hover {
     background: rgba(0,0,0,0.6);
     color: #fff;
     text-align: center;
-    padding: 10px;
+    padding: 8px;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
-.gallery-item:hover .gallery-caption {
+.position-relative:hover .gallery-caption {
     opacity: 1;
 }
 
-/* ---------- FLEXBOX CARDS ---------- */
-.models {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center;
-}
-.model-card {
-    background: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.model-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-}
-.model-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-}
-.model-card .info {
-    padding: 20px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-.model-card .info h3 {
-    margin: 0 0 10px;
-    font-size: 1.3rem;
-}
-.model-card .info .price {
-    color: #007bff;
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-}
-
-/* ---------- FEATURES GRID ---------- */
-.features {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 30px;
-}
+/* Features */
 .feature-item {
     background: white;
     padding: 20px;
@@ -202,80 +72,8 @@ nav.header_list a:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 18px rgba(0,0,0,0.15);
 }
-.feature-item img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 6px;
-    margin-bottom: 15px;
-}
-.feature-item h4 {
-    margin: 0 0 10px;
-    font-size: 1.25rem;
-    text-align: center;
-}
-.feature-item p {
-    margin: 0;
-    text-align: center;
-}
 
-/* ---------- FOOTER ---------- */
-footer {
-    background:#222;
-    color:#fff;
-    text-align:center;
-    padding:18px 0;
-    font-size:1rem;
-    margin-top: 40px;
-}
-
-/* ---------- RESPONSIVE ---------- */
-@media(max-width: 768px) {
-    .page-layout {
-        grid-template-columns: 1fr;
-        grid-template-areas:
-        "main"
-        "sidebar";
-    }
-    .logo h1 {
-        font-size: 2.2rem;
-    }
-    nav.header_list {
-        flex-wrap: wrap;
-    }
-}
-/* ---------- Responsive Typography ---------- */
-@media (max-width: 480px) {
-    body {
-        font-size: 14px;
-    }
-    .logo h1 {
-        font-size: 1.8rem;
-    }
-}
-
-@media (min-width: 481px) and (max-width: 768px) {
-    body {
-        font-size: 16px;
-    }
-    .logo h1 {
-        font-size: 2.2rem;
-    }
-}
-
-@media (min-width: 769px) {
-    body {
-        font-size: 18px;
-    }
-    .logo h1 {
-        font-size: 3rem;
-    }
-}
+/* Responsive text */
 @media (max-width: 768px) {
-    .models {
-        flex-direction: column;
-        align-items: center;
-    }
+    .logo h1 { font-size: 2rem; }
 }
-
-
