@@ -1,3 +1,4 @@
+
 body {
     margin: 0;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -11,16 +12,16 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 30px; 
+    padding: 10px 10px;
     background: rgba(0, 0, 0, 0.85);
     position: fixed;
     top: 0;
-    width: 100%;
+    width: 99%;
     z-index: 10;
 }
 
 header img {
-    height: 40px; 
+    height: 40px;
 }
 
 nav.header_list {
@@ -220,10 +221,10 @@ nav.header_list a:hover {
 
 /* ---------- FOOTER ---------- */
 footer {
-    background:#222; 
-    color:#fff; 
-    text-align:center; 
-    padding:18px 0; 
+    background:#222;
+    color:#fff;
+    text-align:center;
+    padding:18px 0;
     font-size:1rem;
     margin-top: 40px;
 }
@@ -243,3 +244,38 @@ footer {
         flex-wrap: wrap;
     }
 }
+/* ---------- Responsive Typography ---------- */
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+    .logo h1 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+    .logo h1 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (min-width: 769px) {
+    body {
+        font-size: 18px;
+    }
+    .logo h1 {
+        font-size: 3rem;
+    }
+}
+@media (max-width: 768px) {
+    .models {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
