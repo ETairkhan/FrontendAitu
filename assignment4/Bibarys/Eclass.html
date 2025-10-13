@@ -17,7 +17,7 @@
         .bs-cards .card { background:#fff; color:#212529; }
     </style>
 </head>
-<body class="bg-dark text-white">
+<body class="text-white">
 
 <nav class="navbar navbar-expand-lg navbar-dark custom-navbar fixed-top py-2">
     <div class="container">
@@ -40,7 +40,7 @@
 </nav>
 
 
-<section class="hero bg-dark text-white text-center py-5 mt-5">
+<section class="hero text-white text-center py-5 mt-5">
     <div class="container">
         <h1 class="hero-title mb-3 fw-normal">Абсолютно новый Mercedes-Benz E-Class</h1>
         <p class="lead mx-auto" style="max-width:800px">
@@ -108,7 +108,7 @@
                         <h3 class="h5 text-primary mb-2">E 400</h3>
                         <p class="mb-3">Выразительная динамика и комфорт бизнес-класса.</p>
                         <div class="btn-group w-100" role="group">
-                            <a href="#" class="btn btn-outline-success">Подробнее</a>
+                            <button class="btn btn-outline-success">Подробнее</button>
                         </div>
                     </div>
                 </div>
@@ -124,46 +124,12 @@
 </section>
 
 
-<section class="legacy">
-    <div class="wrap">
-        <h2 class="mt0" style="margin-top:36px;">Example</h2>
-        <div class="cards-row" style="margin-top:12px;">
-            <article class="x-card">
-                <div class="x-card-img">
-                    <img src="https://www.autocar.co.nz/wp-content/uploads/2021/06/Mercedes-Benz-E-200-front-static_HDR.jpg" alt="Mercedes E-Class Exterior Front">
-                </div>
-                <div class="x-card-title">A</div>
-                <p class="x-card-text">Mobile version</p>
-                <div class="x-card-actions"><a class="btn btn-light btn-sm" href="#">Подробнее</a></div>
-            </article>
-
-            <article class="x-card">
-                <div class="x-card-img">
-                    <img src="https://hips.hearstapps.com/hmg-prod/amv-prod-cad-assets/images/17q4/692997/2018-mercedes-benz-e400-coupe-test-review-car-and-driver-photo-695372-s-original.jpg" alt="Mercedes E-Class Interior Dashboard">
-                </div>
-                <div class="x-card-title"> B</div>
-                <p class="x-card-text"></p>
-                <div class="x-card-actions"><a class="btn btn-light btn-sm" href="#">Подробнее</a></div>
-            </article>
-
-            <article class="x-card">
-                <div class="x-card-img">
-                    <img src="https://hips.hearstapps.com/hmg-prod/amv-prod-cad-assets/images/17q4/692997/2018-mercedes-benz-e400-coupe-test-review-car-and-driver-photo-695372-s-original.jpg" alt="Mercedes E-Class Rear View">
-                </div>
-                <div class="x-card-title">C</div>
-                <p class="x-card-text"></p>
-                <div class="x-card-actions"><a class="btn btn-light btn-sm" href="#">Подробнее</a></div>
-            </article>
-        </div>
-    </div>
-</section>
-
 <section id="carousel" class="py-5">
     <div class="container">
         <h2 class="text-center mb-4 fw-normal">Галерея (карусель)</h2>
         <div id="eCarousel" class="carousel slide" data-bs-ride="carousel" aria-label="E-Class Gallery">
             <div class="carousel-indicators">
-                <button type="button" data-bs-target="#eCarousel" data-bs-slide-to="0" class="active" aria-label="1"></button>
+                <button type="button" data-bs-target="#eCarousel" data-bs-slide-to="0" class="active" aria-label="1" ></button>
                 <button type="button" data-bs-target="#eCarousel" data-bs-slide-to="1" aria-label="2"></button>
                 <button type="button" data-bs-target="#eCarousel" data-bs-slide-to="2" aria-label="3"></button>
                 <button type="button" data-bs-target="#eCarousel" data-bs-slide-to="3" aria-label="4"></button>
@@ -194,7 +160,32 @@
     </div>
 </section>
 
+<section class="bg-black">
+<h2 style="text-align:center;">Frequently Asked Questions</h2>
+<div class="accordion">
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">What is Mercedes-Benz E-Class?</div>
+        <div class="accordion-content">
+            <p>The E-Class is a luxury sedan offering premium comfort, safety technologies, and a smooth ride from Mercedes-Benz.</p>
+        </div>
+    </div>
 
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">Does E-Class come with 4MATIC all-wheel drive?</div>
+        <div class="accordion-content">
+            <p>Yes, selected trims like the E 300 4MATIC come with advanced all-wheel drive for better control and safety.</p>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">What infotainment system is used?</div>
+        <div class="accordion-content">
+            <p>The E-Class features the MBUX system with voice control, touchscreens, and smartphone integration.</p>
+        </div>
+    </div>
+
+</div>
+</section>
 <section id="gallery" class="py-5 bg-light text-dark">
     <div class="container">
         <h2 class="section-title text-center mb-5 fw-normal">Избранные кадры</h2>
@@ -222,17 +213,115 @@
 </section>
 
 
-<section class="py-5">
-    <div class="container text-center">
-        <h2 class="fw-normal mb-3">Готовы к знакомству с E-Class?</h2>
-        <p class="text-secondary mb-4">Оставьте заявку — подберём оптимальную комплектацию и условия.</p>
-        <a href="../Tairkhan/buyNow.html" class="btn btn-primary btn-lg">Оставить заявку</a>
+<section id="register" class="py-5 bg-light text-dark">
+    <div class="container" style="max-width: 600px;">
+        <h2 class="text-center mb-4 fw-normal">Регистрация на рассылку</h2>
+        <form id="registerForm" onsubmit="return validateForm()">
+            <div class="mb-3">
+                <label for="name" class="form-label">Имя</label>
+                <input type="text" class="form-control" id="name" />
+                <div class="text-danger small" id="nameError"></div>
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Электронная почта</label>
+                <input type="email" class="form-control" id="email" />
+                <div class="text-danger small" id="emailError"></div>
+            </div>
+
+            <div class="mb-3">
+                <label for="password" class="form-label">Пароль</label>
+                <input type="password" class="form-control" id="password" />
+                <div class="text-danger small" id="passwordError"></div>
+            </div>
+
+            <div class="mb-3">
+                <label for="confirmPassword" class="form-label">Подтверждение пароля</label>
+                <input type="password" class="form-control" id="confirmPassword" />
+                <div class="text-danger small" id="confirmError"></div>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Зарегистрироваться</button>
+        </form>
     </div>
 </section>
 
+<section  class="py-3 bg-dark text-white text-center">
+    <h1>Click the Button to Change Background Color</h1>
+    <button onclick="changeColor()">Change Color</button>
+</section>
 <footer class="bg-dark text-white text-center py-3 mt-auto border-top border-secondary">
     Tairkhan | David | Yeraly | Bibarys | SE-2412
 </footer>
+
+<script>
+    const colors = ["black" , "blue" , "red" , "green" , "yellow"];
+    let count = 0 ;
+    function changeColor() {
+        const color = colors[count];
+        count++;
+        count%=colors.length;
+        document.body.style.backgroundColor = color;
+    }
+    function toggleAccordion(header) {
+        const content = header.nextElementSibling;
+        const isOpen = content.classList.contains('open');
+
+        document.querySelectorAll('.accordion-content').forEach(el => {
+            el.style.maxHeight = null;
+            el.classList.remove('open');
+            el.style.padding = '0 20px';
+        });
+
+        if (!isOpen) {
+            content.classList.add('open');
+            content.style.maxHeight = content.scrollHeight + 'px';
+        }
+    }
+</script>
+
+<script>
+    function validateForm() {
+        let valid = true;
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value;
+        const confirmPassword = document.getElementById("confirmPassword").value;
+
+        document.getElementById("nameError").textContent = "";
+        document.getElementById("emailError").textContent = "";
+        document.getElementById("passwordError").textContent = "";
+        document.getElementById("confirmError").textContent = "";
+
+        const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+        if (name === "") {
+            document.getElementById("nameError").textContent = "Имя обязательно.";
+            valid = false;
+        }
+
+        if (email === "") {
+            document.getElementById("emailError").textContent = "Email обязателен.";
+            valid = false;
+        } else if (!emailPattern.test(email)) {
+            document.getElementById("emailError").textContent = "Неверный формат email.";
+            valid = false;
+        }
+
+        if (password.length < 6) {
+            document.getElementById("passwordError").textContent = "Минимум 6 символов.";
+            valid = false;
+        }
+
+        if (password !== confirmPassword) {
+            document.getElementById("confirmError").textContent = "Пароли не совпадают.";
+            valid = false;
+        }
+
+        return valid;
+    }
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>

@@ -140,7 +140,60 @@
         </div>
     </div>
 </section>
+<section class="py-3 bg-dark text-white text-center">
+    <div class="container">
+        <h5>Текущая дата и время:</h5>
+        <div id="date-time" class="fw-bold"></div>
+    </div>
+</section>
+<div class="text-center my-4">
+    <button class="btn btn-primary btn-lg" onclick="openPopup()">Подписаться на новости</button>
+</div>
+<div class="popup-overlay" id="popupOverlay" onclick="outsideClick(event)">
+    <div class="popup-form" onclick="event.stopPropagation()">
+        <button class="close-btn" onclick="closePopup()">&times;</button>
+        <h2 class="mb-3">Подписка на обновления</h2>
+        <form>
+            <input type="text" placeholder="Ваше имя" required />
+            <input type="email" placeholder="Ваш email" required />
+            <button type="submit" class="btn btn-primary w-100">Подписаться</button>
+        </form>
+    </div>
+</div>
+<script>
+    function formatDateTime(date) {
+        const options = {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: 'numeric',
+            minute: '2-digit',
+            hour12: true,
+        };
+        return date.toLocaleString('ru-RU', options);
+    }
+    function displayDateTime() {
+        const now = new Date();
+        document.getElementById("date-time").textContent = formatDateTime(now);
+    }
+    displayDateTime();
+    setInterval(displayDateTime, 60000);
+    const popup = document.getElementById("popupOverlay");
 
+    function openPopup() {
+        popup.style.display = "flex";
+    }
+
+    function closePopup() {
+        popup.style.display = "none";
+    }
+
+    function outsideClick(e) {
+        if (e.target === popup) {
+            closePopup();
+        }
+    }
+</script>
 <footer class="bg-dark text-white text-center py-3 mt-auto border-top border-secondary">
     Tairkhan | David | Yeraly | Bibarys | SE-2412
 </footer>
