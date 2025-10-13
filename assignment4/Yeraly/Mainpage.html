@@ -4,20 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mercedes-Benz GLC EQ</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <a href="Mainpage.html"><img src="icons/merslogo.svg" alt="Mercedes-Benz Logo"></a>
-        <nav class="header_list">
-            <a href="../David/cclass.html">Сиданы - С класс</a>
-            <a href="../Bibarys/Eclass.html">Седаны - Е класс</a>
-            <a href="../Tairkhan/sclass.html">Седаны - S класс</a>
-            <a href="../Bibarys/news.html">Новости</a>
-            <a href="../David/special.html">Спец предложения</a>
-        </nav>
-    </header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top px-3">
+  <div class="container-fluid">
+    
+    <a class="navbar-brand" href="Mainpage.html">
+      <img src="icons/merslogo.svg" alt="Mercedes-Benz Logo" style="height:35px;">
+    </a>
+
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
+      aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+    <div class="collapse navbar-collapse" id="navbarMenu">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="../David/cclass.html">Седаны - С класс</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../Bibarys/Eclass.html">Седаны - Е класс</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../Tairkhan/sclass.html">Седаны - S класс</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../Bibarys/news.html">Новости</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../David/special.html">Спец предложения</a>
+      </ul>
+    </div>
+  </div>
+</nav>
+
 
     <section class="hero">
         <img src="icons/mersMainpagePicture.avif"  
@@ -27,14 +56,14 @@
             <h1>Абсолютно новый GLC с технологией EQ.</h1>
             <p>Скоро в продаже.</p>
             <div class="buttons">
-                <a href="LearnMore.html"><button class="blue-btn">Узнать больше</button></a>
-                <a href="../Tairkhan/buyNow.html"><button class="transparent-btn">Запросить сейчас</button></a>
+                <a href="LearnMore.html" class="btn btn-primary btn-lg fs-5">Узнать больше</a>
+                <a href="../Tairkhan/buyNow.html" class="btn btn-outline-light btn-lg ms-2 fs-5">Запросить сейчас</a>
             </div>
         </div>
     </section>
 
 
-<br>
+
     
 <main class="glc-body">
   <section class="glc-hero">
@@ -57,30 +86,80 @@
   <hr>
 </section>
 
-      <div class="cars">
-  <div class="car">
-    <img src="/MercedezBenz/Yeraly/icons/mersSSclass.avif" alt="C-Class">
-    <h3>C-Class</h3>
-    <p>Элегантный седан с мощным двигателем и современными технологиями.</p>
-    <button>Подробнее</button>
-  </div>
+  <div class="container my-5">
+  <div class="row g-4">
 
-  <div class="car">
-    <img src="/MercedezBenz/Yeraly/icons/mersEclass.avif" alt="E-Class">
-    <h3>E-Class</h3>
-    <p>Комфорт бизнес-класса с инновационными системами и премиальным интерьером.</p>
-    <button>Подробнее</button>
-  </div>
+    <div class="col-lg-4 col-md-6 col-sm-12">
+      <div class="car p-3">
+        <img src="/assignment4/Yeraly/icons/mersEclass.avif" alt="C-Class">
+        <h3 class="mt-3">C-Class</h3>
+        <p>Элегантный седан с мощным двигателем и современными технологиями.</p>
+        <a href="../David/cclass.html"><button class="btn btn-dark btn-lg">Подробнее</button>
+      </div></a>
+    </div>
 
-  <div class="car">
-    <img src="/MercedezBenz/Yeraly/icons/mersSclass.avif" alt="S-Class">
-    <h3>S-Class</h3>
-    <p>Флагман Mercedes с непревзойдённым уровнем роскоши и технологий.</p>
-    <button>Подробнее</button>
+    <div class="col-lg-4 col-md-6 col-sm-12">
+      <div class="car p-3">
+        <img src="/assignment4/Yeraly/icons/mersSSclass.avif" alt="E-Class">
+        <h3 class="mt-3">E-Class</h3>
+        <p>Комфорт бизнес-класса с инновационными системами и премиальным интерьером.</p>
+        <a href="../Bibarys/Eclass.html"><button class="btn btn-dark btn-lg">Подробнее</button></a>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6 col-sm-12">
+      <div class="car p-3">
+        <img src="/assignment4/Yeraly/icons/mersSclass.avif" alt="S-Class">
+        <h3 class="mt-3">S-Class</h3>
+        <p>Флагман Mercedes с непревзойдённым уровнем роскоши и технологий.</p>
+        <a href="../Tairkhan/sclass.html"><button class="btn btn-dark btn-lg">Подробнее</button></a>
+      </div>
+    </div>
+
   </div>
 </div>
 
-<br><br>
+
+<div class="container my-5">
+  <h2 class="text-center mb-4">Enquiry Form</h2>
+
+  <form>
+    
+
+
+      <div class="col-md-6">
+        <label for="lastName" class="form-label">Full Name *</label>
+        <input type="text" class="form-control" id="lastName" required>
+      </div>
+
+      
+      <div class="col-md-6">
+        <label for="email" class="form-label">Email Address *</label>
+        <input type="email" class="form-control" id="email" required>
+      </div>
+
+      
+      <div class="col-md-6">
+        <label for="phone" class="form-label">Phone Number *</label>
+        <input type="tel" class="form-control" id="phone" required>
+      </div>
+
+      
+      <div class="col-12">
+        <label for="subject" class="form-label">Subject *</label>
+        <select class="form-select" id="subject" required>
+          <option value="" selected>Please select</option>
+          <option>General enquiry</option>
+          <option>Test drive</option>
+          <option>Purchase request</option>
+          <option>Service</option>
+        </select>
+      </div>
+
+      
+      
+
+
 
 
 

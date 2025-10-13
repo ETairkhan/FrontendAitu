@@ -1,20 +1,36 @@
+
+h1, a, p {
+  transition: font-size 0.3s ease;
+}
+
+@media (max-width: 576px) {
+  h1 { font-size: 1.2rem; }
+  a { font-size: 1rem; }
+  p  { font-size: 0.85rem; }
+}
+
+@media (min-width: 577px) and (max-width: 992px) {
+  h1 { font-size: 1.6rem; }
+  a  { font-size: 1.3rem; }
+  p  { font-size: 1rem; }
+}
+
+@media (min-width: 993px) {
+  h1 { font-size: 2rem; }
+  a { font-size: 1.6rem; }
+  p  { font-size: 1.2rem; }
+}
+
+
+
+
 body, html {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif; 
 }
 
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 8px 30px; 
-    background: rgba(0, 0, 0, 0.85);
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 10;
-}
+
 
 header img {
     height: 35px; 
@@ -70,7 +86,7 @@ header img {
     margin-bottom: 20px;
 }
 
-/* Кнопки */
+
 .buttons {
     margin-top: 15px;
 }
@@ -96,7 +112,7 @@ header img {
     font-size: 13px;
 }
 
-/* Секция */
+
 .glc-section {
   padding: 56px var(--page-padding);
   box-sizing: border-box;
@@ -138,58 +154,37 @@ header img {
 }
 
 
-.cars {
-    display: flex;
-    justify-content: center;
-    gap: 30px;                
-    flex-wrap: wrap;       
-    margin-top: 40px;
-}
 
 .car {
-    background: #fff;
-    padding: 15px;
-    border-radius: 12px;
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-    width:400px;             
-    box-sizing: border-box;
+  background: #fff;
+  border-radius: 12px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-sizing: border-box;
+  height: 100%; 
 }
 
 .car img {
-    width: 100%;
-    border-radius: 8px;
-    margin-bottom: 12px;
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 12px;
 }
 
 .car h3 {
-    margin: 10px 0 8px;
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .car p {
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 15px;
+  font-size: 14px;
+  color: #555;
 }
 
 .car:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
-.car button {
-    display: block;           
-    margin: 0 auto;           
-    padding: 10px 15px;
-    background: #000;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
 
-.car button:hover {
-    background: #444;
-}
+
+
+
