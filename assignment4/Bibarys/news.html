@@ -1,71 +1,203 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ру">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Mercedes-Benz — Новости (прототип)</title>
-    <link rel="stylesheet" href="Bibaryspartstyle.css" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Mercedes-Benz — Новости</title>
+    <link rel="stylesheet" href="Bibaryspartstyle.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .custom-navbar{ background:#111; }
+        .custom-navbar .navbar-brand img{ height:30px; }
+        .hover-card{ transition:.2s; }
+        .hover-card:hover{ transform: translateY(-3px); }
+        .date{ font-size:.9rem; color:#6c757d; }
+        .bs-cards .card{ background:#fff; color:#212529; }
+    </style>
 </head>
-<body class="theme-dark">
-<div class="layout">
-    <header>
-        <a href="../Yeraly/Mainpage.html"> <img src="merslogo.svg" alt="Mercedes-Benz Logo"></a>
-        <nav class="header_list">
-            <a href="../David/cclass.html">Сиданы - С класс</a>
-            <a href="../Bibarys/Eclass.html">Седаны - Е класс</a>
-            <a href="../Tairkhan/sclass.html">Седаны - S класс</a>
-            <a href="../Bibarys/news.html">Новости</a>
-            <a href="../David/special.html">Спец предложения</a>
-        </nav>
-    </header>
-    <aside class="sidebar">
-        <h4>Разделы</h4>
-        <ul>
-            <li><a href="#news">Новости</a></li>
-            <li><a href="#offers">Предложения</a></li>
-        </ul>
-    </aside>
-    <main>
-        <section class="hero hero-small" style="--hero:url('merslogo.svg')">
-            <div class="inner wrap">
-                <h1>Новости</h1>
-                <p class="lead">Обновления моделей, технологии и предложения.</p>
+<body class="bg-dark text-white">
+
+<nav class="navbar navbar-expand-lg navbar-dark custom-navbar fixed-top py-2">
+    <div class="container">
+        <a class="navbar-brand" href="../Yeraly/Mainpage.html">
+            <img src="merslogo.svg" alt="Mercedes-Benz Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navN">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navN" class="collapse navbar-collapse">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="../David/cclass.html">Седаны - С класс</a></li>
+                <li class="nav-item"><a class="nav-link" href="../Bibarys/Eclass.html">Седаны - Е класс</a></li>
+                <li class="nav-item"><a class="nav-link" href="../Tairkhan/sclass.html">Седаны - S класс</a></li>
+                <li class="nav-item"><a class="nav-link active" href="../Bibarys/news.html">Новости</a></li>
+                <li class="nav-item"><a class="nav-link" href="../David/special.html">Спец предложения</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<section class="bg-dark text-white text-center py-5 mt-5">
+    <div class="container">
+        <h1 class="fw-normal mb-3">Новости Mercedes-Benz</h1>
+        <p class="lead mx-auto" style="max-width:800px">
+            Обновления моделей, технологии и спец-предложения. Следите за новостями бренда и локальными акциями.
+        </p>
+        <div class="btn-group mt-4" role="group">
+            <a href="#news" class="btn btn-outline-light">К новостям</a>
+            <a href="#offers" class="btn btn-primary">Спец-предложения</a>
+        </div>
+    </div>
+</section>
+
+
+<section id="news" class="py-5 bg-light text-dark">
+    <div class="container">
+        <h2 class="text-center mb-5 fw-normal">Свежие новости</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <article class="card h-100 border-0 shadow-sm hover-card">
+                    <div class="card-body d-flex flex-column">
+                        <div class="date">12 сентября 2025</div>
+                        <h3 class="h5 mt-2">Обновление E-Class: ассистенты и мультимедиа</h3>
+                        <p class="text-secondary">Пакет помощи водителю, обновлённый MBUX и улучшенная персонализация.</p>
+                        <a class="btn btn-primary mt-auto" href="https://www.mercedes-benz-kazakhstan.com/news/mercedes-benz-g-class-edition-stronger-than-the-1980s/" target="_blank" rel="noopener">Читать</a>
+                    </div>
+                </article>
             </div>
-        </section>
-
-        <section id="news" class="block wrap">
-            <h2 class="mt0">Новости</h2>
-            <div class="cards-row">
-                <article class="card news">
-                    <div class="muted date">12 сентября 2025</div>
-                    <h3>Обновление E-Class: ассистенты и мультимедиа</h3>
-                    <p class="muted">Добавлен пакет помощи водителю и обновлённый интерфейс MBUX. Улучшена персонализация и интеграция со смартфоном.</p>
-                    <a class="btn primary mt-auto" href="https://www.mercedes-benz-kazakhstan.com/news/mercedes-benz-g-class-edition-stronger-than-the-1980s/" target="_blank" rel="noopener">Читать</a>
-                </article>
-
-                <article class="card news">
-                    <div class="muted date">05 сентября 2025</div>
-                    <h3>Гибриды: экономичность без компромиссов</h3>
-                    <p class="muted">Плагин-гибриды получили увеличенную ёмкость батареи и быструю DC-зарядку. Пробег на электротяге вырос, зарядка стала удобнее.</p>
-                    <a class="btn primary mt-auto" href="https://www.mercedes-benz-kazakhstan.com/news/mercedes-benz-g-class-edition-stronger-than-the-1980s/" target="_blank" rel="noopener">Читать</a>
-                </article>
-
-                <article class="card news">
-                    <div class="muted date">28 августа 2025</div>
-                    <h3>Пакет комфорт-подвески для дальних поездок</h3>
-                    <p class="muted">Тюнинг подвески улучшает сглаживание неровностей и устойчивость на высоких скоростях — E-Class идеален для трассы.</p>
-                    <a class="btn primary mt-auto" href="https://www.mercedes-benz-kazakhstan.com/news/mercedes-benz-g-class-edition-stronger-than-the-1980s/" target="_blank" rel="noopener">Читать</a>
+            <div class="col-md-4">
+                <article class="card h-100 border-0 shadow-sm hover-card">
+                    <div class="card-body d-flex flex-column">
+                        <div class="date">05 сентября 2025</div>
+                        <h3 class="h5 mt-2">Гибриды: экономичность без компромиссов</h3>
+                        <p class="text-secondary">Увеличенная ёмкость батареи и быстрая DC-зарядка. Больше пробега на электротяге.</p>
+                        <a class="btn btn-primary mt-auto" href="https://www.mercedes-benz-kazakhstan.com/news/mercedes-benz-g-class-edition-stronger-than-the-1980s/" target="_blank" rel="noopener">Читать</a>
+                    </div>
                 </article>
             </div>
-        </section>
-        <section id="offers" class="block wrap">
-            <h2 class="mt0">Предложения</h2>
-            <p class="muted">Спец-условия на ограниченную партию автомобилей E-Class. Подробности у дилеров.</p>
-        </section>
-    </main>
-    <footer style="background:#222; color:#fff; text-align:center; padding:18px 0; font-size:1rem;margin-top:auto;">
-        Tairkhan &nbsp;|&nbsp; David &nbsp;|&nbsp; Yeraly &nbsp;|&nbsp; Bibarys &nbsp; SE-2412
-    </footer>
+            <div class="col-md-4">
+                <article class="card h-100 border-0 shadow-sm hover-card">
+                    <div class="card-body d-flex flex-column">
+                        <div class="date">28 августа 2025</div>
+                        <h3 class="h5 mt-2">Пакет комфорт-подвески для дальних поездок</h3>
+                        <p class="text-secondary">Сглаживание неровностей и устойчивость на скорости — E-Class идеален для трассы.</p>
+                        <a class="btn btn-primary mt-auto" href="https://www.mercedes-benz-kazakhstan.com/news/mercedes-benz-g-class-edition-stronger-than-the-1980s/" target="_blank" rel="noopener">Читать</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="offers" class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-3 fw-normal">Спец-предложения</h2>
+        <p class="text-center text-secondary mb-4">Ограниченная партия E-Class на особых условиях</p>
+        <div class="d-flex justify-content-center">
+            <div class="btn-group" role="group">
+                <a href="../Tairkhan/buyNow.html" class="btn btn-outline-light">Связаться</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <div class="bg-white rounded shadow p-4 p-md-5 mx-auto text-dark" style="max-width: 800px;">
+            <h2 class="text-center mb-4 fw-normal">Связаться с нами</h2>
+            <form class="row g-3">
+                <div class="col-md-6">
+                    <label class="form-label">Имя *</label>
+                    <input type="text" class="form-control form-control-lg" required>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Телефон *</label>
+                    <input type="tel" class="form-control form-control-lg" required>
+                </div>
+                <div class="col-md-12">
+                    <label class="form-label">Email *</label>
+                    <input type="email" class="form-control form-control-lg" required>
+                </div>
+                <div class="col-md-12">
+                    <label class="form-label text-primary">Сообщение *</label>
+                    <textarea class="form-control form-control-lg" rows="4" required></textarea>
+                </div>
+                <div class="col-12">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="agree" required>
+                        <label for="agree" class="form-check-label small">
+                            Согласен(а) на обработку персональных данных согласно
+                            <a href="https://www.mercedes-benz-kazakhstan.com/site/terms-conditions/" target="_blank">Политике конфиденциальности</a>.
+                        </label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <button class="btn btn-primary btn-lg w-100">Отправить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<section class="py-3 bg-dark text-white text-center">
+    <div class="container">
+        <h5>Текущая дата и время:</h5>
+        <div id="date-time" class="fw-bold"></div>
+    </div>
+</section>
+<div class="text-center my-4">
+    <button class="btn btn-primary btn-lg" onclick="openPopup()">Подписаться на новости</button>
 </div>
+<div class="popup-overlay" id="popupOverlay" onclick="outsideClick(event)">
+    <div class="popup-form" onclick="event.stopPropagation()">
+        <button class="close-btn" onclick="closePopup()">&times;</button>
+        <h2 class="mb-3">Подписка на обновления</h2>
+        <form>
+            <input type="text" placeholder="Ваше имя" required />
+            <input type="email" placeholder="Ваш email" required />
+            <button type="submit" class="btn btn-primary w-100">Подписаться</button>
+        </form>
+    </div>
+</div>
+<script>
+    function formatDateTime(date) {
+        const options = {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: 'numeric',
+            minute: '2-digit',
+            hour12: true,
+        };
+        return date.toLocaleString('ru-RU', options);
+    }
+    function displayDateTime() {
+        const now = new Date();
+        document.getElementById("date-time").textContent = formatDateTime(now);
+    }
+    displayDateTime();
+    setInterval(displayDateTime, 60000);
+    const popup = document.getElementById("popupOverlay");
+
+    function openPopup() {
+        popup.style.display = "flex";
+    }
+
+    function closePopup() {
+        popup.style.display = "none";
+    }
+
+    function outsideClick(e) {
+        if (e.target === popup) {
+            closePopup();
+        }
+    }
+</script>
+<footer class="bg-dark text-white text-center py-3 mt-auto border-top border-secondary">
+    Tairkhan | David | Yeraly | Bibarys | SE-2412
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
