@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Initialize all features when DOM is loaded
+    
     initPopupForm();
     initColorChanger();
 });
@@ -19,10 +19,10 @@ document.addEventListener('DOMContentLoaded', function() {
 function validateForm() {
     let isValid = true;
     
-    // Clear previous error messages
+   
     clearErrorMessages();
     
-    // Validate First Name
+   
     const firstName = document.getElementById('firstname');
     if (!firstName.value.trim()) {
         showError(firstName, 'First name is required');
