@@ -1,31 +1,74 @@
 
-function updateDateTime() {
-  const now = new Date();
-  
-  const options = {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-    hour: 'numeric',
-    minute: 'numeric',
-    second: 'numeric',
-    hour12: true
-  };
-  
-  
-  const formattedDateTime = now.toLocaleString('en-US', options);
-  
-  
-  document.getElementById('date-time').textContent = formattedDateTime;
+
+
+
+document.getElementById('showTimeButton').addEventListener('click', function() {
+      
+      let currentTime = new Date().toLocaleTimeString();
+      
+      
+      let timeDisplay = document.getElementById('timeDisplay');
+      
+      
+      if (timeDisplay.textContent === "") {
+        
+        timeDisplay.textContent = currentTime;
+      } else {
+        
+        timeDisplay.textContent = "";
+      }
+    });
+
+
+
+ document.addEventListener('DOMContentLoaded', function () {
+  const menuItems = document.querySelectorAll('.nav-item');
+  let currentIndex = 0;
+
+ 
+  menuItems[currentIndex].focus();
+
+
+  document.getElementById('navbarMenu').addEventListener('keydown', function (event) {
+    if (event.key === 'ArrowDown') {
+    
+      currentIndex = (currentIndex + 1) % menuItems.length; // 
+    } else if (event.key === 'ArrowUp') {
+     
+      currentIndex = (currentIndex - 1 + menuItems.length) % menuItems.length; 
+    }
+    
+ 
+    menuItems[currentIndex].focus();
+  });
+});
+
+
+
+function displayGreeting() {
+  const currentHour = new Date().getHours();
+  let greeting;
+
+  if (currentHour >= 5 && currentHour < 12) {
+    greeting = "Доброе утро!";
+  } else if (currentHour >= 12 && currentHour < 18) {
+    greeting = "Добрый день!";
+  } else {
+    greeting = "Добрый вечер!";
+  }
+
+ 
+  document.querySelector("#greeting").innerText = greeting;
 }
 
+window.onload = displayGreeting;
 
-setInterval(updateDateTime, 1000);
+function toggleNavbarMenu() {
+  const navbarMenu = document.getElementById("navbarMenu");
+  navbarMenu.classList.toggle("active");
+}
 
-
-updateDateTime();
-
+document.getElementById("navbarToggle").addEventListener("click", toggleNavbarMenu);
 
 
 

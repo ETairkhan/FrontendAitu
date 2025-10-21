@@ -259,7 +259,7 @@ header img {
 }
 
 
-/* subscribe button */
+
 #overlay {
   display: none;
   position: fixed;
@@ -409,6 +409,8 @@ textarea {
 .accordion-header:hover {
     background-color: #ffff;
 }
+
+
 
 
 

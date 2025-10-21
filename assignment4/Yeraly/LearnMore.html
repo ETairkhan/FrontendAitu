@@ -7,12 +7,12 @@
   <title>Mercedes-Benz GLC EQ</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  
+
 
 
   <link rel="stylesheet" href="learnMore.css">
   <link rel="stylesheet" href="LearnMore.js">
-  
+
 
 
 </head>
@@ -21,54 +21,169 @@
 
 
 
-  <<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top px-3">
-    <div class="container-fluid">
+  <nav class="navbar">
+    <div class="navbar-container">
+     
+      <div class="navbar-left">
+        <a class="navbar-brand" href="Mainpage.html">
+          <img src="icons/merslogo.svg" alt="Mercedes-Benz Logo" class="logo">
+        </a>
+        <div id="greeting" class="greeting"></div>
+      </div>
 
-      <a class="navbar-brand" href="Mainpage.html">
-        <img src="icons/merslogo.svg" alt="Mercedes-Benz Logo" style="height:35px;">
-      </a>
-
-
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
-        aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+    
+      <button class="navbar-toggler" id="navbarToggle">
+        <span class="navbar-toggler-icon">☰</span>
       </button>
-      
 
-
-      <div class="collapse navbar-collapse" id="navbarMenu">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="../David/cclass.html">Седаны - С класс</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../Bibarys/Eclass.html">Седаны - Е класс</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../Tairkhan/sclass.html">Седаны - S класс</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../Bibarys/news.html">Новости</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../David/special.html">Спец предложения</a>
-          </li>
+    
+      <div class="navbar-menu" id="navbarMenu">
+        <ul class="navbar-links">
+          <li><a class="nav-link" href="../David/cclass.html">Седаны - C класс</a></li>
+          <li><a class="nav-link" href="../Bibarys/Eclass.html">Седаны - E класс</a></li>
+          <li><a class="nav-link" href="../Tairkhan/sclass.html">Седаны - S класс</a></li>
+          <li><a class="nav-link" href="../Bibarys/news.html">Новости</a></li>
+          <li><a class="nav-link" href="../David/special.html">Спец предложения</a></li>
         </ul>
       </div>
     </div>
-    </nav>
+  </nav>
 
 
 
-    <section class="hero">
-      <img src="icons/mersMainpagePicture.avif" class="imageback" alt="Mercedes GLC">
-      <div class="hero-content">
-        <h1>Абсолютно новый GLC с технологией EQ.</h1>
-        <p>Скоро в продаже.</p>
-        <div class="buttons">
-          <div class="btn-group mt-3" role="group">
-            <a href="../Tairkhan/buyNow.html" class="btn btn-primary btn-lg ms-2 fs-5">Запросить сейчас</a>
 
+
+
+
+  <section class="hero">
+    <img src="icons/mersMainpagePicture.avif" class="imageback" alt="Mercedes GLC">
+    <div class="hero-content">
+      <h1 id="introText">Абсолютно новый GLC с технологией EQ.</h1>
+      <p id="announce">Скоро в продаже.</p>
+      <div class="buttons">
+        <div class="btn-group mt-3" role="group">
+          <a href="../Tairkhan/buyNow.html" class="btn btn-primary btn-lg ms-2 fs-5">Запросить сейчас</a>
+
+
+        </div>
+      </div>
+  </section>
+
+
+
+
+
+
+
+  <main class="glc-body">
+    <section class="glc-hero">
+      <h1>Экстерьер электрического GLC — гармония элегантности, прогрессивного дизайна и динамики будущего.</h1>
+      <p class="subtitle">
+        Философия Sensual Purity выходит на новый уровень — с новым языком дизайна и динамичным купеобразным силуэтом
+        крыши,
+        который подчёркивает уверенный статус и безупречный стиль.
+      </p>
+    </section>
+
+
+    <section class="glc-section">
+      <div class="glc-hero">
+        <h1>Экстерьер электрического GLC — гармония элегантности, прогрессивного дизайна и динамики будущего.</h1>
+        <p class="subtitle">
+          Философия Sensual Purity выходит на новый уровень — с новым языком дизайна и динамичным купеобразным
+          силуэтом
+          крыши,
+          который подчёркивает уверенный статус и безупречный стиль.
+        </p>
+      </div>
+    </section>
+
+
+
+    <section class="interior-section">
+      <h2>
+        Интерьер электрического GLC — сочетание прогрессивного дизайна, цифровых инноваций и безупречного премиального
+        комфорта.
+      </h2>
+
+      <div class="interior-img">
+        <img src="icons/orig.webp" alt="Интерьер Mercedes GLC">
+      </div>
+
+      <div class="interior-features">
+        <div>MBUX Seamless Hyperscreen</div>
+        <div>Панорамная крыша с функцией SKY CONTROL</div>
+        <div>Сиденья премиум-класса</div>
+        <div>Vegan Interior Package</div>
+        <div>Беспроводная система зарядки мобильных устройств для переднего ряда</div>
+        <div>Багажный отсек</div>
+      </div>
+    </section>
+
+
+    <section class="features-section container my-5">
+      <h2 class="mb-4">Особенности Mercedes-Benz</h2>
+
+      <div class="row g-4 mb-5">
+        <div class="col-lg-6 col-md-12">
+          <div class="feature-card h-100">
+            <img src="icons/mers_bodybar.webp" alt="MB.OS">
+            <h3>Операционная система Mercedes-Benz (MB.OS)</h3>
+            <p>
+              MB.OS — это больше, чем операционная система: её архитектура chip-to-cloud связывает воедино
+              мультимедиа,
+              автоматизированное вождение, комфорт и энергетику автомобиля. Все функции интегрированы в интерфейс, а
+              обновления по воздуху делают ваш Mercedes-Benz ещё более современным.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-12">
+          <div class="feature-card h-100">
+            <img src="icons/mersBodybar.avif" alt="MB.DRIVE">
+            <h3>MB.DRIVE</h3>
+            <p>
+              MB.DRIVE — это цифровое новшество, задающее новые стандарты. Уже в стандартной комплектации GLC оснащён
+              современными технологиями: DISTRONIC, камеры, радары и ультразвуковые датчики с обновлениями «по
+              воздуху».
+            </p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="feature-card h-100">
+            <img src="icons/mersBodybar2.avif" alt="MB.DRIVE Systems">
+            <h3>MB.DRIVE Systems</h3>
+            <p>
+              MB.DRIVE ASSIST — больше комфорта и безопасности: ассистент удержания в полосе, PARKING ASSIST 360 и
+              другие технологии.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="feature-card h-100">
+            <img src="icons/mersbodypart.avif" alt="Agility & Comfort">
+            <h3>Пакет Agility & Comfort</h3>
+            <p>
+              AIRMATIC и система подруливания задней оси обеспечивают манёвренность, устойчивость и премиальный
+              комфорт в городе.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="feature-card h-100">
+            <img src="icons/mers6.jpeg" alt="Premium Interior">
+            <h3>Premium Interior</h3>
+            <p>
+              Интерьер сочетает прогрессивный дизайн, цифровые инновации и премиальные материалы для максимального
+              комфорта.
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -76,296 +191,193 @@
 
 
 
-    <main class="glc-body">
-      <section class="glc-hero">
-        <h1>Экстерьер электрического GLC — гармония элегантности, прогрессивного дизайна и динамики будущего.</h1>
-        <p class="subtitle">
-          Философия Sensual Purity выходит на новый уровень — с новым языком дизайна и динамичным купеобразным силуэтом
-          крыши,
-          который подчёркивает уверенный статус и безупречный стиль.
-        </p>
-      </section>
+    <section class="gallery-section container my-5">
+      <h2 class="mb-4 text-center">Mercedes-Benz cars</h2>
+
+      <div id="mercedesCarousel" class="carousel slide" data-bs-ride="carousel">
 
 
-      <section class="glc-section">
-        <div class="glc-hero">
-          <h1>Экстерьер электрического GLC — гармония элегантности, прогрессивного дизайна и динамики будущего.</h1>
-          <p class="subtitle">
-            Философия Sensual Purity выходит на новый уровень — с новым языком дизайна и динамичным купеобразным
-            силуэтом
-            крыши,
-            который подчёркивает уверенный статус и безупречный стиль.
-          </p>
-        </div>
-      </section>
-
-
-
-      <section class="interior-section">
-        <h2>
-          Интерьер электрического GLC — сочетание прогрессивного дизайна, цифровых инноваций и безупречного премиального
-          комфорта.
-        </h2>
-
-        <div class="interior-img">
-          <img src="icons/orig.webp" alt="Интерьер Mercedes GLC">
-        </div>
-
-        <div class="interior-features">
-          <div>MBUX Seamless Hyperscreen</div>
-          <div>Панорамная крыша с функцией SKY CONTROL</div>
-          <div>Сиденья премиум-класса</div>
-          <div>Vegan Interior Package</div>
-          <div>Беспроводная система зарядки мобильных устройств для переднего ряда</div>
-          <div>Багажный отсек</div>
-        </div>
-      </section>
-
-
-      <section class="features-section container my-5">
-        <h2 class="mb-4">Особенности Mercedes-Benz</h2>
-
-        <div class="row g-4 mb-5">
-          <div class="col-lg-6 col-md-12">
-            <div class="feature-card h-100">
-              <img src="icons/mers_bodybar.webp" alt="MB.OS">
-              <h3>Операционная система Mercedes-Benz (MB.OS)</h3>
-              <p>
-                MB.OS — это больше, чем операционная система: её архитектура chip-to-cloud связывает воедино
-                мультимедиа,
-                автоматизированное вождение, комфорт и энергетику автомобиля. Все функции интегрированы в интерфейс, а
-                обновления по воздуху делают ваш Mercedes-Benz ещё более современным.
-              </p>
-            </div>
-          </div>
-
-          <div class="col-lg-6 col-md-12">
-            <div class="feature-card h-100">
-              <img src="icons/mersBodybar.avif" alt="MB.DRIVE">
-              <h3>MB.DRIVE</h3>
-              <p>
-                MB.DRIVE — это цифровое новшество, задающее новые стандарты. Уже в стандартной комплектации GLC оснащён
-                современными технологиями: DISTRONIC, камеры, радары и ультразвуковые датчики с обновлениями «по
-                воздуху».
-              </p>
-            </div>
-          </div>
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#mercedesCarousel" data-bs-slide-to="0" class="active"></button>
+          <button type="button" data-bs-target="#mercedesCarousel" data-bs-slide-to="1"></button>
+          <button type="button" data-bs-target="#mercedesCarousel" data-bs-slide-to="2"></button>
+          <button type="button" data-bs-target="#mercedesCarousel" data-bs-slide-to="3"></button>
+          <button type="button" data-bs-target="#mercedesCarousel" data-bs-slide-to="4"></button>
+          <button type="button" data-bs-target="#mercedesCarousel" data-bs-slide-to="5"></button>
+          <button type="button" data-bs-target="#mercedesCarousel" data-bs-slide-to="6"></button>
+          <button type="button" data-bs-target="#mercedesCarousel" data-bs-slide-to="7"></button>
+          <button type="button" data-bs-target="#mercedesCarousel" data-bs-slide-to="8"></button>
         </div>
 
 
-        <div class="row g-4">
-          <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="feature-card h-100">
-              <img src="icons/mersBodybar2.avif" alt="MB.DRIVE Systems">
-              <h3>MB.DRIVE Systems</h3>
-              <p>
-                MB.DRIVE ASSIST — больше комфорта и безопасности: ассистент удержания в полосе, PARKING ASSIST 360 и
-                другие технологии.
-              </p>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="/assignment4/Yeraly/icons/mers1.jpeg" class="d-block w-100" alt="Mercedes GT">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Mercedes GT</h5>
             </div>
           </div>
-
-          <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="feature-card h-100">
-              <img src="icons/mersbodypart.avif" alt="Agility & Comfort">
-              <h3>Пакет Agility & Comfort</h3>
-              <p>
-                AIRMATIC и система подруливания задней оси обеспечивают манёвренность, устойчивость и премиальный
-                комфорт в городе.
-              </p>
+          <div class="carousel-item">
+            <img src="/assignment4/Yeraly/icons/mers2.jpeg" class="d-block w-100" alt="Mercedes E-class">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Mercedes E-class</h5>
             </div>
           </div>
-
-          <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="feature-card h-100">
-              <img src="icons/mers6.jpeg" alt="Premium Interior">
-              <h3>Premium Interior</h3>
-              <p>
-                Интерьер сочетает прогрессивный дизайн, цифровые инновации и премиальные материалы для максимального
-                комфорта.
-              </p>
+          <div class="carousel-item">
+            <img src="/assignment4/Yeraly/icons/mers3.jpeg" class="d-block w-100" alt="Mercedes S-class">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Mercedes S-class</h5>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="/assignment4/Yeraly/icons/mers4.jpeg" class="d-block w-100" alt="Mercedes A-class">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Mercedes A-class</h5>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="/assignment4/Yeraly/icons/mers5.jpeg" class="d-block w-100" alt="Mercedes EQ">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Mercedes EQ</h5>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="/assignment4/Yeraly/icons/mers6.jpeg" class="d-block w-100" alt="Mercedes EQS">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Mercedes EQS</h5>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="/assignment4/Yeraly/icons/mers7.jpeg" class="d-block w-100" alt="Mercedes SL">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Mercedes SL</h5>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="/assignment4/Yeraly/icons/mers8.jpeg" class="d-block w-100" alt="Mercedes G-class">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Mercedes Gelick</h5>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="/assignment4/Yeraly/icons/mers9.jpeg" class="d-block w-100" alt="Mercedes EQE">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Mercedes EQE</h5>
             </div>
           </div>
         </div>
-      </section>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#mercedesCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#mercedesCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+    </section>
 
 
-      <section class="gallery-section container my-5">
-        <h2 class="mb-4 text-center">Mercedes-Benz cars</h2>
 
-        <div id="mercedesCarousel" class="carousel slide" data-bs-ride="carousel">
-
-
-          <div class="carousel-indicators">
-            <button type="button" data-bs-target="#mercedesCarousel" data-bs-slide-to="0" class="active"></button>
-            <button type="button" data-bs-target="#mercedesCarousel" data-bs-slide-to="1"></button>
-            <button type="button" data-bs-target="#mercedesCarousel" data-bs-slide-to="2"></button>
-            <button type="button" data-bs-target="#mercedesCarousel" data-bs-slide-to="3"></button>
-            <button type="button" data-bs-target="#mercedesCarousel" data-bs-slide-to="4"></button>
-            <button type="button" data-bs-target="#mercedesCarousel" data-bs-slide-to="5"></button>
-            <button type="button" data-bs-target="#mercedesCarousel" data-bs-slide-to="6"></button>
-            <button type="button" data-bs-target="#mercedesCarousel" data-bs-slide-to="7"></button>
-            <button type="button" data-bs-target="#mercedesCarousel" data-bs-slide-to="8"></button>
-          </div>
-
-
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="/assignment4/Yeraly/icons/mers1.jpeg" class="d-block w-100" alt="Mercedes GT">
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Mercedes GT</h5>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img src="/assignment4/Yeraly/icons/mers2.jpeg" class="d-block w-100" alt="Mercedes E-class">
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Mercedes E-class</h5>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img src="/assignment4/Yeraly/icons/mers3.jpeg" class="d-block w-100" alt="Mercedes S-class">
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Mercedes S-class</h5>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img src="/assignment4/Yeraly/icons/mers4.jpeg" class="d-block w-100" alt="Mercedes A-class">
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Mercedes A-class</h5>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img src="/assignment4/Yeraly/icons/mers5.jpeg" class="d-block w-100" alt="Mercedes EQ">
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Mercedes EQ</h5>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img src="/assignment4/Yeraly/icons/mers6.jpeg" class="d-block w-100" alt="Mercedes EQS">
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Mercedes EQS</h5>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img src="/assignment4/Yeraly/icons/mers7.jpeg" class="d-block w-100" alt="Mercedes SL">
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Mercedes SL</h5>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img src="/assignment4/Yeraly/icons/mers8.jpeg" class="d-block w-100" alt="Mercedes G-class">
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Mercedes Gelick</h5>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img src="/assignment4/Yeraly/icons/mers9.jpeg" class="d-block w-100" alt="Mercedes EQE">
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Mercedes EQE</h5>
-              </div>
-            </div>
-          </div>
-
-          <button class="carousel-control-prev" type="button" data-bs-target="#mercedesCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#mercedesCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
-          </button>
-        </div>
-      </section>
-
-
-      
 
 
 
     <div class="containerss my-5">
-    <h2 class="text-center mb-4">Enquiry Form</h2>
-    <form id="enquiryForm">
-      <div class="col-md-6">
-        <label for="FullName" class="form-label">Full Name</label>
-        <input type="text" id="fullName" required>
-        <div id="fullNameError" class="error-message"></div>
-      </div>
-
-      <div class="col-md-6">
-        <label for="email" class="form-label">Email Address *</label>
-        <input type="email" id="email" required>
-        <div id="emailError" class="error-message"></div>
-      </div>
-
-      <div class="col-md-6">
-        <label for="phone" class="form-label">Phone Number *</label>
-        <input type="tel" id="phone" required>
-        <div id="phoneError" class="error-message"></div>
-      </div>
-
-      <div class="col-12">
-        <label for="subject" class="form-label">Subject *</label>
-        <select id="subject" required>
-          <option value="" selected>Please select</option>
-          <option>General enquiry</option>
-          <option>Test drive</option>
-          <option>Purchase request</option>
-          <option>Service</option>
-        </select>
-        <div id="subjectError" class="error-message"></div>
-      </div>
-
-      <div class="col-12">
-        <label for="vehicle" class="form-label">Vehicle Model (if applicable)</label>
-        <select id="vehicle">
-          <option value="" selected>Please select</option>
-          <option>Mersedes GT</option>
-          <option>Mersedes S-class</option>
-          <option>Mersedes E-class</option>
-          <option>Mercedes A-class</option>
-          <option>Mercedes EQ</option>
-          <option>Mercedes EQS</option>
-          <option>Mercedes SL</option>
-          <option>Mercedes G-class</option>
-          <option>Mercedes EQE</option>
-        </select>
-      </div>
-
-      <div class="col-12">
-        <label for="message" class="form-label">Your Message *</label>
-        <textarea id="message" rows="4" required></textarea>
-        <div id="messageError" class="error-message"></div>
-      </div>
-
-      <div class="col-12">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="privacy" required>
-          <label for="privacy"> I agree to the processing of my personal data in accordance with the <a href="#">Privacy Policy</a>. *</label>
+      <h2 class="text-center mb-4">Enquiry Form</h2>
+      <form id="enquiryForm">
+        <div class="col-md-6">
+          <label for="FullName" class="form-label">Full Name</label>
+          <input type="text" id="fullName" required>
+          <div id="fullNameError" class="error-message"></div>
         </div>
-        <div id="privacyError" class="error-message"></div>
-      </div>
 
-      <div class="col-12 text-center">
-        <button type="submit">Submit Enquiry</button>
-      </div>
-    </form>
-  </div>
+        <div class="col-md-6">
+          <label for="email" class="form-label">Email Address *</label>
+          <input type="email" id="email" required>
+          <div id="emailError" class="error-message"></div>
+        </div>
 
-  
-   
+        <div class="col-md-6">
+          <label for="phone" class="form-label">Phone Number *</label>
+          <input type="tel" id="phone" required>
+          <div id="phoneError" class="error-message"></div>
+        </div>
+
+        <div class="col-12">
+          <label for="subject" class="form-label">Subject *</label>
+          <select id="subject" required>
+            <option value="" selected>Please select</option>
+            <option>General enquiry</option>
+            <option>Test drive</option>
+            <option>Purchase request</option>
+            <option>Service</option>
+          </select>
+          <div id="subjectError" class="error-message"></div>
+        </div>
+
+        <div class="col-12">
+          <label for="vehicle" class="form-label">Vehicle Model (if applicable)</label>
+          <select id="vehicle">
+            <option value="" selected>Please select</option>
+            <option>Mersedes GT</option>
+            <option>Mersedes S-class</option>
+            <option>Mersedes E-class</option>
+            <option>Mercedes A-class</option>
+            <option>Mercedes EQ</option>
+            <option>Mercedes EQS</option>
+            <option>Mercedes SL</option>
+            <option>Mercedes G-class</option>
+            <option>Mercedes EQE</option>
+          </select>
+        </div>
+
+        <div class="col-12">
+          <label for="message" class="form-label">Your Message *</label>
+          <textarea id="message" rows="4" required></textarea>
+          <div id="messageError" class="error-message"></div>
+        </div>
+
+        <div class="col-12">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="privacy" required>
+            <label for="privacy"> I agree to the processing of my personal data in accordance with the <a
+                href="#">Privacy Policy</a>. *</label>
+          </div>
+          <div id="privacyError" class="error-message"></div>
+        </div>
+
+        <div class="col-12 text-center">
+          <button type="submit">Submit Enquiry</button>
+        </div>
+      </form>
+    </div>
 
 
-  
 
 
 
 
-  <script src="LearnMore.js"></script>
+    <button id="showTimeButton">Show Current Time</button>
 
 
-      <footer style="background:#222; color:#fff; text-align:center; padding:18px 0; font-size:1rem;">
-        Tairkhan &nbsp;|&nbsp; David &nbsp;|&nbsp; Yeraly &nbsp;|&nbsp; Bibarys &nbsp; SE-2412
 
-        <div id="date-time" class="footer-date-time"></div>
-      </footer>
+
+
+
+
+
+
+
+    <script src="LearnMore.js"></script>
+
+
+    <footer style="background:#222; color:#fff; text-align:center; padding:18px 0; font-size:1rem;">
+      Tairkhan &nbsp;|&nbsp; David &nbsp;|&nbsp; Yeraly &nbsp;|&nbsp; Bibarys &nbsp; SE-2412
+
+
+      <div id="timeDisplay"></div>
+
+
+    </footer>
 
 </body>
 
