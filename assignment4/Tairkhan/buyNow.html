@@ -119,6 +119,20 @@
                         <label for="message" class="form-label fw-semibold text-primary">Your Message *</label>
                         <textarea id="message" class="form-control form-control-lg" rows="4" required></textarea>
                     </div>
+
+                    <!-- Star Rating -->
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold text-primary">Rate your interest (1-5)</label>
+                        <div id="star-rating" class="d-flex align-items-center" role="radiogroup" aria-label="Rating">
+                            <button type="button" class="star btn btn-link text-decoration-none p-0 me-2" data-value="1" aria-label="1 star">☆</button>
+                            <button type="button" class="star btn btn-link text-decoration-none p-0 me-2" data-value="2" aria-label="2 stars">☆</button>
+                            <button type="button" class="star btn btn-link text-decoration-none p-0 me-2" data-value="3" aria-label="3 stars">☆</button>
+                            <button type="button" class="star btn btn-link text-decoration-none p-0 me-2" data-value="4" aria-label="4 stars">☆</button>
+                            <button type="button" class="star btn btn-link text-decoration-none p-0 me-2" data-value="5" aria-label="5 stars">☆</button>
+                            <small id="rating-label" class="text-muted ms-2">No rating</small>
+                        </div>
+                        <input type="hidden" id="rating-value" name="rating" value="0">
+                    </div>
                     
                     <div class="form-check mb-4">
                         <input type="checkbox" id="consent" class="form-check-input" required>
