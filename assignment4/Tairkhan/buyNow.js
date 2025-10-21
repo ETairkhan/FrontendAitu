@@ -11,18 +11,87 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Initialize all features when DOM is loaded
+    
     initPopupForm();
     initColorChanger();
+    initStarRating();
 });
+
+// Task: Star rating widget behavior
+function initStarRating() {
+    const stars = document.querySelectorAll('#star-rating .star');
+    const ratingInput = document.getElementById('rating-value');
+    const ratingLabel = document.getElementById('rating-label');
+    if (!stars || stars.length === 0 || !ratingInput) return;
+
+    let currentRating = parseInt(ratingInput.value, 10) || 0;
+
+    // Update visual state of stars
+    function updateStars(rating) {
+        stars.forEach(star => {
+            const val = parseInt(star.getAttribute('data-value'), 10);
+            if (val <= rating) {
+                star.textContent = '★';
+                star.classList.add('text-warning');
+                star.setAttribute('aria-pressed', 'true');
+                star.setAttribute('aria-checked', 'true');
+            } else {
+                star.textContent = '☆';
+                star.classList.remove('text-warning');
+                star.setAttribute('aria-pressed', 'false');
+                star.setAttribute('aria-checked', 'false');
+            }
+        });
+
+        if (ratingLabel) {
+            ratingLabel.textContent = rating > 0 ? `${rating} / ${stars.length} star${rating > 1 ? 's' : ''}` : 'No rating';
+        }
+    }
+
+    // Set rating persistently
+    function setRating(rating) {
+        currentRating = rating;
+        ratingInput.value = rating;
+        updateStars(rating);
+    }
+
+    // Attach event listeners
+    stars.forEach(star => {
+        const val = parseInt(star.getAttribute('data-value'), 10);
+
+        star.addEventListener('click', function() {
+            setRating(val);
+        });
+
+        // Hover preview
+        star.addEventListener('mouseenter', function() {
+            updateStars(val);
+        });
+
+        star.addEventListener('mouseleave', function() {
+            updateStars(currentRating);
+        });
+
+        // Keyboard accessibility: Enter or Space sets the rating
+        star.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                setRating(val);
+            }
+        });
+    });
+
+    // Initialize visuals
+    updateStars(currentRating);
+}
 
 function validateForm() {
     let isValid = true;
     
-    // Clear previous error messages
+   
     clearErrorMessages();
     
-    // Validate First Name
+   
     const firstName = document.getElementById('firstname');
     if (!firstName.value.trim()) {
         showError(firstName, 'First name is required');

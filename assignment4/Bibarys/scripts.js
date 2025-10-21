@@ -1,0 +1,86 @@
+const colors = ["black" , "blue" , "red" , "green" , "yellow"];
+let count = 0 ;
+function changeColor() {
+    const color = colors[count];
+    count++;count%=colors.length;
+    document.body.style.backgroundColor = color;
+}
+function toggleAccordion(header) {
+    const content = header.nextElementSibling;
+    const isOpen = content.classList.contains('open');
+    document.querySelectorAll('.accordion-content').forEach(el => {
+        el.style.maxHeight = null;
+        el.classList.remove('open');
+        el.style.padding = '0 20px';
+    });
+    if (!isOpen) {
+        content.classList.add('open');
+        content.style.maxHeight = content.scrollHeight + 'px';
+    }
+}
+function validateForm() {
+    let valid = true;
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+
+    document.getElementById("nameError").textContent = "";
+    document.getElementById("emailError").textContent = "";
+    document.getElementById("passwordError").textContent = "";
+    document.getElementById("confirmError").textContent = "";
+
+    const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+    if (name === "") {
+        document.getElementById("nameError").textContent = "Имя обязательно.";
+        valid = false;
+    }
+    if (email === "") {
+        document.getElementById("emailError").textContent = "Email обязателен.";
+        valid = false;
+    } else if (!emailPattern.test(email)) {
+        document.getElementById("emailError").textContent = "Неверный формат email.";
+        valid = false;
+    }
+    if (password.length < 6) {
+        document.getElementById("passwordError").textContent = "Минимум 6 символов.";
+        valid = false;
+    }
+    if (password !== confirmPassword) {
+        document.getElementById("confirmError").textContent = "Пароли не совпадают.";
+        valid = false;
+    }
+    return valid;
+}
+function formatDateTime(date) {
+    const options = {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: '2-digit',
+        hour12: true,
+    };
+    return date.toLocaleString('ru-RU', options);
+}
+function displayDateTime() {
+    const now = new Date();
+    document.getElementById("date-time").textContent = formatDateTime(now);
+}
+displayDateTime();
+setInterval(displayDateTime, 60000);
+
+const popup = document.getElementById("popupOverlay");
+function openPopup() {
+    popup.style.display = "flex";
+}
+function closePopup() {
+    popup.style.display = "none";
+}
+function outsideClick(e) {
+    if (e.target === popup) {
+        closePopup();
+    }
+}
