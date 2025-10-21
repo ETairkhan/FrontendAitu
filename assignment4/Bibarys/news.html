@@ -160,44 +160,11 @@
         </form>
     </div>
 </div>
-<script>
-    function formatDateTime(date) {
-        const options = {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-            hour: 'numeric',
-            minute: '2-digit',
-            hour12: true,
-        };
-        return date.toLocaleString('ru-RU', options);
-    }
-    function displayDateTime() {
-        const now = new Date();
-        document.getElementById("date-time").textContent = formatDateTime(now);
-    }
-    displayDateTime();
-    setInterval(displayDateTime, 60000);
-    const popup = document.getElementById("popupOverlay");
 
-    function openPopup() {
-        popup.style.display = "flex";
-    }
-
-    function closePopup() {
-        popup.style.display = "none";
-    }
-
-    function outsideClick(e) {
-        if (e.target === popup) {
-            closePopup();
-        }
-    }
-</script>
 <footer class="bg-dark text-white text-center py-3 mt-auto border-top border-secondary">
     Tairkhan | David | Yeraly | Bibarys | SE-2412
 </footer>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="scripts.js"></script>
 </body>
 </html>
