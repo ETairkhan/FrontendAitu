@@ -12,7 +12,7 @@ function toggleAccordion(header) {
     document.querySelectorAll('.accordion-content').forEach(el => {
         el.style.maxHeight = null;
         el.classList.remove('open');
-        el.style.padding = '0 20px'
+        el.style.padding = '0 20px';
     });
     if (!isOpen) {
         content.classList.add('open');
