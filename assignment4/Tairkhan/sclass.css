@@ -161,3 +161,128 @@ body { font-size: 1rem; }
         font-size: 1.3rem !important;
     }
 }
+
+/* Enhanced Footer Styles */
+.datetime-footer {
+    border-top: 3px solid #007bff;
+}
+
+.datetime-content {
+    font-size: 0.9rem;
+}
+
+#current-datetime {
+    font-family: 'Courier New', monospace;
+    font-weight: 500;
+}
+
+#page-loaded-time {
+    font-family: 'Courier New', monospace;
+}
+
+.interactive-footer {
+    border-top: 1px solid #495057;
+}
+
+.interactive-footer h5 {
+    color: #17a2b8;
+    font-weight: 600;
+}
+
+.interactive-footer a:hover {
+    color: #17a2b8 !important;
+    text-decoration: underline !important;
+}
+
+/* Enhanced Accordion Styles */
+.accordion-button {
+    font-weight: 600;
+    padding: 1.25rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.accordion-button:not(.collapsed) {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    color: white;
+    box-shadow: 0 2px 10px rgba(0, 123, 255, 0.3);
+}
+
+.accordion-button:focus {
+    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+    border-color: #007bff;
+}
+
+.accordion-body {
+    background: #f8f9fa;
+    border-left: 3px solid #007bff;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.accordion-item {
+    border: 1px solid #dee2e6;
+    border-radius: 0.5rem !important;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.accordion-item:hover {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+/* Custom styling for specifications accordion */
+#specsAccordion .accordion-body {
+    background: #fff;
+    border-left: 3px solid #28a745;
+}
+
+#specsAccordion .accordion-button:not(.collapsed) {
+    background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);
+}
+
+#specsAccordion .accordion-button:focus {
+    box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25);
+    border-color: #28a745;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .datetime-content {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    
+    .footer-info {
+        text-align: center !important;
+    }
+    
+    .accordion-button {
+        padding: 1rem 1.25rem;
+        font-size: 0.95rem;
+    }
+    
+    .accordion-body {
+        padding: 1rem 1.25rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .datetime-content {
+        font-size: 0.8rem;
+    }
+    
+    #current-datetime,
+    #page-loaded-time {
+        display: block;
+        margin-top: 0.25rem;
+    }
+    
+    .accordion-button {
+        padding: 0.875rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+

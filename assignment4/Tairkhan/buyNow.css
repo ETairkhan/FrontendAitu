@@ -16,6 +16,7 @@ body {
     scroll-behavior: smooth;
 }
 
+
 /* ===== RESPONSIVE TYPOGRAPHY ===== */
 /* Mobile First (default) */
 body { font-size: 1rem; }
