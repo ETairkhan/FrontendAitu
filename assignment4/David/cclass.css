@@ -1,3 +1,34 @@
+/* General Button Styling */
+.btn {
+    transition: all 0.3s ease;
+    border-radius: 25px;
+    padding: 12px 30px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    color: white;
+    margin: 5px;
+    min-width: 150px;
+    background: linear-gradient(45deg, #4a90e2, #63b8ff); /* Мягкий синий градиент */
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+}
+
+/* Общий стиль при наведении */
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(74, 144, 226, 0.5);
+    background: linear-gradient(45deg, #63b8ff, #85c9ff); /* Более светлый градиент при наведении */
+}
+
+/* Общий стиль при нажатии */
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(74, 144, 226, 0.3);
+}
+
+/* Existing Styles (unchanged) */
 body {
     margin: 0;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -6,8 +37,24 @@ body {
     line-height: 1.5;
 }
 
+/* HEADER */
+header {
+    background-color: #343a40;
+    padding: 20px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
 header a:hover {
     color: #00adef !important;
+}
+
+header .nav a {
+    transition: all 0.3s ease;
+}
+
+header .nav a:hover {
+    color: #00adef;
+    transform: scale(1.05);
 }
 
 /* HERO */
@@ -20,12 +67,7 @@ header a:hover {
     margin-top: 60px;
     position: relative;
 }
-.logo::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.4);
-}
+
 .logo h1 {
     font-size: 3rem;
     z-index: 1;
@@ -34,87 +76,101 @@ header a:hover {
     opacity: 0;
     transform: translateY(20px);
 }
-@keyframes fadeInUp {
-    to { opacity: 1; transform: translateY(0); }
-}
-@keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
 
-/* Gallery caption */
+/* ГАЛЕРЕЯ */
 .gallery-caption {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.6);
     color: #fff;
     text-align: center;
     padding: 8px;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
+
 .position-relative:hover .gallery-caption {
     opacity: 1;
 }
 
-/* Features */
-.feature-item {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Список автомобилей */
+#car-list {
+    list-style: none;
+    padding: 0;
 }
-.feature-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+
+#car-list li {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+#car-list li:hover {
+    background-color: #f1f1f1;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Секция с фильтрацией */
+#carListSection h2 {
+    font-size: 1.8rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 /* Accordion */
 .accordion-button:not(.collapsed) {
     background-color: #00adef;
     color: white;
+    font-weight: bold;
 }
 
-/* Popup Form */
-.popup-form {
-    display: none; /* Hidden by default */
-    position: fixed;
+.accordion-button {
+    font-size: 1.1rem;
+    padding: 12px;
+}
+
+.accordion-body {
+    font-size: 1rem;
+    background-color: #f9f9f9;
+}
+
+/* Анимации */
+@keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    height: 650px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.car-slide {
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
 }
 
-.popup-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    width: 300px;
-    text-align: center;
-}
-
-.popup-close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 20px;
-    cursor: pointer;
-}
-
-/* Change background button */
-#change-bg-btn {
-    margin-top: 20px;
-}
-
-/* Date and time display */
-#date-time {
-    font-size: 1.5rem;
-    color: #333;
+.car-slide.active {
+    opacity: 1;
 }

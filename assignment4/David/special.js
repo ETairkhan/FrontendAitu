@@ -54,3 +54,12 @@ function updateDateTime() {
 }
 
 setInterval(updateDateTime, 1000);  // Updates every second
+
+
+document.getElementById('change-bg-btn')?.addEventListener('click', function() {
+        let randomColor = 'rgb(' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ')';
+        document.body.style.backgroundColor = randomColor;
+
+        let textColor = 'rgb(' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ')';
+        document.body.style.color = textColor; });
+
