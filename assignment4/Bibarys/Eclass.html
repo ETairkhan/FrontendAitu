@@ -161,30 +161,30 @@
 </section>
 
 <section class="bg-black">
-<h2 style="text-align:center;">Frequently Asked Questions</h2>
-<div class="accordion">
-    <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAccordion(this)">What is Mercedes-Benz E-Class?</div>
-        <div class="accordion-content">
-            <p>The E-Class is a luxury sedan offering premium comfort, safety technologies, and a smooth ride from Mercedes-Benz.</p>
+    <h2 style="text-align:center;">Frequently Asked Questions</h2>
+    <div class="accordion">
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">What is Mercedes-Benz E-Class?</div>
+            <div class="accordion-content">
+                <p>The E-Class is a luxury sedan offering premium comfort, safety technologies, and a smooth ride from Mercedes-Benz.</p>
+            </div>
         </div>
-    </div>
 
-    <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAccordion(this)">Does E-Class come with 4MATIC all-wheel drive?</div>
-        <div class="accordion-content">
-            <p>Yes, selected trims like the E 300 4MATIC come with advanced all-wheel drive for better control and safety.</p>
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">Does E-Class come with 4MATIC all-wheel drive?</div>
+            <div class="accordion-content">
+                <p>Yes, selected trims like the E 300 4MATIC come with advanced all-wheel drive for better control and safety.</p>
+            </div>
         </div>
-    </div>
 
-    <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAccordion(this)">What infotainment system is used?</div>
-        <div class="accordion-content">
-            <p>The E-Class features the MBUX system with voice control, touchscreens, and smartphone integration.</p>
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">What infotainment system is used?</div>
+            <div class="accordion-content">
+                <p>The E-Class features the MBUX system with voice control, touchscreens, and smartphone integration.</p>
+            </div>
         </div>
-    </div>
 
-</div>
+    </div>
 </section>
 <section id="gallery" class="py-5 bg-light text-dark">
     <div class="container">
@@ -253,76 +253,7 @@
 <footer class="bg-dark text-white text-center py-3 mt-auto border-top border-secondary">
     Tairkhan | David | Yeraly | Bibarys | SE-2412
 </footer>
-
-<script>
-    const colors = ["black" , "blue" , "red" , "green" , "yellow"];
-    let count = 0 ;
-    function changeColor() {
-        const color = colors[count];
-        count++;
-        count%=colors.length;
-        document.body.style.backgroundColor = color;
-    }
-    function toggleAccordion(header) {
-        const content = header.nextElementSibling;
-        const isOpen = content.classList.contains('open');
-
-        document.querySelectorAll('.accordion-content').forEach(el => {
-            el.style.maxHeight = null;
-            el.classList.remove('open');
-            el.style.padding = '0 20px';
-        });
-
-        if (!isOpen) {
-            content.classList.add('open');
-            content.style.maxHeight = content.scrollHeight + 'px';
-        }
-    }
-</script>
-
-<script>
-    function validateForm() {
-        let valid = true;
-
-        const name = document.getElementById("name").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const password = document.getElementById("password").value;
-        const confirmPassword = document.getElementById("confirmPassword").value;
-
-        document.getElementById("nameError").textContent = "";
-        document.getElementById("emailError").textContent = "";
-        document.getElementById("passwordError").textContent = "";
-        document.getElementById("confirmError").textContent = "";
-
-        const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-
-        if (name === "") {
-            document.getElementById("nameError").textContent = "Имя обязательно.";
-            valid = false;
-        }
-
-        if (email === "") {
-            document.getElementById("emailError").textContent = "Email обязателен.";
-            valid = false;
-        } else if (!emailPattern.test(email)) {
-            document.getElementById("emailError").textContent = "Неверный формат email.";
-            valid = false;
-        }
-
-        if (password.length < 6) {
-            document.getElementById("passwordError").textContent = "Минимум 6 символов.";
-            valid = false;
-        }
-
-        if (password !== confirmPassword) {
-            document.getElementById("confirmError").textContent = "Пароли не совпадают.";
-            valid = false;
-        }
-
-        return valid;
-    }
-</script>
-
+<script src="scripts.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
