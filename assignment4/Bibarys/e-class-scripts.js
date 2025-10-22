@@ -63,7 +63,7 @@ const quotes = [
 ];
 
 const content = document.querySelector("#content");
-const button = document.querySelector("#last_btn");
+const button =document.querySelector("#last_btn");
 
 button.addEventListener("click", () => {
     const randomIndex = Math.floor(Math.random() * quotes.length);
