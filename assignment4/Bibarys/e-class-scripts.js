@@ -62,7 +62,7 @@ const quotes = [
     "Success is not the key to happiness. Happiness is the key to success."
 ];
 
-const content = document.querySelector("#content");
+const content = document.querySelector("#text_changer");
 const button =document.querySelector("#last_btn");
 
 button.addEventListener("click", () => {
