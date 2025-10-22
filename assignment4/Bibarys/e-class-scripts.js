@@ -54,36 +54,19 @@ function validateForm() {
     }
     return valid;
 }
-function formatDateTime(date) {
-    const options = {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-        hour: 'numeric',
-        minute: '2-digit',
-        hour12: true,
-    };
-    return date.toLocaleString('ru-RU', options);
-}
-function displayDateTime() {
-    const now = new Date();
-    document.getElementById("date-time").textContent = formatDateTime(now);
-    if(now.getHours() >= 12){
-        document.getElementById("date-time").textContent = formatDateTime(now);
-    }
-}
-displayDateTime();
-setInterval(displayDateTime, 60000);
 
-const popup = document.getElementById("popupOverlay");
-function openPopup() {
-    popup.style.display = "flex";
-}
-function closePopup() {
-    popup.style.display = "none";
-}
-function outsideClick(e) {
-    if (e.target === popup) {
-        closePopup();
-    }
-}
+const quotes = [
+    "Assignment 6",
+    "Suiii",
+    "Do you want to know what you want?",
+    "Success is not the key to happiness. Happiness is the key to success."
+];
+
+const content = document.querySelector("#content");
+const button = document.querySelector("#last_btn");
+
+button.addEventListener("click", () => {
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    const randomQuote = quotes[randomIndex];
+    content.textContent = randomQuote;
+});
