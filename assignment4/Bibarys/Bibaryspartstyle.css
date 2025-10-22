@@ -7,7 +7,12 @@
     --r: 14px;
     --shadow: 0 10px 30px rgba(0,0,0,.35);
 }
-
+.custom-navbar{ background:#111; }
+.custom-navbar .navbar-brand img{ height:30px; }
+.hover-card{ transition:.2s; }
+.hover-card:hover{ transform: translateY(-3px); }
+.date{ font-size:.9rem; color:#6c757d; }
+.bs-cards .card{ background:#fff; color:#212529; }
 * { box-sizing: border-box; }
 
 html, body { height: 100%; }
@@ -442,4 +447,8 @@ body {
 
 .accordion-content.open {
     padding: 15px 20px;
+}
+#message{
+    text-align: center;
+    margin-left: 10px;
 }

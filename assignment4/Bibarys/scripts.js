@@ -68,6 +68,9 @@ function formatDateTime(date) {
 function displayDateTime() {
     const now = new Date();
     document.getElementById("date-time").textContent = formatDateTime(now);
+    if(now.getHours() >= 12){
+        document.getElementById("date-time").textContent = formatDateTime(now);
+    }
 }
 displayDateTime();
 setInterval(displayDateTime, 60000);
