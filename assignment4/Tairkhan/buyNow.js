@@ -373,3 +373,46 @@ function showColorToast(color) {
         toast.remove();
     }, 2000);
 }
+
+$(document).ready(function() {
+    console.log("jQuery is ready!");
+});
+
+  $(document).ready(function() {
+            // Real-time search and filter functionality
+            $('#search').on('keyup', function() {
+                var searchTerm = $(this).val().toLowerCase();
+
+                // Real-time filter for models
+                $('#models-list .model-item').each(function() {
+                    var modelName = $(this).text().toLowerCase();
+                    if (modelName.indexOf(searchTerm) === -1) {
+                        $(this).hide(); // Hide non-matching items
+                    } else {
+                        $(this).show(); // Show matching items
+                    }
+                });
+
+                // Autocomplete suggestions
+                const suggestions = ["A-Class", "C-Class", "E-Class", "S-Class", "GLA", "GLC", "GLE", "GLS"];
+                var matchedSuggestions = suggestions.filter(function(suggestion) {
+                    return suggestion.toLowerCase().includes(searchTerm);
+                });
+
+                // Clear previous suggestions and show new suggestions
+                $('#suggestions').empty().show();
+                matchedSuggestions.forEach(function(suggestion) {
+                    $('#suggestions').append('<li class="list-group-item">' + suggestion + '</li>');
+                });
+
+                if (matchedSuggestions.length === 0) {
+                    $('#suggestions').hide(); // Hide if no matches
+                }
+            });
+
+            // Allow selecting a suggestion
+            $('#suggestions').on('click', 'li', function() {
+                $('#search').val($(this).text());
+                $('#suggestions').hide();
+            });
+        });
