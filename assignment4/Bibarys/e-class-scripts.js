@@ -1,3 +1,6 @@
+$(document).ready(function(){
+    console.log("jQuery is ready!");
+});
 const colors = ["black" , "blue" , "red" , "green" , "yellow"];
 let count = 0 ;
 function changeColor() {
@@ -70,3 +73,18 @@ button.addEventListener("click", () => {
     const randomQuote = quotes[randomIndex];
     content.textContent = randomQuote;
 });
+
+
+$(document).ready(function() {
+    const $bar = $('.sp-bar');
+    const $label = $('.sp-label');
+    $(window).on('scroll', function() {
+        const scrollTop = $(document).scrollTop();
+        const scrollHeight = $(document).height() - $(window).height();
+        const progress = (scrollTop / scrollHeight) * 100;
+        $bar.css('transform', `scaleX(${progress / 100})`);
+        $label.text(`${Math.round(progress)}%`);
+    });
+});
+
+
