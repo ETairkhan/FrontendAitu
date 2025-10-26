@@ -1,11 +1,10 @@
-//Objects and Methods
+// Объекты и методы
 // Глобальные переменные для звука
 let sound = new Audio('notification.mp3'); // Убедитесь, что файл существует по этому пути
 let isPlaying = false; // Флаг для проверки, проигрывается ли звук
 let currentTime = 0; // Переменная для хранения текущего времени воспроизведения
 
-
-//Arrays and Loops
+// Массивы и циклы
 // Пример данных автомобилей
 const cars = [
     { model: "C-Class", price: "31 160 000 ₸", description: "A luxury sedan with top-tier features." },
@@ -46,7 +45,7 @@ document.getElementById('filterCarsBtn').addEventListener('click', function() {
     displayCars(filteredCars); // Показываем отфильтрованные автомобили
 });
 
-// Form Validation
+// Форма регистрации
 document.getElementById('signup-form')?.addEventListener('submit', function(event) {
     event.preventDefault(); // Предотвращаем отправку формы и перезагрузку страницы
 
@@ -55,17 +54,17 @@ document.getElementById('signup-form')?.addEventListener('submit', function(even
     let phone = document.getElementById('phone').value;
 
     if (!name || !email || !phone) {
-        alert('Пожалуйста, заполните все поля!');
+        showNotification('Пожалуйста, заполните все поля!');
     } else if (!/\S+@\S+\.\S+/.test(email)) {
-        alert('Неверный формат email!');
+        showNotification('Неверный формат email!');
     } else if (!/^\+?\d{1,4}?[\s.-]?\(?\d{1,3}?\)?[\s.-]?\d{1,3}[\s.-]?\d{1,4}$/.test(phone)) {
-        alert('Неверный формат телефона!');
+        showNotification('Неверный формат телефона!');
     } else {
-        alert('Форма успешно отправлена!');
+        showNotification('Форма успешно отправлена!');
     }
 });
 
-// Accordion for FAQs
+// Аккордеон для FAQ
 document.querySelectorAll('.accordion-button').forEach((button) => {
     button.addEventListener('click', function() {
         let collapse = this.getAttribute('data-bs-target');
@@ -74,9 +73,7 @@ document.querySelectorAll('.accordion-button').forEach((button) => {
     });
 });
 
-
-//Arrays and Loops
-// Пример данных автомобилей
+// Объекты автомобилей
 const carModels = {
     "C-Class": {
         price: "31 160 000 ₸",
@@ -106,8 +103,7 @@ document.getElementById('show-c-class').addEventListener('click', () => carModel
 document.getElementById('show-s-class').addEventListener('click', () => carModels['S-Class'].showInfo());
 document.getElementById('show-e-class').addEventListener('click', () => carModels['E-Class'].showInfo());
 
-// Task 4: Play Sounds when Button is Clicked
-//Play Sounds
+// Воспроизведение звука
 document.getElementById('play-sound-btn').addEventListener('click', function() {
     if (!isPlaying) {  // Если звук не проигрывается, включаем его
         sound.play();
@@ -117,7 +113,7 @@ document.getElementById('play-sound-btn').addEventListener('click', function() {
     }
 });
 
-// Stop Sound: Останавливаем текущий проигрываемый звук
+// Остановка звука
 document.getElementById('stop-sound-btn').addEventListener('click', function() {
     sound.pause();  // Приостанавливаем звук
     currentTime = sound.currentTime;  // Сохраняем текущую позицию в звуке
@@ -125,7 +121,7 @@ document.getElementById('stop-sound-btn').addEventListener('click', function() {
     console.log('Звук приостановлен');
 });
 
-// Resume Sound: Возобновляем звук с места приостановки
+// Возобновление звука
 document.getElementById('resume-sound-btn').addEventListener('click', function() {
     if (!isPlaying) {
         sound.play();  // Включаем звук снова с места приостановки
@@ -134,12 +130,12 @@ document.getElementById('resume-sound-btn').addEventListener('click', function()
         console.log('Звук возобновлён');
     }
 });
-//Animations
+
 // Слайдер изображений
 let currentIndex = 0;
 const images = document.querySelectorAll('.car-slide');
 const totalImages = images.length;
-// Убедитесь, что первое изображение активно при загрузке
+
 if (totalImages > 0) {
     images[currentIndex].classList.add('active');
 }
@@ -157,9 +153,74 @@ function showNextImage() {
 // Показывать следующее изображение каждые 4 секунды
 setInterval(showNextImage, 4000);
 
-//Display Current Date and Time
+// Отображение текущей даты и времени
 function updateDateTime() {
     let now = new Date();
     document.getElementById('date-time').innerText = now.toLocaleString();
 }
 setInterval(updateDateTime, 1000); // Обновление каждую секунду
+
+// Обработка нажатия клавиши Пробел
+window.addEventListener('keydown', function(event) {
+    if (event.code === 'Space') {
+        event.preventDefault();
+        document.body.style.backgroundColor = "red"
+    }
+});
+
+// Новые функции
+
+// Функция для отображения уведомлений
+function showNotification(message) {
+    const notification = document.getElementById('notification');
+    notification.textContent = message;
+    notification.style.display = 'block';
+    notification.style.opacity = '1';
+
+    // Скрыть уведомление через 3 секунды
+    setTimeout(() => {
+        notification.style.opacity = '0';
+        setTimeout(() => notification.style.display = 'none', 1000); // Ждем завершения анимации
+    }, 3000);
+}
+
+// Показать приветствие при загрузке страницы
+window.addEventListener('DOMContentLoaded', () => {
+    showNotification("Добро пожаловать");
+});
+
+// Задача 8: Копирование текста (все автомобили)
+document.getElementById('copy-all-cars-btn').addEventListener('click', async () => {
+    let allCarsText = '';
+
+    // Собираем информацию обо всех автомобилях
+    cars.forEach(car => {
+        allCarsText += `${car.model} - ${car.price} - ${car.description}\n\n`;
+    });
+
+    try {
+        await navigator.clipboard.writeText(allCarsText);
+        alert('Все данные о машинах скопированы!');
+    } catch (err) {
+        alert('Ошибка копирования!');
+    }
+});
+
+
+// Задача 9: Ленивая загрузка изображений
+document.addEventListener("DOMContentLoaded", function() {
+    const images = document.querySelectorAll('.lazy-load');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.getAttribute('data-src'); // Загружаем изображение
+                img.style.opacity = 1; // Плавное появление
+                observer.unobserve(img); // Останавливаем наблюдение
+            }
+        });
+    }, { threshold: 0.1 }); // Активируем при 10% видимости
+
+    images.forEach(img => observer.observe(img));
+});

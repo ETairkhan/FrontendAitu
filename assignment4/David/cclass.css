@@ -174,3 +174,54 @@ header .nav a:hover {
 .car-slide.active {
     opacity: 1;
 }
+/* Для уведомлений */
+.toast {
+    animation: fadeout 3s ease-in-out;
+}
+
+@keyframes fadeout {
+    0% { opacity: 1; }
+    100% { opacity: 0; display: none; }
+}
+
+/* Для кнопок копирования */
+.copy-btn {
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.copy-btn.checked {
+    background-color: #28a745;
+}
+/* Фиксированный размер только для image1 и image2 */
+.fixed-size-image-lazy {
+    width: 400px;          /* Ширина */
+    height: 400px;         /* Высота */
+    object-fit: cover;     /* Сохранение пропорций */
+    border-radius: 8px;    /* Скругление углов */
+    margin: 20px;           /* Отступы */
+}
+.copy-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.copy-btn.checked {
+    background-color: #28a745;
+}
+/* Анимация исчезновения */
+#notification {
+    animation: fadeout 3s ease-in-out;
+}
+
+@keyframes fadeout {
+    0% { opacity: 1; }
+    100% { opacity: 0; display: none; }
+}

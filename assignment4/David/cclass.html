@@ -102,6 +102,12 @@
                     </div>
                 </div>
             </section>
+            <!-- Центрированная кнопка "Копировать" -->
+            <div class="d-flex justify-content-center my-5">
+                <!-- Кнопка для копирования всех автомобилей -->
+                <button id="copy-all-cars-btn" class="btn btn-primary">Копировать все автомобили</button>
+
+            </div>
 
             <!-- accordion FAQ -->
             <section class="mb-5">
@@ -174,6 +180,8 @@
                 <img id="car-image2" src="img/car-image2.jpg" alt="Car Image 2" class="car-slide">
                 <img id="car-image3" src="img/car-image3.jpg" alt="Car Image 3" class="car-slide">
             </div>
+            <img data-src="img/image1.jpg" alt="Машина 1" class="lazy-load fixed-size-image-lazy" style="opacity: 0; transition: opacity 1s;">
+            <img data-src="img/image2.jpg" alt="Машина 2" class="lazy-load fixed-size-image-lazy" style="opacity: 0; transition: opacity 1s;">
 
             <!-- ONLINE CONSULTATION FORM -->
             <section class="container my-5 py-4">
@@ -202,6 +210,10 @@
         </main>
     </div>
 </div>
+<!-- Уведомление -->
+<div id="notification" style="display: none; position: fixed; bottom: 20px; right: 20px; padding: 15px; background-color: #67a8d5; color: white; border-radius: 5px; opacity: 0.9; transition: opacity 1s;"></div>
+
+
 
 <!-- FOOTER -->
 <footer class="bg-dark text-white text-center py-3 mt-5">
