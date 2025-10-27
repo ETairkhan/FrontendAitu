@@ -45,6 +45,8 @@ document.getElementById('showTimeButton').addEventListener('click', function() {
 
 
 
+  
+  
 function displayGreeting() {
   const currentHour = new Date().getHours();
   let greeting;
@@ -69,6 +71,28 @@ function toggleNavbarMenu() {
 }
 
 document.getElementById("navbarToggle").addEventListener("click", toggleNavbarMenu);
+
+
+
+
+
+$(document).ready(function() {
+  $('#enquiryForm').submit(function(event) {
+    event.preventDefault(); 
+    
+    $('#submitButton').html('<i class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></i> Please wait...').prop('disabled', true);
+
+    
+    setTimeout(function() {
+      
+      $('#submitButton').html('Submit Enquiry').prop('disabled', false);
+
+      
+      alert("Form Submitted Successfully!"); 
+    }, 2000); 
+  });
+});
+
 
 
 
