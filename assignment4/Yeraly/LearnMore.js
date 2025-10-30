@@ -93,6 +93,14 @@ $(document).ready(function() {
   });
 });
 
+// $(document).ready(function(){
 
-
+//   $("#btnexam").click(function(){
+//     $("#change").fadeIn();
+  
+//   });
+//   $("#btn2").click(function(){
+//     $("#change").fadeOut();
+//   })
+// });
 

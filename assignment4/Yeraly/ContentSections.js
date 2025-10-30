@@ -30,21 +30,11 @@ $(document).ready(function() {
   };
 
 
+
+  
   setInterval(updateCount, Math.floor(Math.random() * (10000 - 8000 + 1)) + 8000); 
 
-  
-  $('#openFormBtn').click(function() {
-    $('#overlay').fadeIn();
-    $('#popupForm').fadeIn();
-  });
 
-  
-  $('#closeFormBtn').click(function() {
-    $('#overlay').fadeOut();
-    $('#popupForm').fadeOut();
-  });
-
- 
   $('#subscriptionForm').submit(function(event) {
     event.preventDefault(); 
     alert('Thank you for subscribing!');
