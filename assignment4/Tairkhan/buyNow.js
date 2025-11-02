@@ -416,3 +416,10 @@ $(document).ready(function() {
                 $('#suggestions').hide();
             });
         });
+
+
+$(document).ready(function() {
+    $('#submitBtn').on('click', function() {
+        $('form').submit(); 
+    });
+});
