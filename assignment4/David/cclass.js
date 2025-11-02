@@ -169,7 +169,7 @@ window.addEventListener('keydown', function(event) {
 });
 
 // Новые функции
-
+// task 7: Уведомления при загрузке страницы
 // Функция для отображения уведомлений
 function showNotification(message) {
     const notification = document.getElementById('notification');
@@ -180,7 +180,7 @@ function showNotification(message) {
     // Скрыть уведомление через 3 секунды
     setTimeout(() => {
         notification.style.opacity = '0';
-        setTimeout(() => notification.style.display = 'none', 1000); // Ждем завершения анимации
+        setTimeout(() => notification.style.display = 'none', 1000);
     }, 3000);
 }
 
@@ -217,10 +217,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 const img = entry.target;
                 img.src = img.getAttribute('data-src'); // Загружаем изображение
                 img.style.opacity = 1; // Плавное появление
-                observer.unobserve(img); // Останавливаем наблюдение
+                observer.unobserve(img);
             }
         });
-    }, { threshold: 0.1 }); // Активируем при 10% видимости
+    }, { threshold: 1 });
 
     images.forEach(img => observer.observe(img));
 });
