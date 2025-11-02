@@ -1,3 +1,64 @@
+/* Стили для тёмной темы */
+body.dark-theme {
+    background-color: #333;
+    color: #f8f8f8;
+}
+
+/* Обновленные стили для меню */
+header.dark-theme {
+    background-color: #222;
+}
+
+header .nav a.dark-theme {
+    color: #f8f8f8;  /* Светлый цвет текста в тёмной теме */
+}
+
+header .nav a.dark-theme:hover {
+    color: #00adef;
+}
+
+/* Фон и текст для элементов меню */
+.dark-theme .bg-white {
+    background-color: #444;  /* Более тёмный фон для блоков */
+    color: #f8f8f8;  /* Светлый текст для контента */
+}
+
+/* Стили для карточек автомобилей */
+.dark-theme #car-list li {
+    background-color: #555;  /* Тёмный фон для карточек */
+    color: #fff;  /* Белый текст */
+}
+
+.dark-theme #car-list li:hover {
+    background-color: #666;  /* Более светлый фон при наведении */
+    color: #fff;  /* Белый текст */
+}
+
+/* Кнопки в тёмной теме */
+button.dark-theme {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+button.dark-theme:hover {
+    background-color: #45a049;
+}
+
+a.dark-theme {
+    color: #fff;
+}
+
+a.dark-theme:hover {
+    color: #00adef;
+}
+/* Заголовок для секции "Отфильтрованные автомобили" */
+.dark-theme #carListSection h2 {
+    color: #f8f8f8; /* Убедитесь, что цвет текста светлый в тёмной теме */
+}
+/* Заголовок для секции "Меню" */
+.dark-theme header .fw-bold {
+    color: #f8f8f8; /* Убедитесь, что цвет текста светлый в тёмной теме */
+}
 /* General Button Styling */
 .btn {
     transition: all 0.3s ease;

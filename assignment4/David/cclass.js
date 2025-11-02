@@ -224,3 +224,35 @@ document.addEventListener("DOMContentLoaded", function() {
 
     images.forEach(img => observer.observe(img));
 });
+// Получаем элементы
+const themeToggleButton = document.getElementById('theme-toggle');
+const themeText = document.getElementById('theme-text');
+const themeIcon = document.getElementById('theme-icon');
+
+// Проверка, есть ли уже в localStorage сохранённый выбор темы
+if(localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark-theme');
+    themeText.textContent = 'Светлая тема';
+    themeIcon.textContent = '🌞';
+} else {
+    document.body.classList.remove('dark-theme');
+    themeText.textContent = 'Тёмная тема';
+    themeIcon.textContent = '🌙';
+}
+
+// Слушатель события для кнопки переключения темы
+themeToggleButton.addEventListener('click', () => {
+    // Переключаем класс на body
+    document.body.classList.toggle('dark-theme');
+
+    // Проверяем текущий режим и обновляем текст и иконку
+    if (document.body.classList.contains('dark-theme')) {
+        themeText.textContent = 'Светлая тема';
+        themeIcon.textContent = '🌞';
+        localStorage.setItem('theme', 'dark'); // Сохраняем выбор в localStorage
+    } else {
+        themeText.textContent = 'Тёмная тема';
+        themeIcon.textContent = '🌙';
+        localStorage.setItem('theme', 'light'); // Сохраняем выбор в localStorage
+    }
+});
