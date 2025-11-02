@@ -423,3 +423,36 @@ $(document).ready(function() {
         $('form').submit(); 
     });
 });
+
+
+// Task: Dark/Light Mode Toggle
+document.addEventListener('DOMContentLoaded', function() {
+    // Apply the saved theme (if any)
+    const savedTheme = localStorage.getItem('theme') || 'light'; // default to light
+    document.body.classList.toggle('dark', savedTheme === 'dark');
+
+    // Add event listener for the theme toggle button
+    const themeToggleButton = document.getElementById('theme-toggle');
+    themeToggleButton.addEventListener('click', toggleTheme);
+
+    // Set the initial text of the theme toggle button based on the current theme
+    if (savedTheme === 'dark') {
+        themeToggleButton.textContent = '🌙';  // Dark mode
+    } else {
+        themeToggleButton.textContent = '🌞';  // Light mode
+    }
+});
+
+function toggleTheme() {
+    // Toggle dark mode
+    const currentTheme = document.body.classList.contains('dark') ? 'dark' : 'light';
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.body.classList.toggle('dark', newTheme === 'dark');
+
+    // Save the new theme in localStorage
+    localStorage.setItem('theme', newTheme);
+
+    // Change the icon of the button based on the new theme
+    const themeToggleButton = document.getElementById('theme-toggle');
+    themeToggleButton.textContent = newTheme === 'dark' ? '🌙' : '🌞';
+}
