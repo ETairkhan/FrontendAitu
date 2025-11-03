@@ -42,3 +42,49 @@ $(document).ready(function() {
     $('#popupForm').fadeOut();
   });
 });
+
+
+
+function toggleTheme() {
+  const body = document.body;
+  const themeToggle = document.getElementById("theme-toggle");
+
+  
+  body.classList.toggle("dark-mode");
+
+  
+  if (body.classList.contains("dark-mode")) {
+    themeToggle.innerHTML = "☀️";
+    localStorage.setItem("theme", "dark");
+  } else {
+    themeToggle.innerHTML = "🌙";  
+    localStorage.setItem("theme", "light");
+  }
+}
+
+
+function applySavedTheme() {
+  const savedTheme = localStorage.getItem("theme");
+  const themeToggle = document.getElementById("theme-toggle");
+
+  if (savedTheme === "dark") {
+    document.body.classList.add("dark-mode");
+    if (themeToggle) {
+      themeToggle.innerHTML = "☀️";
+    }
+  }
+}
+
+function init() {
+  
+  applySavedTheme();
+
+
+  const themeToggle = document.getElementById("theme-toggle");
+  if (themeToggle) {
+    themeToggle.addEventListener("click", toggleTheme);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', init);
+
