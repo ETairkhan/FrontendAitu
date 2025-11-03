@@ -7,8 +7,7 @@
     <link rel="stylesheet" href="Bibaryspartstyle.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class="text-white">
-
+<body class="bg-black text-white">
 <nav class="navbar navbar-expand-lg navbar-dark custom-navbar fixed-top py-2">
     <div class="container">
         <a class="navbar-brand" href="../Yeraly/Mainpage.html">
@@ -18,6 +17,9 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div id="navE" class="collapse navbar-collapse">
+            <button id="themeToggle" class="btn btn-outline-light ms-lg-3 mt-2 mt-lg-0">
+                🌙 Dark Mode
+            </button>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link" href="../David/cclass.html">Седаны - С класс</a></li>
                 <li class="nav-item"><a class="nav-link active" href="../Bibarys/Eclass.html">Седаны - Е класс</a></li>
@@ -35,6 +37,7 @@
         <div class="sp-label">0%</div>
     </div>
 </div>
+
 
 <section class="hero text-white text-center py-5 mt-5">
     <div class="container">
@@ -81,7 +84,7 @@
                     <div class="card-body">
                         <h3 class="h5 text-primary mb-2">E 200</h3>
                         <p class="mb-3">Сбалансированная динамика и экономичность.</p>
-                        <a href="#" class="btn btn-primary w-100">Подробнее</a>
+                        <a href="https://mb-bel.ru/e-class-saloon/e-200/" class="btn btn-primary w-100" target="_blank">Подробнее</a>
                     </div>
                 </div>
             </div>
@@ -92,7 +95,7 @@
                         <h3 class="h5 text-primary mb-2">E 300 4MATIC</h3>
                         <p class="mb-3">Полный привод и расширенные ассистенты.</p>
                         <div class="d-grid gap-2 d-md-block">
-                            <a href="#" class="btn btn-outline-primary">Подробнее</a>
+                            <a href="https://www.drom.ru/catalog/mercedes-benz/e-class/71718/" class="btn btn-outline-primary" target="_blank">Подробнее</a>
                         </div>
                     </div>
                 </div>
@@ -104,7 +107,7 @@
                         <h3 class="h5 text-primary mb-2">E 400</h3>
                         <p class="mb-3">Выразительная динамика и комфорт бизнес-класса.</p>
                         <div class="btn-group w-100" role="group">
-                            <button class="btn btn-outline-success">Подробнее</button>
+                            <button class="btn btn-outline-success"><a href="https://www.drom.ru/catalog/mercedes-benz/e-class/161350/" target="_blank">Подробнее</a></button>
                         </div>
                     </div>
                 </div>
@@ -118,7 +121,6 @@
         </div>
     </div>
 </section>
-
 
 <section id="carousel" class="py-5">
     <div class="container">
@@ -200,13 +202,14 @@
             </div>
             <div class="col-md-4">
                 <div class="gallery-item position-relative overflow-hidden rounded bg-dark">
-                    <img class="gallery-img w-100 h-100" src="https://img.transport.kg/photo/generation_photos/mercedes-benz_e-class_1135708.jpg" alt="Фары">
+                    <img class="gallery-img w-100 h-100" src="https://a.d-cd.net/b949a1as-960.jpg" alt="Фары">
                     <div class="position-absolute start-0 end-0 bottom-0 bg-dark bg-opacity-75 text-white p-2 text-center">Фары</div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
 
 
 <section id="register" class="py-5 bg-light text-dark">
@@ -245,13 +248,24 @@
 <div id="text_changer">Click the button to see a random quote!</div>
 <button id="last_btn" type="button">Get Random Quote</button>
 
-<section  class="py-3 bg-dark text-white text-center">
-    <h1>Click the Button to Change Background Color</h1>
-    <button onclick="changeColor()">Change Color</button>
-</section>
-
 <footer class="bg-dark text-white text-center py-3 mt-auto border-top border-secondary">
-    Tairkhan | David | Yeraly | Bibarys | SE-2412
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h5>Запросить сейчас</h5>
+                <p><a href="../Tairkhan/buyNow.html">Клик</a></p>
+            </div>
+            <div class="col-md-4">
+                <h5>Новости</h5>
+                <p><a href="../Bibarys/news.html">Клик</a></p>
+            </div>
+            <div class="col-md-4">
+                <h5>Спецпредложения</h5>
+                <p><a href="../David/special.html">Клик</a></p>
+            </div>
+        </div>
+        <p class="mt-3">Tairkhan | David | Yeraly | Bibarys | SE-2412</p>
+    </div>
 </footer>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
