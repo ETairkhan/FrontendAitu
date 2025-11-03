@@ -104,7 +104,8 @@ $(document).ready(function() {
     if (savedTheme === 'light') {
         $('body').addClass('light-mode').removeClass('bg-black text-white');
         $('#themeToggle').text('🌙 Dark Mode');
-    } else {
+    }
+    else {
         $('body').removeClass('light-mode').addClass('bg-black text-white');
         $('#themeToggle').text('☀️ Light Mode');
     }

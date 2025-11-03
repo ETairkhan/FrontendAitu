@@ -86,6 +86,7 @@ $(document).ready(function() {
         $label.text(`${Math.round(progress)}%`);
     });
 });
+
 $(document).ready(function() {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'light') {

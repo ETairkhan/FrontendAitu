@@ -78,7 +78,6 @@ body.light-mode .btn-outline-light:hover {
 .legacy .mt0 { margin-top: 0; }
 .legacy .mt-auto { margin-top: auto; }
 
-/* ---------------- Header ---------------- */
 .legacy header {
     position: fixed;
     inset: 0 0 auto 0;
