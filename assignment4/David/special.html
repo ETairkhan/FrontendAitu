@@ -106,29 +106,18 @@
         </div>
     </section>
 
-    <!-- changing bg button -->
-    <button id="change-bg-btn" class="btn btn-secondary">Сменить фон</button>
-
-    <!-- Popup form -->
-    <button id="popup-btn" class="btn btn-primary mt-4">Открыть форму подписки</button>
 
     <!-- show current time -->
     <p id="date-time" class="mt-3 text-center"></p>
 
-    <!-- Popup Form -->
-    <div id="popup-form" class="popup-form">
-        <div class="popup-content">
-            <span id="close-popup" class="popup-close">&times;</span>
-            <h2>Подписка на новости</h2>
-            <form>
-                <label for="popup-email">Email:</label>
-                <input type="email" id="popup-email" required>
-                <button type="submit" class="btn btn-success mt-2">Подписаться</button>
-            </form>
-        </div>
-    </div>
+
 
 </main>
+<div class="text-center my-4">
+    <button id="theme-toggle" class="btn btn-outline-secondary">
+        <span id="theme-icon">🌙</span> <span id="theme-text">Тёмная тема</span>
+    </button>
+</div>
 
 <!-- CHAT BUTTON -->
 <div class="chat-button" title="Связаться с консультантом">
@@ -136,8 +125,24 @@
 </div>
 
 <!-- FOOTER -->
-<footer class="text-center py-3 text-white mt-5 bg-dark">
-    Tairkhan &nbsp;|&nbsp; David &nbsp;|&nbsp; Yeraly &nbsp;|&nbsp; Bibarys &nbsp; SE-2412
+<footer class="bg-dark text-white text-center py-3 mt-auto border-top border-secondary">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h5>Запросить сейчас</h5>
+                <p><a href="../Tairkhan/buyNow.html">Клик</a></p>
+            </div>
+            <div class="col-md-4">
+                <h5>Новости</h5>
+                <p><a href="../Bibarys/news.html">Клик</a></p>
+            </div>
+            <div class="col-md-4">
+                <h5>Спецпредложения</h5>
+                <p><a href="special.html">Клик</a></p>
+            </div>
+        </div>
+        <p class="mt-3">Tairkhan | David | Yeraly | Bibarys | SE-2412</p>
+    </div>
 </footer>
 <script src="special.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

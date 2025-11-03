@@ -5,9 +5,34 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+:root{
+    --bg: #f8f8f8;
+    --text: #222222;
+    --primary: #007bff;
+    --nav-bg: rgba(0,0,0,0.92);
+    --nav-link: #ffffff;
+    --card-bg: #ffffff;
+    --muted: #6c757d;
+    --hero-bg: #000000;
+    --hero-text: #ffffff;
+}
+
+/* dark theme variables will be applied when body has class 'dark' */
+body.dark{
+    --bg: #0b0f12; /* very dark */
+    --text: #e6eef6; /* light text */
+    --primary: #66b2ff;
+    --nav-bg: #071017;
+    --nav-link: #e6eef6;
+    --card-bg: #0f1416;
+    --muted: #c1c7cc;
+    --hero-bg: #000000;
+    --hero-text: #ffffff;
+}
+
 body {
-    background: #f8f8f8;
-    color: #222;
+    background: var(--bg);
+    color: var(--text);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -32,7 +57,7 @@ body { font-size: 1rem; }
 
 /* ===== NAVBAR ===== */
 .custom-navbar {
-    background: rgba(0, 0, 0, 0.92) !important;
+    background: var(--nav-bg) !important;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
@@ -41,20 +66,20 @@ body { font-size: 1rem; }
 }
 
 .navbar-nav .nav-link {
-    color: #fff !important;
+    color: var(--nav-link) !important;
     margin: 0 8px;
     font-size: 1rem;
     transition: color 0.2s;
 }
 
 .navbar-nav .nav-link:hover {
-    color: #b6b6b6 !important;
+    color: var(--muted) !important;
 }
 
 /* ===== HERO ===== */
 .hero {
     height: 60vh;
-    background: #000;
+    background: var(--hero-bg);
     overflow: hidden;
 }
 
@@ -67,11 +92,27 @@ body { font-size: 1rem; }
 .hero-text {
     max-width: 600px;
     z-index: 2;
+    color: var(--hero-text);
 }
 
 .hero-btn:hover {
     background: #005baa !important;
 }
+
+/* Ensure Bootstrap bg utility colors adapt in dark mode for this project pages */
+.dark .bg-light { background-color: var(--card-bg) !important; }
+.dark .bg-white { background-color: var(--card-bg) !important; }
+.dark .text-muted { color: var(--muted) !important; }
+
+/* Theme toggle button styling */
+.theme-toggle{
+    background: transparent;
+    color: var(--nav-link);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+.theme-toggle:focus{ box-shadow: 0 0 0 0.25rem rgba(0,123,255,0.15); outline: none; }
 
 /* ===== CARDS ===== */
 .hover-card {
@@ -164,7 +205,7 @@ body { font-size: 1rem; }
 
 /* Enhanced Footer Styles */
 .datetime-footer {
-    border-top: 3px solid #007bff;
+    border-top: 3px solid var(--primary);
 }
 
 .datetime-content {
@@ -185,12 +226,12 @@ body { font-size: 1rem; }
 }
 
 .interactive-footer h5 {
-    color: #17a2b8;
+    color: var(--primary);
     font-weight: 600;
 }
 
 .interactive-footer a:hover {
-    color: #17a2b8 !important;
+    color: var(--primary) !important;
     text-decoration: underline !important;
 }
 
@@ -202,7 +243,7 @@ body { font-size: 1rem; }
 }
 
 .accordion-button:not(.collapsed) {
-    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, #0056b3 100%);
     color: white;
     box-shadow: 0 2px 10px rgba(0, 123, 255, 0.3);
 }
@@ -214,7 +255,7 @@ body { font-size: 1rem; }
 
 .accordion-body {
     background: #f8f9fa;
-    border-left: 3px solid #007bff;
+    border-left: 3px solid var(--primary);
     font-size: 1.05rem;
     line-height: 1.6;
 }
@@ -237,6 +278,46 @@ body { font-size: 1rem; }
     background: #fff;
     border-left: 3px solid #28a745;
 }
+
+/* Dark-mode readability overrides */
+.dark .card,
+.dark .card-body,
+.dark .feature-card,
+.dark .gallery-caption,
+.dark .gallery-item,
+.dark .accordion-body,
+.dark .accordion-item,
+.dark .interactive-footer,
+.dark footer,
+.dark main {
+    color: var(--text) !important;
+    background-color: var(--card-bg) !important;
+    border-color: rgba(255,255,255,0.06) !important;
+}
+
+.dark .accordion-body {
+    border-left-color: var(--primary) !important;
+}
+
+.dark .accordion-button,
+.dark .accordion-button:not(.collapsed) {
+    color: var(--text) !important;
+    background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+}
+
+.dark .card-title,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark p,
+.dark .card-text,
+.dark .display-5 {
+    color: var(--text) !important;
+}
+
+.dark .text-primary { color: var(--primary) !important; }
+
+.dark .theme-toggle { border-color: rgba(255,255,255,0.12); color: var(--nav-link); }
 
 #specsAccordion .accordion-button:not(.collapsed) {
     background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);

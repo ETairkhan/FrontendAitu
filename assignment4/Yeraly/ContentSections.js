@@ -19,3 +19,26 @@ accordions.forEach(acc => {
         }
     });
 });
+
+
+$(document).ready(function() {
+  let subscribers = 0; 
+  const updateCount = () => {
+    const increment = Math.floor(Math.random() * (10 - 5 + 1)) + 5; 
+    subscribers += increment;
+    $('#subscribersCount p').text(`+${subscribers} people have subscribed`);
+  };
+
+
+
+  
+  setInterval(updateCount, Math.floor(Math.random() * (10000 - 8000 + 1)) + 8000); 
+
+
+  $('#subscriptionForm').submit(function(event) {
+    event.preventDefault(); 
+    alert('Thank you for subscribing!');
+    $('#overlay').fadeOut();
+    $('#popupForm').fadeOut();
+  });
+});

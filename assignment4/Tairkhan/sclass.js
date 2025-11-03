@@ -265,4 +265,57 @@ document.addEventListener('DOMContentLoaded', function() {
     createCustomAccordion();
     createDateTimeDisplay();
     enhanceFooter();
+    // Initialize theme (day/night) and hook up toggle
+    initTheme();
 });
+
+// -----------------------
+// Theme (Day/Night) toggle with Local Storage
+// -----------------------
+const THEME_KEY = 'site-theme';
+
+function applyTheme(theme){
+    // theme: 'dark' or 'light'
+    if(!theme) theme = 'light';
+    document.body.classList.toggle('dark', theme === 'dark');
+
+    const btn = document.getElementById('theme-toggle');
+    if(btn){
+        btn.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+        // Update button icon for clarity
+        btn.textContent = theme === 'dark' ? '☀️' : '🌙';
+        const sr = document.createElement('span');
+        sr.className = 'visually-hidden';
+        sr.textContent = ' Toggle theme';
+        btn.appendChild(sr);
+    }
+}
+
+function toggleTheme(){
+    const current = localStorage.getItem(THEME_KEY) || (document.body.classList.contains('dark') ? 'dark' : 'light');
+    const next = current === 'dark' ? 'light' : 'dark';
+    localStorage.setItem(THEME_KEY, next);
+    applyTheme(next);
+}
+
+function initTheme(){
+    // On load: read saved preference, otherwise respect OS preference
+    const saved = localStorage.getItem(THEME_KEY);
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const effective = saved || (prefersDark ? 'dark' : 'light');
+    applyTheme(effective);
+
+    // Attach click handler
+    const btn = document.getElementById('theme-toggle');
+    if(btn){
+        btn.addEventListener('click', toggleTheme);
+        // keyboard accessibility: Enter/Space
+        btn.addEventListener('keydown', function(e){
+            if(e.key === 'Enter' || e.key === ' '){
+                e.preventDefault();
+                toggleTheme();
+            }
+        });
+    }
+}
+
