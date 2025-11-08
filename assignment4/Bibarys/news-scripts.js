@@ -1,36 +1,3 @@
-function formatDateTime(date) {
-    const options = {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-        hour: 'numeric',
-        minute: '2-digit',
-        hour12: true,
-    };
-    return date.toLocaleString('ru-RU', options);
-}
-function displayDateTime() {
-    const now = new Date();
-    document.getElementById("date-time").textContent = formatDateTime(now);
-    if(now.getHours() >= 12){
-        document.getElementById("date-time").textContent = formatDateTime(now);
-    }
-}
-displayDateTime();
-setInterval(displayDateTime, 60000);
-
-const popup = document.getElementById("popupOverlay");
-function openPopup() {
-    popup.style.display = "flex";
-}
-function closePopup() {
-    popup.style.display = "none";
-}
-function outsideClick(e) {
-    if (e.target === popup) {
-        closePopup();
-    }
-}
 $(document).ready(function() {
     const $newsContainer = $('#news .row.g-4');
     const searchableElements = '.date, h3, p.text-secondary';
@@ -62,25 +29,6 @@ $(document).ready(function() {
     }
     $searchInput.on('input', applyHighlighting);
 });
-
-$(document).ready(function() {
-    const $text = $('#practice1');
-    const $button1 = $('#practice2');
-    const $division = $('#rrr');
-    function Addword() {
-        const text1 = $('#practice1').val().trim();
-        if (text1.length === 0) {
-            alert("fff")
-            return;
-        }
-        const $li = $('<li></li>').text(text1);
-        $division.append($li);
-        $text.val("");
-
-    }
-    $button1.on('click', Addword
-    );
-})
 $(document).ready(function() {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
