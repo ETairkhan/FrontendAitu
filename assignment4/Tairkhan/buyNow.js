@@ -374,55 +374,7 @@ function showColorToast(color) {
     }, 2000);
 }
 
-$(document).ready(function() {
-    console.log("jQuery is ready!");
-});
 
-  $(document).ready(function() {
-            // Real-time search and filter functionality
-            $('#search').on('keyup', function() {
-                var searchTerm = $(this).val().toLowerCase();
-
-                // Real-time filter for models
-                $('#models-list .model-item').each(function() {
-                    var modelName = $(this).text().toLowerCase();
-                    if (modelName.indexOf(searchTerm) === -1) {
-                        $(this).hide(); // Hide non-matching items
-                    } else {
-                        $(this).show(); // Show matching items
-                    }
-                });
-
-                // Autocomplete suggestions
-                const suggestions = ["A-Class", "C-Class", "E-Class", "S-Class", "GLA", "GLC", "GLE", "GLS"];
-                var matchedSuggestions = suggestions.filter(function(suggestion) {
-                    return suggestion.toLowerCase().includes(searchTerm);
-                });
-
-                // Clear previous suggestions and show new suggestions
-                $('#suggestions').empty().show();
-                matchedSuggestions.forEach(function(suggestion) {
-                    $('#suggestions').append('<li class="list-group-item">' + suggestion + '</li>');
-                });
-
-                if (matchedSuggestions.length === 0) {
-                    $('#suggestions').hide(); // Hide if no matches
-                }
-            });
-
-            // Allow selecting a suggestion
-            $('#suggestions').on('click', 'li', function() {
-                $('#search').val($(this).text());
-                $('#suggestions').hide();
-            });
-        });
-
-
-$(document).ready(function() {
-    $('#submitBtn').on('click', function() {
-        $('form').submit(); 
-    });
-});
 
 
 // Task: Dark/Light Mode Toggle
@@ -439,7 +391,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (savedTheme === 'dark') {
         themeToggleButton.textContent = '🌙';  // Dark mode
     } else {
-        themeToggleButton.textContent = '🌞';  // Light mode
+        themeToggleButton.textContent = '☀️';  // Light mode
     }
 });
 
@@ -454,5 +406,5 @@ function toggleTheme() {
 
     // Change the icon of the button based on the new theme
     const themeToggleButton = document.getElementById('theme-toggle');
-    themeToggleButton.textContent = newTheme === 'dark' ? '🌙' : '🌞';
+    themeToggleButton.textContent = newTheme === 'dark' ? '🌙' : '☀️';
 }
