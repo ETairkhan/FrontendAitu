@@ -257,10 +257,28 @@ function initPopupForm() {
 
 function showPopup() {
     const popup = document.getElementById('popup-overlay');
+    const isDark = document.body.classList.contains('dark');
+    
+    // Apply theme styles directly when showing popup
+    const popupContent = popup.querySelector('.popup-content');
+    if (isDark) {
+        popupContent.style.cssText = `
+            background: #1e1e1e;
+            color: #e6eef6;
+            border: 1px solid #444;
+        `;
+        // Apply styles to all form elements...
+    } else {
+        popupContent.style.cssText = `
+            background: #ffffff;
+            color: #333333;
+            border: 1px solid #e0e0e0;
+        `;
+    }
+    
     popup.style.display = 'flex';
     document.body.style.overflow = 'hidden';
 }
-
 function closePopup() {
     const popup = document.getElementById('popup-overlay');
     popup.style.display = 'none';
@@ -305,74 +323,6 @@ function validateSubscribeForm() {
     return isValid;
 }
 
-// Task 4: Change Background Color
-function initColorChanger() {
-    const colorButton = document.createElement('button');
-    colorButton.id = 'color-changer';
-    colorButton.className = 'btn btn-warning position-fixed';
-    colorButton.style.cssText = `
-        bottom: 20px;
-        right: 20px;
-        z-index: 1000;
-        border-radius: 50%;
-        width: 60px;
-        height: 60px;
-        font-size: 0.8rem;
-        border: none;
-        cursor: pointer;
-    `;
-    colorButton.textContent = '🎨';
-    colorButton.title = 'Change background color';
-    
-    const colors = [
-        '#f8f9fa', 
-        '#e9ecef', 
-        '#dee2e6', 
-        '#ffffff', 
-        '#f1f3f4',
-        '#e3f2fd',
-        '#f3e5f5'
-    ];
-    let currentColorIndex = 0;
-    
-    colorButton.addEventListener('click', function() {
-        currentColorIndex = (currentColorIndex + 1) % colors.length;
-        document.body.style.backgroundColor = colors[currentColorIndex];
-        
-        // Show current color name
-        showColorToast(colors[currentColorIndex]);
-    });
-    
-    document.body.appendChild(colorButton);
-}
-
-function showColorToast(color) {
-    const colorNames = {
-        '#f8f9fa': 'Light Gray',
-        '#e9ecef': 'Silver',
-        '#dee2e6': 'Gray',
-        '#ffffff': 'White',
-        '#f1f3f4': 'Cloud White',
-        '#e3f2fd': 'Light Blue',
-        '#f3e5f5': 'Light Purple'
-    };
-    
-    // Remove existing toast if any
-    const existingToast = document.querySelector('.color-toast');
-    if (existingToast) {
-        existingToast.remove();
-    }
-    
-    const toast = document.createElement('div');
-    toast.className = 'color-toast';
-    toast.textContent = `Background: ${colorNames[color] || color}`;
-    
-    document.body.appendChild(toast);
-    
-    setTimeout(() => {
-        toast.remove();
-    }, 2000);
-}
 
 
 
