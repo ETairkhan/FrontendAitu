@@ -57,7 +57,7 @@ body { font-size: 1rem; }
 
 /* ===== NAVBAR ===== */
 .custom-navbar {
-    background: var(--nav-bg) !important;
+    background: rgba(0, 0, 0, 0.92) !important;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
@@ -66,14 +66,21 @@ body { font-size: 1rem; }
 }
 
 .navbar-nav .nav-link {
-    color: var(--nav-link) !important;
+    color: #fff !important;
     margin: 0 8px;
     font-size: 1rem;
     transition: color 0.2s;
 }
 
 .navbar-nav .nav-link:hover {
-    color: var(--muted) !important;
+    color: #b6b6b6 !important;
+}
+
+/* Mobile navbar adjustments */
+@media (max-width: 991.98px) {
+   .navbar-collapse {
+      margin-top: 15px;
+   }
 }
 
 /* ===== HERO ===== */

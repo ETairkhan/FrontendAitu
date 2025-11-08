@@ -376,6 +376,7 @@ function showColorToast(color) {
 
 
 
+
 // Task: Dark/Light Mode Toggle
 document.addEventListener('DOMContentLoaded', function() {
     // Apply the saved theme (if any)
@@ -390,7 +391,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (savedTheme === 'dark') {
         themeToggleButton.textContent = '🌙';  // Dark mode
     } else {
-        themeToggleButton.textContent = '🌞';  // Light mode
+        themeToggleButton.textContent = '☀️';  // Light mode
     }
 });
 
@@ -405,5 +406,5 @@ function toggleTheme() {
 
     // Change the icon of the button based on the new theme
     const themeToggleButton = document.getElementById('theme-toggle');
-    themeToggleButton.textContent = newTheme === 'dark' ? '🌙' : '🌞';
+    themeToggleButton.textContent = newTheme === 'dark' ? '🌙' : '☀️';
 }
