@@ -187,7 +187,6 @@ body.dark .card-text {
     color: #cbd5e0 !important;
 }
 
-
 /* ===== FORM THEME STYLES ===== */
 .bg-white {
     background-color: #ffffff !important;
@@ -341,3 +340,5 @@ body.dark .form-check-input:checked {
 body.dark .rounded.shadow {
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4) !important;
 }
+
+

@@ -257,10 +257,28 @@ function initPopupForm() {
 
 function showPopup() {
     const popup = document.getElementById('popup-overlay');
+    const isDark = document.body.classList.contains('dark');
+    
+    // Apply theme styles directly when showing popup
+    const popupContent = popup.querySelector('.popup-content');
+    if (isDark) {
+        popupContent.style.cssText = `
+            background: #1e1e1e;
+            color: #e6eef6;
+            border: 1px solid #444;
+        `;
+        // Apply styles to all form elements...
+    } else {
+        popupContent.style.cssText = `
+            background: #ffffff;
+            color: #333333;
+            border: 1px solid #e0e0e0;
+        `;
+    }
+    
     popup.style.display = 'flex';
     document.body.style.overflow = 'hidden';
 }
-
 function closePopup() {
     const popup = document.getElementById('popup-overlay');
     popup.style.display = 'none';
