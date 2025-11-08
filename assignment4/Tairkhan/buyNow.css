@@ -149,3 +149,195 @@ body.dark .btn-outline-light:hover {
 body.dark .container form,.text-center{
     color:black;
 }
+
+.section-title {
+    color: #333; /* Черный в светлой теме */
+}
+
+body.dark .section-title {
+    color: #ffffff !important; /* Белый в темной теме */
+}
+
+.card-body{
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+body.dark .card-body{
+    background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+}
+
+.card-text {
+    color: #4a5568;
+    transition: color 0.3s ease;
+}
+
+.card-title {
+    color: #2d3748;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+body.dark .card-title {
+    color: #f7fafc !important;
+}
+
+body.dark .card-text {
+    color: #cbd5e0 !important;
+}
+
+
+/* ===== FORM THEME STYLES ===== */
+.bg-white {
+    background-color: #ffffff !important;
+    color: #333333;
+}
+
+body.dark .bg-white {
+    background-color: #1e1e1e !important;
+    color: #e6eef6;
+}
+
+.form-label {
+    color: #333333;
+    transition: color 0.3s ease;
+}
+
+body.dark .form-label {
+    color: #e6eef6 !important;
+}
+
+.form-control, .form-select {
+    background-color: #ffffff;
+    color: #333333;
+    border: 1px solid #ced4da;
+    transition: all 0.3s ease;
+}
+
+body.dark .form-control,
+body.dark .form-select {
+    background-color: #2d2d2d !important;
+    color: #e6eef6 !important;
+    border-color: #555555 !important;
+}
+
+.form-control:focus, .form-select:focus {
+    background-color: #ffffff;
+    color: #333333;
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+body.dark .form-control:focus,
+body.dark .form-select:focus {
+    background-color: #2d2d2d !important;
+    color: #e6eef6 !important;
+    border-color: #66b3ff !important;
+    box-shadow: 0 0 0 0.2rem rgba(102, 179, 255, 0.25) !important;
+}
+
+/* Text colors in form */
+body.dark .form-check-label,
+body.dark .text-primary,
+body.dark .fw-semibold {
+    color: #e6eef6 !important;
+}
+
+/* Links in form */
+.text-decoration-none {
+    color: #007bff;
+    transition: color 0.3s ease;
+}
+
+body.dark .text-decoration-none {
+    color: #66b3ff !important;
+}
+
+.text-decoration-none:hover {
+    color: #0056b3;
+}
+
+body.dark .text-decoration-none:hover {
+    color: #99ccff !important;
+}
+
+/* Star rating */
+.star {
+    color: #6c757d;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+body.dark .star {
+    color: #b0b0b0 !important;
+}
+
+.star:hover {
+    color: #ffc107;
+}
+
+.text-warning {
+    color: #ffc107 !important;
+}
+
+/* Text muted for rating label */
+.text-muted {
+    color: #6c757d !important;
+}
+
+body.dark .text-muted {
+    color: #b0b0b0 !important;
+}
+
+/* Form headings */
+h2.text-center {
+    color: #333333;
+    transition: color 0.3s ease;
+}
+
+body.dark h2.text-center {
+    color: #e6eef6 !important;
+}
+
+/* Checkbox styling */
+.form-check-input {
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+}
+
+body.dark .form-check-input {
+    background-color: #2d2d2d;
+    border-color: #555555;
+}
+
+.form-check-input:checked {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+body.dark .form-check-input:checked {
+    background-color: #66b3ff;
+    border-color: #66b3ff;
+}
+
+/* Button styling */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* Shadow for form container */
+.rounded.shadow {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+body.dark .rounded.shadow {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4) !important;
+}
