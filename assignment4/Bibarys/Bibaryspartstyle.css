@@ -14,6 +14,12 @@
     --muted-text: #6c757d;
     --border-color: rgba(0,0,0,.125);
     --shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    --btn-border: #000000;
+    --btn-bg: #ffffff;
+    --btn-text: #000000;
+    --btn-hover-bg: #007bff;
+    --btn-hover-text: #ffffff;
+    --btn-hover-border: #007bff;
 }
 
 [data-theme="dark"] {
@@ -29,6 +35,12 @@
     --muted-text: #a0a0a0;
     --border-color: rgba(255,255,255,.125);
     --shadow: 0 0.125rem 0.25rem rgba(255, 255, 255, 0.075);
+    --btn-border: #ffffff;
+    --btn-bg: transparent;
+    --btn-text: #ffffff;
+    --btn-hover-bg: #00aeff;
+    --btn-hover-text: #000000;
+    --btn-hover-border: #00aeff;
 }
 
 /* Base styles */
@@ -39,7 +51,7 @@ html, body {
 body {
     background-color: var(--primary-background);
     color: var(--primary-text);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.5s ease, color 0.3s ease;
     font-family: system-ui, -apple-system, Segoe UI, Inter, Roboto, Arial, sans-serif;
     padding-top: 76px; /* Height of navbar */
 }
@@ -513,4 +525,26 @@ body {
     display: flex;
     justify-content: center;
     height: 250px;
+}
+/* Base button style */
+.buttons {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid var(--btn-border);
+    border-radius: 8px;
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    text-decoration: none;          /* remove underline */
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-right: 1px;
+}
+
+/* Hover and focus effects */
+.buttons:hover,
+.buttons:focus {
+    background-color: var(--btn-hover-bg);
+    color: var(--btn-hover-text);
+    border-color: var(--btn-hover-border);
+    text-decoration: none;
 }
