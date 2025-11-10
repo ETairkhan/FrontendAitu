@@ -45,34 +45,43 @@ document.getElementById('change-bg-btn')?.addEventListener('click', function() {
         let textColor = 'rgb(' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ')';
         document.body.style.color = textColor; });
 
-const themeToggleButton = document.getElementById('theme-toggle');
-const themeText = document.getElementById('theme-text');
-const themeIcon = document.getElementById('theme-icon');
-
-// Проверка, есть ли уже в localStorage сохранённый выбор темы
-if(localStorage.getItem('theme') === 'dark') {
-    document.body.classList.add('dark-theme');
-    themeText.textContent = 'Светлая тема';
-    themeIcon.textContent = '🌞';
-} else {
-    document.body.classList.remove('dark-theme');
-    themeText.textContent = 'Тёмная тема';
-    themeIcon.textContent = '🌙';
-}
-
-// Слушатель события для кнопки переключения темы
-themeToggleButton.addEventListener('click', () => {
-    // Переключаем класс на body
-    document.body.classList.toggle('dark-theme');
-
-    // Проверяем текущий режим и обновляем текст и иконку
-    if (document.body.classList.contains('dark-theme')) {
-        themeText.textContent = 'Светлая тема';
-        themeIcon.textContent = '🌞';
-        localStorage.setItem('theme', 'dark'); // Сохраняем выбор в localStorage
-    } else {
-        themeText.textContent = 'Тёмная тема';
-        themeIcon.textContent = '🌙';
-        localStorage.setItem('theme', 'light'); // Сохраняем выбор в localStorage
+// Theme toggle functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    // Function to toggle theme
+    function toggleTheme() {
+        document.documentElement.setAttribute('data-theme', 
+            document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'
+        );
+        
+        // Update button text/icon
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        themeToggleBtn.innerHTML = isDark ? '☀️ <span class="visually-hidden">Switch to light mode</span>' : 
+                                          '🌙 <span class="visually-hidden">Switch to dark mode</span>';
+        themeToggleBtn.setAttribute('aria-pressed', isDark);
+        
+        // Save preference to localStorage
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
     }
+
+    // Initialize theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        const isDark = savedTheme === 'dark';
+        themeToggleBtn.innerHTML = isDark ? '☀️ <span class="visually-hidden">Switch to light mode</span>' : 
+                                          '🌙 <span class="visually-hidden">Switch to dark mode</span>';
+        themeToggleBtn.setAttribute('aria-pressed', isDark);
+    } else {
+        const isDark = prefersDarkScheme.matches;
+        document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+        themeToggleBtn.innerHTML = isDark ? '☀️ <span class="visually-hidden">Switch to light mode</span>' : 
+                                          '🌙 <span class="visually-hidden">Switch to dark mode</span>';
+        themeToggleBtn.setAttribute('aria-pressed', isDark);
+    }
+
+    // Add click handler
+    themeToggleBtn.addEventListener('click', toggleTheme);
 });
