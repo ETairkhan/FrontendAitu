@@ -27,25 +27,3 @@ $(document).ready(function() {
     });
 });
 
-$(document).ready(function() {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') {
-        $('body').addClass('light-mode').removeClass('bg-black text-white');
-        $('#themeToggle').text('🌙 Dark Mode');
-    } else {
-        $('body').removeClass('light-mode').addClass('bg-black text-white');
-        $('#themeToggle').text('☀️ Light Mode');
-    }
-    $('#themeToggle').on('click', function() {
-        $('body').toggleClass('light-mode bg-black text-white');
-
-        // Update button text
-        if ($('body').hasClass('light-mode')) {
-            $(this).text('🌙 Dark Mode');
-            localStorage.setItem('theme', 'light');
-        } else {
-            $(this).text('☀️ Light Mode');
-            localStorage.setItem('theme', 'dark');
-        }
-    });
-});
