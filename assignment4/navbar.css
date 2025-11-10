@@ -1,0 +1,67 @@
+.custom-navbar {
+    background: rgba(0, 0, 0, 0.92) !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 0.5rem 0;
+}
+
+.navbar-brand img {
+    height: 38px;
+}
+
+.nav-link {
+    color: #fff !important;
+    font-size: 1rem;
+    padding: 0.5rem 1rem !important;
+    transition: opacity 0.3s;
+}
+
+.nav-link:hover {
+    opacity: 0.8;
+}
+
+.theme-toggle {
+    color: #fff;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.3s;
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+}
+
+.theme-toggle:hover {
+    opacity: 0.8;
+}
+
+.btn-outline-light {
+    border: 1px solid #fff;
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-light:hover {
+    background-color: #fff !important;
+    color: #000 !important;
+}
+
+/* Dark mode styles */
+:root {
+    --bg: #f8f8f8;
+    --text: #222222;
+    --primary: #007bff;
+    --nav-bg: rgba(0,0,0,0.92);
+    --nav-link: #ffffff;
+    --card-bg: #ffffff;
+    --muted: #6c757d;
+}
+
+body.dark {
+    --bg: #0b0f12;
+    --text: #e6eef6;
+    --primary: #66b2ff;
+    --nav-bg: #071017;
+    --nav-link: #e6eef6;
+    --card-bg: #0f1416;
+    --muted: #c1c7cc;
+}

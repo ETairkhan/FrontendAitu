@@ -1,3 +1,9 @@
+/* Auth buttons styling */
+.btn-outline-light:hover {
+    background-color: #fff !important;
+    color: #000 !important;
+}
+
 /* Form Validation Styles */
 .is-invalid {
     border: 2px solid #dc3545 !important;
