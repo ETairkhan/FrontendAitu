@@ -20,6 +20,9 @@
     --btn-hover-bg: #007bff;
     --btn-hover-text: #ffffff;
     --btn-hover-border: #007bff;
+    --flip-back-bg: linear-gradient(135deg, #f9f9f9, #eaeaea);
+    --flip-back-text: #000000;
+
 }
 
 [data-theme="dark"] {
@@ -41,11 +44,13 @@
     --btn-hover-bg: #00aeff;
     --btn-hover-text: #000000;
     --btn-hover-border: #00aeff;
+    --flip-back-bg: linear-gradient(135deg, #0a0a0a, #1e1e1e);
+    --flip-back-text: #ffffff;
 }
 
 /* Base styles */
-html, body { 
-    height: 100%; 
+html, body {
+    height: 100%;
 }
 
 body {
@@ -57,29 +62,31 @@ body {
 }
 
 /* Component styles */
-.hero-title { 
-    letter-spacing: .2px; 
+.hero-title {
+    letter-spacing: .2px;
     color: var(--primary-text);
 }
 
-.gallery-item { 
-    height: 240px; 
+.gallery-item {
+    height: 240px;
     background-color: var(--card-background);
     border: 1px solid var(--border-color);
     box-shadow: var(--shadow);
 }
 
-.gallery-img { 
-    object-fit: cover; 
+
+
+.gallery-img {
+    object-fit: cover;
 }
 
-.hover-card { 
+.hover-card {
     transition: transform 0.2s ease, background-color 0.3s ease;
     background-color: var(--card-background);
     color: var(--primary-text);
 }
 
-.hover-card:hover { 
+.hover-card:hover {
     transform: translateY(-3px);
     background-color: var(--card-hover-background);
 }
@@ -273,6 +280,7 @@ body {
     font-size: 15px;
 }
 
+
 .legacy .table div {
     padding: 8px 0;
     border-bottom: 1px solid rgba(255,255,255,.06);
@@ -453,6 +461,7 @@ body {
     transition: background 0.3s;
 }
 
+
 .accordion-content {
     max-height: 0;
     overflow: hidden;
@@ -547,4 +556,73 @@ body {
     color: var(--btn-hover-text);
     border-color: var(--btn-hover-border);
     text-decoration: none;
+}
+
+/* --- 3D Flip Card --- */
+.flip-card {
+    perspective: 1000px;
+    width: 100%;
+    height: 350px;
+}
+
+.flip-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.9s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.flip-card:hover .flip-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-front, .flip-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    backface-visibility: hidden;
+    box-shadow: var(--shadow);
+}
+
+/* FRONT SIDE */
+.flip-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: transform 0.5s ease;
+}
+
+.flip-card:hover .flip-front img {
+    transform: scale(1.05);
+}
+
+/* BACK SIDE */
+.flip-back {
+    background: var(--flip-back-bg);
+    color: var(--flip-back-text);
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 25px;
+}
+
+.flip-back a.btn {
+    margin-top: 10px;
+    border: 2px solid var(--flip-back-text);
+    color: var(--flip-back-text);
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.flip-back a.btn:hover {
+    background: var(--flip-back-text);
+    color: var(--flip-back-bg);
+    transform: scale(1.05);
 }
