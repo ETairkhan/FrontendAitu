@@ -38,6 +38,12 @@ body {
     flex-direction: column;
 }
 
+/* Auth buttons styling */
+.btn-outline-light:hover {
+    background-color: #fff !important;
+    color: #000 !important;
+}
+
 /* ===== RESPONSIVE TYPOGRAPHY (Task 1) ===== */
 body { font-size: 1rem; }
 .hero-title { font-size: 1.8rem; }
