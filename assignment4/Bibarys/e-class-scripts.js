@@ -38,19 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add click handler
     themeToggleBtn.addEventListener('click', toggleTheme);
 });
-function toggleAccordion(header) {
-    const content = header.nextElementSibling;
-    const isOpen = content.classList.contains('open');
-    document.querySelectorAll('.accordion-content').forEach(el => {
-        el.style.maxHeight = null;
-        el.classList.remove('open');
-        el.style.padding = '0 20px';
-    });
-    if (!isOpen) {
-        content.classList.add('open');
-        content.style.maxHeight = content.scrollHeight + 'px';
-    }
-}
+
 
 $(document).ready(function() {
     const $bar = $('.sp-bar');

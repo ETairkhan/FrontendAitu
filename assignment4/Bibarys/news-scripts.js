@@ -3,17 +3,28 @@ $(document).ready(function() {
     const searchableElements = '.date, h3, p.text-secondary';
     const highlightClass = 'highlight';
     const $searchInput = $('#highlightSearch');
+
+    // 🧠 Restore saved search term from localStorage
+    const savedKeyword = localStorage.getItem('newsSearch');
+    if (savedKeyword) {
+        $searchInput.val(savedKeyword);
+    }
+
     function removeHighlights() {
         $newsContainer.find(`span.${highlightClass}`).each(function() {
             $(this).contents().unwrap();
         });
     }
+
     function applyHighlighting() {
         const keyword = $searchInput.val().trim();
+
+        // 💾 Save keyword to localStorage
+        localStorage.setItem('newsSearch', keyword);
+
         removeHighlights();
-        if (keyword.length === 0) {
-            return;
-        }
+
+        if (keyword.length === 0) return;
 
         const escapedKeyword = keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
         const regex = new RegExp('(' + escapedKeyword + ')', 'gi');
@@ -27,7 +38,12 @@ $(document).ready(function() {
             }
         });
     }
+
+    // 🔍 Apply highlighting live
     $searchInput.on('input', applyHighlighting);
+
+    // 🚀 Re-apply highlight after reload if keyword existed
+    applyHighlighting();
 });
 // Theme toggle functionality
 document.addEventListener('DOMContentLoaded', function() {
