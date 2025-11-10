@@ -70,7 +70,7 @@
         </p>
         <div class="btn-group mt-4" role="group">
             <a href="#news" class="btn btn-outline-light">К новостям</a>
-            <a href="#offers" class="btn btn-primary">Спец-предложения</a>
+            <a href="../David/special.html" class="btn btn-primary">Спец-предложения</a>
         </div>
     </div>
 </section>
@@ -132,80 +132,8 @@
     </div>
 </section>
 
-<section class="py-5">
-    <div class="container">
-        <div class="bg-white rounded shadow p-4 p-md-5 mx-auto text-dark" style="max-width: 800px;">
-            <h2 class="text-center mb-4 fw-normal">Связаться с нами</h2>
-            <form class="row g-3">
-                <div class="col-md-6">
-                    <label class="form-label">Имя *</label>
-                    <input type="text" class="form-control form-control-lg" required>
-                </div>
-                <div class="col-md-6">
-                    <label class="form-label">Телефон *</label>
-                    <input type="tel" class="form-control form-control-lg" required>
-                </div>
-                <div class="col-md-12">
-                    <label class="form-label">Email *</label>
-                    <input type="email" class="form-control form-control-lg" required>
-                </div>
-                <div class="col-md-12">
-                    <label class="form-label text-primary">Сообщение *</label>
-                    <textarea class="form-control form-control-lg" rows="4" required></textarea>
-                </div>
-                <div class="col-12">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="agree" required>
-                        <label for="agree" class="form-check-label small">
-                            Согласен(а) на обработку персональных данных согласно
-                            <a href="https://www.mercedes-benz-kazakhstan.com/site/terms-conditions/" target="_blank">Политике конфиденциальности</a>.
-                        </label>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <button class="btn btn-primary btn-lg w-100">Отправить</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</section>
-<section class="py-3 bg-dark text-white text-center">
-    <div class="container">
-        <h5>Текущая дата и время:</h5>
-        <div id="date-time" class="fw-bold"></div>
-    </div>
-</section>
-<div class="text-center my-4">
-    <button class="btn btn-primary btn-lg" onclick="openPopup()">Подписаться на новости</button>
-</div>
-<div class="popup-overlay" id="popupOverlay" onclick="outsideClick(event)">
-    <div class="popup-form" onclick="event.stopPropagation()">
-        <button class="close-btn" onclick="closePopup()">&times;</button>
-        <h2 class="mb-3">Подписка на обновления</h2>
-        <form>
-            <input type="text" placeholder="Ваше имя" required />
-            <input type="email" placeholder="Ваш email" required />
-            <button type="submit" class="btn btn-primary w-100">Подписаться</button>
-        </form>
-    </div>
-</div>
-<!-- Footer Section from task 1 | assignment 8 -->
 <footer class="bg-dark text-white text-center py-3 mt-auto border-top border-secondary">
     <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <h5>Запросить сейчас</h5>
-                <p><a href="../Tairkhan/buyNow.html">Клик</a></p>
-            </div>
-            <div class="col-md-4">
-                <h5>Новости</h5>
-                <p><a href="../Bibarys/news.html">Клик</a></p>
-            </div>
-            <div class="col-md-4">
-                <h5>Спецпредложения</h5>
-                <p><a href="../David/special.html">Клик</a></p>
-            </div>
-        </div>
         <p class="mt-3">Tairkhan | David | Yeraly | Bibarys | SE-2412</p>
     </div>
 </footer>

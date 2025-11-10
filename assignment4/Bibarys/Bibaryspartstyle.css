@@ -59,6 +59,7 @@ body.light-mode .btn-outline-light:hover {
     background: #f5f5f5;
     color: #000;
 }
+
 .legacy {
     background: #111;
     color: var(--white);
@@ -72,11 +73,6 @@ body.light-mode .btn-outline-light:hover {
     margin: 0 auto;
     padding: 0 24px;
 }
-
-.legacy .muted { color: #b6b6b6; }
-.legacy .small { font-size: 12px; }
-.legacy .mt0 { margin-top: 0; }
-.legacy .mt-auto { margin-top: auto; }
 
 .legacy header {
     position: fixed;
@@ -412,45 +408,6 @@ body.light-mode .btn-outline-light:hover {
 .legacy .gallery figure:hover img { transform: scale(1.05); }
 .legacy .gallery figure:hover figcaption { transform: translateY(0); }
 
-.popup-overlay {
-     display: none;
-     position: fixed;
-     top: 0; left: 0;
-     width: 100%; height: 100%;
-     background-color: rgba(0, 0, 0, 0.6);
-     justify-content: center;
-     align-items: center;
-     z-index: 1050;
-}
-
-.popup-form {
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 400px;
-    position: relative;
-    color: #000;
-}
-
-.popup-form input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-.popup-form .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 24px;
-    background: none;
-    border: none;
-    color: #888;
-}
-
 .accordion {
     max-width: 50%;
     margin: 0 auto;
@@ -482,21 +439,6 @@ body.light-mode .btn-outline-light:hover {
 
 .accordion-content.open {
     padding: 15px 20px;
-}
-#text_changer{
-    padding: 20px;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    width: 300px;
-    margin: 0 auto;
-    font-size: 18px;
-}
-#last_btn{
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-left: 40%;
 }
 #scroll-progress {
     position: fixed;
@@ -550,4 +492,13 @@ body.light-mode .btn-outline-light:hover {
     font-weight: bold;
     padding: 0 2px;
     border-radius: 3px;
+}
+.carousel-images{
+    height: 650px;
+    width: 100%;
+}
+.trims-images{
+    display: flex;
+    justify-content: center;
+    height: 250px;
 }
