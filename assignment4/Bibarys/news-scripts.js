@@ -3,17 +3,28 @@ $(document).ready(function() {
     const searchableElements = '.date, h3, p.text-secondary';
     const highlightClass = 'highlight';
     const $searchInput = $('#highlightSearch');
+
+    // 🧠 Restore saved search term from localStorage
+    const savedKeyword = localStorage.getItem('newsSearch');
+    if (savedKeyword) {
+        $searchInput.val(savedKeyword);
+    }
+
     function removeHighlights() {
         $newsContainer.find(`span.${highlightClass}`).each(function() {
             $(this).contents().unwrap();
         });
     }
+
     function applyHighlighting() {
         const keyword = $searchInput.val().trim();
+
+        // 💾 Save keyword to localStorage
+        localStorage.setItem('newsSearch', keyword);
+
         removeHighlights();
-        if (keyword.length === 0) {
-            return;
-        }
+
+        if (keyword.length === 0) return;
 
         const escapedKeyword = keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
         const regex = new RegExp('(' + escapedKeyword + ')', 'gi');
@@ -27,22 +38,50 @@ $(document).ready(function() {
             }
         });
     }
+
+    // 🔍 Apply highlighting live
     $searchInput.on('input', applyHighlighting);
+
+    // 🚀 Re-apply highlight after reload if keyword existed
+    applyHighlighting();
 });
-$(document).ready(function() {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-        $('body').addClass('dark-mode');
-        $('#themeToggle').text('☀️ Light Mode');
+// Theme toggle functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    // Function to toggle theme
+    function toggleTheme() {
+        document.documentElement.setAttribute('data-theme', 
+            document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'
+        );
+        
+        // Update button text/icon
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        themeToggleBtn.innerHTML = isDark ? '☀️ <span class="visually-hidden">Switch to light mode</span>' : 
+                                          '🌙 <span class="visually-hidden">Switch to dark mode</span>';
+        themeToggleBtn.setAttribute('aria-pressed', isDark);
+        
+        // Save preference to localStorage
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
     }
-    $('#themeToggle').on('click', function() {
-        $('body').toggleClass('dark-mode');
-        if ($('body').hasClass('dark-mode')) {
-            localStorage.setItem('theme', 'dark');
-            $(this).text('☀️ Light Mode');
-        } else {
-            localStorage.setItem('theme', 'light');
-            $(this).text('🌙 Dark Mode');
-        }
-    });
+
+    // Initialize theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        const isDark = savedTheme === 'dark';
+        themeToggleBtn.innerHTML = isDark ? '☀️ <span class="visually-hidden">Switch to light mode</span>' : 
+                                          '🌙 <span class="visually-hidden">Switch to dark mode</span>';
+        themeToggleBtn.setAttribute('aria-pressed', isDark);
+    } else {
+        const isDark = prefersDarkScheme.matches;
+        document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+        themeToggleBtn.innerHTML = isDark ? '☀️ <span class="visually-hidden">Switch to light mode</span>' : 
+                                          '🌙 <span class="visually-hidden">Switch to dark mode</span>';
+        themeToggleBtn.setAttribute('aria-pressed', isDark);
+    }
+
+    // Add click handler
+    themeToggleBtn.addEventListener('click', toggleTheme);
 });

@@ -74,6 +74,8 @@ body {
     box-shadow: var(--shadow);
 }
 
+
+
 .gallery-img {
     object-fit: cover;
 }
@@ -278,6 +280,7 @@ body {
     font-size: 15px;
 }
 
+
 .legacy .table div {
     padding: 8px 0;
     border-bottom: 1px solid rgba(255,255,255,.06);
@@ -457,6 +460,7 @@ body {
     color: white;
     transition: background 0.3s;
 }
+
 
 .accordion-content {
     max-height: 0;

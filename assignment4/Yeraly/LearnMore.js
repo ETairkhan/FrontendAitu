@@ -1,4 +1,60 @@
+function toggleTheme() {
+    console.log("Toggle theme function called");
+    
+    const body = document.body;
+    const themeToggle = document.getElementById("theme-toggle");
+    
+    if (!themeToggle) {
+        console.error("Theme toggle button not found!");
+        return;
+    }
+    
+    // Toggle dark mode
+    body.classList.toggle("dark-mode");
+    
+    // Update button icon and save preference
+    if (body.classList.contains("dark-mode")) {
+        themeToggle.innerHTML = "☀️";
+        localStorage.setItem("theme", "dark");
+        console.log("Dark mode activated");
+    } else {
+        themeToggle.innerHTML = "🌙";
+        localStorage.setItem("theme", "light");
+        console.log("Light mode activated");
+    }
+}
 
+// Apply saved theme on page load
+function applySavedTheme() {
+    const savedTheme = localStorage.getItem("theme");
+    const themeToggle = document.getElementById("theme-toggle");
+    
+    console.log("Applying saved theme:", savedTheme);
+    
+    if (savedTheme === "dark") {
+        document.body.classList.add("dark-mode");
+        if (themeToggle) {
+            themeToggle.innerHTML = "☀️";
+        }
+    }
+}
+
+// Initialize everything
+function init() {
+    console.log("Initializing page...");
+    
+    // Apply saved theme
+    applySavedTheme();
+    
+    // Add event listener to theme toggle button
+    const themeToggle = document.getElementById("theme-toggle");
+    if (themeToggle) {
+        console.log("Theme toggle button found, adding event listener");
+        themeToggle.addEventListener("click", toggleTheme);
+    } else {
+        console.error("Theme toggle button not found!");
+    }
+  }
 
 
 
@@ -32,7 +88,7 @@ document.getElementById('showTimeButton').addEventListener('click', function() {
   document.getElementById('navbarMenu').addEventListener('keydown', function (event) {
     if (event.key === 'ArrowDown') {
     
-      currentIndex = (currentIndex + 1) % menuItems.length; // 
+      currentIndex = (currentIndex + 1) % menuItems.length;  
     } else if (event.key === 'ArrowUp') {
      
       currentIndex = (currentIndex - 1 + menuItems.length) % menuItems.length; 
@@ -44,63 +100,57 @@ document.getElementById('showTimeButton').addEventListener('click', function() {
 });
 
 
+function toggleTheme() {
+  const body = document.body;
+  const themeToggle = document.getElementById("theme-toggle");
 
   
-  
-function displayGreeting() {
-  const currentHour = new Date().getHours();
-  let greeting;
+  body.classList.toggle("dark-mode");
 
-  if (currentHour >= 5 && currentHour < 12) {
-    greeting = "Доброе утро!";
-  } else if (currentHour >= 12 && currentHour < 18) {
-    greeting = "Добрый день!";
+  if (body.classList.contains("dark-mode")) {
+    themeToggle.innerHTML = "☀️"; 
+    localStorage.setItem("theme", "dark");
   } else {
-    greeting = "Добрый вечер!";
+    themeToggle.innerHTML = "🌙";  
+    localStorage.setItem("theme", "light");
   }
+}
 
+
+function applySavedTheme() {
+  const savedTheme = localStorage.getItem("theme");
+  const themeToggle = document.getElementById("theme-toggle");
+
+  if (savedTheme === "dark") {
+    document.body.classList.add("dark-mode");
+    if (themeToggle) {
+      themeToggle.innerHTML = "☀️";
+    }
+  }
+}
+
+
+function init() {
  
-  document.querySelector("#greeting").innerText = greeting;
-}
+  applySavedTheme();
 
-window.onload = displayGreeting;
-
-function toggleNavbarMenu() {
-  const navbarMenu = document.getElementById("navbarMenu");
-  navbarMenu.classList.toggle("active");
-}
-
-document.getElementById("navbarToggle").addEventListener("click", toggleNavbarMenu);
-
-
-
-
-
-$(document).ready(function() {
-  $('#enquiryForm').submit(function(event) {
-    event.preventDefault(); 
-    
-    $('#submitButton').html('<i class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></i> Please wait...').prop('disabled', true);
-
-    
-    setTimeout(function() {
-      
-      $('#submitButton').html('Submit Enquiry').prop('disabled', false);
-
-      
-      alert("Form Submitted Successfully!"); 
-    }, 2000); 
-  });
-});
-
-// $(document).ready(function(){
-
-//   $("#btnexam").click(function(){
-//     $("#change").fadeIn();
   
-//   });
-//   $("#btn2").click(function(){
-//     $("#change").fadeOut();
-//   })
-// });
+  const themeToggle = document.getElementById("theme-toggle");
+  if (themeToggle) {
+    themeToggle.addEventListener("click", toggleTheme);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', init);
+
+
+
+
+  
+  
+
+
+
+
+
 

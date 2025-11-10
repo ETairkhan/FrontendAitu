@@ -154,117 +154,10 @@ function createCustomAccordion() {
     }
 }
 
-// Task 5: Display Current Date and Time in Footer
-function createDateTimeDisplay() {
-    // Create datetime container for footer
-    const datetimeContainer = document.createElement('div');
-    datetimeContainer.className = 'datetime-footer bg-dark text-light py-3';
-    datetimeContainer.innerHTML = `
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <div class="datetime-content">
-                        <div class="current-datetime mb-2">
-                            <strong class="text-info">Current Date & Time:</strong>
-                            <span id="current-datetime" class="ms-2 text-white"></span>
-                        </div>
-                        <div class="page-loaded">
-                            <strong class="text-success">Page Loaded:</strong>
-                            <span id="page-loaded-time" class="ms-2 text-white">${new Date().toLocaleString()}</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <div class="footer-info">
-                        <p class="mb-1 text-muted">&copy; ${new Date().getFullYear()} Mercedes-Benz. All rights reserved.</p>
-                        <p class="mb-0 small text-muted">This page is for demonstration purposes only.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `;
-    
-    // Insert into footer
-    const footer = document.querySelector('footer');
-    if (footer) {
-        // Remove any existing content from footer
-        footer.innerHTML = '';
-        footer.appendChild(datetimeContainer);
-    }
-    
-    updateDateTime();
-    
-    // Update time every second
-    setInterval(updateDateTime, 1000);
-}
-
-function updateDateTime() {
-    const now = new Date();
-    
-    // Format options for current datetime
-    const options = { 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: true
-    };
-    
-    const formattedDateTime = now.toLocaleDateString('en-US', options);
-    const datetimeElement = document.getElementById('current-datetime');
-    
-    if (datetimeElement) {
-        datetimeElement.textContent = formattedDateTime;
-    }
-}
-
-// Enhanced footer with additional information
-function enhanceFooter() {
-    const footer = document.querySelector('footer');
-    if (footer) {
-        // Add some interactive elements
-        const interactiveSection = document.createElement('div');
-        interactiveSection.className = 'interactive-footer bg-secondary text-white py-4';
-        interactiveSection.innerHTML = `
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 mb-3 mb-lg-0">
-                        <h5 class="mb-3">Quick Links</h5>
-                        <ul class="list-unstyled">
-                            <li><a href="../David/cclass.html" class="text-light text-decoration-none">C-Class</a></li>
-                            <li><a href="../Bibarys/Eclass.html" class="text-light text-decoration-none">E-Class</a></li>
-                            <li><a href="../Tairkhan/sclass.html" class="text-light text-decoration-none">S-Class</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-4 mb-3 mb-lg-0">
-                        <h5 class="mb-3">Resources</h5>
-                        <ul class="list-unstyled">
-                            <li><a href="../Bibarys/news.html" class="text-light text-decoration-none">News & Updates</a></li>
-                            <li><a href="../David/special.html" class="text-light text-decoration-none">Special Offers</a></li>
-                            <li><a href="../Tairkhan/buyNow.html" class="text-light text-decoration-none">Contact Us</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-4">
-                        <h5 class="mb-3">Team Members</h5>
-                        <p class="mb-2 text-light">Tairkhan | David | Yeraly | Bibarys</p>
-                        <p class="mb-0 text-muted">SE-2412</p>
-                    </div>
-                </div>
-            </div>
-        `;
-        
-        footer.parentNode.insertBefore(interactiveSection, footer);
-    }
-}
-
 // Initialize all features
 document.addEventListener('DOMContentLoaded', function() {
     createAccordion();
     createCustomAccordion();
-    createDateTimeDisplay();
-    enhanceFooter();
     // Initialize theme (day/night) and hook up toggle
     initTheme();
 });
@@ -318,4 +211,72 @@ function initTheme(){
         });
     }
 }
+
+// -----------------------
+// Price animation (count up) for elements with class 'price-tag'
+// -----------------------
+function formatPrice(num){
+    // format integer like 24900000 -> "₸ 24 900 000"
+    if(isNaN(num)) return num;
+    const parts = num.toString().split('');
+    let out = '';
+    let count = 0;
+    for(let i = parts.length - 1; i >= 0; i--){
+        out = parts[i] + out;
+        count++;
+        if(count === 3 && i !== 0){ out = ' ' + out; count = 0; }
+    }
+    return '₸ ' + out;
+}
+
+function animateCount(el, target, duration = 1000){
+    target = Number(target) || 0;
+    const start = 0;
+    const startTime = performance.now();
+
+    function tick(now){
+        const progress = Math.min((now - startTime) / duration, 1);
+        const current = Math.floor(start + (target - start) * progress);
+        el.textContent = formatPrice(current);
+        if(progress < 1){
+            requestAnimationFrame(tick);
+        } else {
+            el.textContent = formatPrice(target); // ensure exact
+        }
+    }
+    requestAnimationFrame(tick);
+}
+
+function setupPriceAnimations(){
+    const priceEls = document.querySelectorAll('.price-tag[data-price]');
+    if(!priceEls.length) return;
+
+    // Set initial placeholder
+    priceEls.forEach(el => {
+        // show zero until animated
+        el.textContent = formatPrice(0);
+        // hover should re-trigger animation
+        el.addEventListener('mouseenter', () => {
+            animateCount(el, el.getAttribute('data-price'), 900);
+        });
+    });
+
+    // Animate when entering viewport
+    const io = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting){
+                const el = entry.target;
+                animateCount(el, el.getAttribute('data-price'), 1200);
+                obs.unobserve(el);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    priceEls.forEach(el => io.observe(el));
+}
+
+// initialize price animations on DOM ready
+document.addEventListener('DOMContentLoaded', function(){
+    setupPriceAnimations();
+});
 

@@ -12,7 +12,7 @@
 </head>
 <body>
    <!-- Bootstrap Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar fixed-top py-2">
+    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar fixed-top">
         <div class="container">
             <!-- Brand/Logo -->
             <a class="navbar-brand" href="../Yeraly/Mainpage.html">
@@ -43,10 +43,16 @@
                         <a class="nav-link" href="../David/special.html">Спец предложения</a>
                     </li>
                 </ul>
+                    <!-- Theme toggle -->
+                    <div class="d-flex align-items-center ms-3">
+                        <button id="theme-toggle" class="btn btn-sm theme-toggle" aria-pressed="false" aria-label="Toggle light and dark mode">🌙 <span class="visually-hidden">Toggle theme</span></button>
+                    </div>
+                    <!-- Auth buttons -->
+                    <div class="d-flex align-items-center ms-3">
+                        <a href="../signup.html" class="btn btn-outline-light btn-sm">Sign Up</a>
+                        <a href="../login.html" class="btn btn-outline-light btn-sm ms-2">Login</a>
+                    </div>
             </div>
-            <!-- Theme toggle button -->
-<button id="theme-toggle" class="btn btn-sm theme-toggle" aria-pressed="false" aria-label="Toggle light and dark mode">🌙</button>
-
         </div>
     </nav>
 
@@ -58,37 +64,12 @@
                 We are here to assist you with any questions about our vehicles, services, or dealerships. Please fill out the form below and we will get back to you shortly.
             </p>
             <div class="btn-group mt-4" role="group">
-                <a href="../Yeraly/LearnMore.html"><button type="button" class="btn btn-outline-light">Learn More</button></a>
                 <a href="https://api.whatsapp.com/send/?phone=77710990019&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C+%D0%BE%D0%B1%D1%80%D0%B0%D1%89%D0%B0%D1%8E%D1%81%D1%8C+%D0%BA+%D0%B2%D0%B0%D0%BC+%D1%81+%D1%81%D0%B0%D0%B9%D1%82%D0%B0%3A+https%3A%2F%2Fwww.mercedes-benz-kazakhstan.com%2F&type=phone_number&app_absent=0"><button type="button" class="btn btn-primary">Contact Us</button></a>
-                <a href="#models-section"><button type="button" class="btn btn-outline-light">View Models</button></a>
             </div>
         </div>
     </section>
 
-    <!-- Search Section for Real-Time Filtering & Autocomplete Suggestions -->
-    <section class="py-5">
-        <div class="container">
-            <!-- Search Bar -->
-            <div class="mb-4">
-                <input type="text" id="search" class="form-control" placeholder="Search models...">
-            </div>
 
-            <!-- Models List for Filtering -->
-            <ul id="models-list">
-                <li class="model-item">A-Class</li>
-                <li class="model-item">C-Class</li>
-                <li class="model-item">E-Class</li>
-                <li class="model-item">S-Class</li>
-                <li class="model-item">GLA</li>
-                <li class="model-item">GLC</li>
-                <li class="model-item">GLE</li>
-                <li class="model-item">GLS</li>
-            </ul>
-
-            <!-- Suggestions List for Autocomplete -->
-            <ul id="suggestions" class="list-group" style="display: none;"></ul>
-        </div>
-    </section>
 
     <!-- Form Section with Grid Layout -->
     <section class="py-5" >
@@ -178,7 +159,7 @@
     </section>
 
     <!-- Card Section with Bootstrap -->
-    <section class="py-5 bg-light">
+    <section class="py-5 ">
         <div class="container">
             <h2 class="section-title text-center mb-5 fw-normal">Why Choose Mercedes-Benz?</h2>
             <div class="row g-4 justify-content-center">
@@ -266,25 +247,12 @@
 <!-- Footer Section from task 1 | assignment 8 -->
    <footer class="bg-dark text-white text-center py-3 mt-auto border-top border-secondary">
        <div class="container">
-           <div class="row">
-               <div class="col-md-4">
-                   <h5>Запросить сейчас</h5>
-                   <p><a href="../Tairkhan/buyNow.html">Клик</a></p>
-               </div>
-               <div class="col-md-4">
-                   <h5>Новости</h5>
-                   <p><a href="../Bibarys/news.html">Клик</a></p>
-               </div>
-               <div class="col-md-4">
-                   <h5>Спецпредложения</h5>
-                   <p><a href="../David/special.html">Клик</a></p>
-               </div>
-           </div>
            <p class="mt-3">Tairkhan | David | Yeraly | Bibarys | SE-2412</p>
        </div>
    </footer>
     <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="buyNow.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+   
 </body>
 </html>
