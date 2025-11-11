@@ -1,79 +1,5 @@
-function toggleTheme() {
-    console.log("Toggle theme function called");
-    
-    const body = document.body;
-    const themeToggle = document.getElementById("theme-toggle");
-    
-    if (!themeToggle) {
-        console.error("Theme toggle button not found!");
-        return;
-    }
-    
-    // Toggle dark mode
-    body.classList.toggle("dark-mode");
-    
-    // Update button icon and save preference
-    if (body.classList.contains("dark-mode")) {
-        themeToggle.innerHTML = "☀️";
-        localStorage.setItem("theme", "dark");
-        console.log("Dark mode activated");
-    } else {
-        themeToggle.innerHTML = "🌙";
-        localStorage.setItem("theme", "light");
-        console.log("Light mode activated");
-    }
-}
-
-// Apply saved theme on page load
-function applySavedTheme() {
-    const savedTheme = localStorage.getItem("theme");
-    const themeToggle = document.getElementById("theme-toggle");
-    
-    console.log("Applying saved theme:", savedTheme);
-    
-    if (savedTheme === "dark") {
-        document.body.classList.add("dark-mode");
-        if (themeToggle) {
-            themeToggle.innerHTML = "☀️";
-        }
-    }
-}
-
-// Initialize everything
-function init() {
-    console.log("Initializing page...");
-    
-    // Apply saved theme
-    applySavedTheme();
-    
-    // Add event listener to theme toggle button
-    const themeToggle = document.getElementById("theme-toggle");
-    if (themeToggle) {
-        console.log("Theme toggle button found, adding event listener");
-        themeToggle.addEventListener("click", toggleTheme);
-    } else {
-        console.error("Theme toggle button not found!");
-    }
-  }
 
 
-
-document.getElementById('showTimeButton').addEventListener('click', function() {
-      
-      let currentTime = new Date().toLocaleTimeString();
-      
-      
-      let timeDisplay = document.getElementById('timeDisplay');
-      
-      
-      if (timeDisplay.textContent === "") {
-        
-        timeDisplay.textContent = currentTime;
-      } else {
-        
-        timeDisplay.textContent = "";
-      }
-    });
 
 
 
@@ -99,58 +25,86 @@ document.getElementById('showTimeButton').addEventListener('click', function() {
   });
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    var carouselElement = document.getElementById('mercedesCarousel');
+    var carousel = new bootstrap.Carousel(carouselElement, {
+        interval: 2000, 
+        ride: 'carousel'  
+    });
 
-function toggleTheme() {
-  const body = document.body;
-  const themeToggle = document.getElementById("theme-toggle");
+   
+    document.querySelector('.carousel-control-next').addEventListener('click', function() {
+        carousel.next();
+    });
 
-  
-  body.classList.toggle("dark-mode");
-
-  if (body.classList.contains("dark-mode")) {
-    themeToggle.innerHTML = "☀️"; 
-    localStorage.setItem("theme", "dark");
-  } else {
-    themeToggle.innerHTML = "🌙";  
-    localStorage.setItem("theme", "light");
-  }
-}
+    
+    document.querySelector('.carousel-control-prev').addEventListener('click', function() {
+        carousel.prev();
+    });
+});
 
 
-function applySavedTheme() {
-  const savedTheme = localStorage.getItem("theme");
-  const themeToggle = document.getElementById("theme-toggle");
 
-  if (savedTheme === "dark") {
-    document.body.classList.add("dark-mode");
-    if (themeToggle) {
-      themeToggle.innerHTML = "☀️";
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const themeToggle = document.getElementById('theme-toggle');
+    const savedTheme = localStorage.getItem('theme');
+    
+    // Применяем сохраненную тему при загрузке
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark');
+        themeToggle.textContent = '☀️';
+        themeToggle.setAttribute('aria-pressed', 'true');
+    } else {
+        document.body.classList.remove('dark');
+        themeToggle.textContent = '🌙';
+        themeToggle.setAttribute('aria-pressed', 'false');
     }
+    
+    themeToggle.addEventListener('click', function() {
+        document.body.classList.toggle('dark');
+        
+        if (document.body.classList.contains('dark')) {
+            localStorage.setItem('theme', 'dark');
+            themeToggle.textContent = '☀️';
+            themeToggle.setAttribute('aria-pressed', 'true');
+        } else {
+            localStorage.setItem('theme', 'light');
+            themeToggle.textContent = '🌙';
+            themeToggle.setAttribute('aria-pressed', 'false');
+        }
+    });
+});
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.getElementById('theme-toggle');
+  const html = document.documentElement;
+
+  // Загрузка темы
+  if (localStorage.getItem('theme') === 'dark') {
+    html.setAttribute('data-theme', 'dark');
+    toggle.textContent = '☀️';
+  } else {
+    toggle.textContent = '🌙';
   }
-}
 
-
-function init() {
- 
-  applySavedTheme();
-
-  
-  const themeToggle = document.getElementById("theme-toggle");
-  if (themeToggle) {
-    themeToggle.addEventListener("click", toggleTheme);
-  }
-}
-
-document.addEventListener('DOMContentLoaded', init);
-
-
-
-
-  
-  
-
-
-
-
-
-
+  // Переключение
+  toggle.addEventListener('click', () => {
+    if (html.getAttribute('data-theme') === 'dark') {
+      html.removeAttribute('data-theme');
+      localStorage.setItem('theme', 'light');
+      toggle.textContent = '🌙';
+    } else {
+      html.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+      toggle.textContent = '☀️';
+    }
+  });
+});
