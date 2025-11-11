@@ -1,224 +1,364 @@
-/* Стили для тёмной темы */
-body.dark-theme {
-    background-color: #333;
-    color: #f8f8f8;
+/* ANIMATIONS */
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
-/* Обновленные стили для меню */
-header.dark-theme {
-    background-color: #222;
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
-header .nav a.dark-theme {
-    color: #f8f8f8;  /* Светлый цвет текста в тёмной теме */
+@keyframes glowingButton {
+    0% { box-shadow: 0 0 5px var(--primary); }
+    50% { box-shadow: 0 0 20px var(--primary); }
+    100% { box-shadow: 0 0 5px var(--primary); }
 }
 
-header .nav a.dark-theme:hover {
-    color: #00adef;
+@keyframes rotateIcon {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
-/* Фон и текст для элементов меню */
-.dark-theme .bg-white {
-    background-color: #444;  /* Более тёмный фон для блоков */
-    color: #f8f8f8;  /* Светлый текст для контента */
+@keyframes textWave {
+    0%, 100% { transform: translateY(0); }
+    25% { transform: translateY(-3px); }
+    75% { transform: translateY(3px); }
 }
 
-/* Стили для карточек автомобилей */
-.dark-theme #car-list li {
-    background-color: #555;  /* Тёмный фон для карточек */
-    color: #fff;  /* Белый текст */
+:root {
+    --bg: #f8f8f8;
+    --text: #222222;
+    --primary: #007bff;
+    --nav-bg: rgba(0,0,0,0.92);
+    --nav-link: #ffffff;
+    --card-bg: #ffffff;
+    --muted: #6c757d;
+    --hero-bg: #000000;
+    --hero-text: #ffffff;
 }
 
-.dark-theme #car-list li:hover {
-    background-color: #666;  /* Более светлый фон при наведении */
-    color: #fff;  /* Белый текст */
+body.dark {
+    --bg: #0b0f12;
+    --text: #e6eef6;
+    --primary: #66b2ff;
+    --nav-bg: #071017;
+    --nav-link: #e6eef6;
+    --card-bg: #0f1416;
+    --muted: #c1c7cc;
+    --hero-bg: #000000;
+    --hero-text: #ffffff;
 }
 
-/* Кнопки в тёмной теме */
-button.dark-theme {
-    background-color: #4CAF50;
-    color: #fff;
-}
-
-button.dark-theme:hover {
-    background-color: #45a049;
-}
-
-a.dark-theme {
-    color: #fff;
-}
-
-a.dark-theme:hover {
-    color: #00adef;
-}
-/* Заголовок для секции "Отфильтрованные автомобили" */
-.dark-theme #carListSection h2 {
-    color: #f8f8f8; /* Убедитесь, что цвет текста светлый в тёмной теме */
-}
-/* Заголовок для секции "Меню" */
-.dark-theme header .fw-bold {
-    color: #f8f8f8; /* Убедитесь, что цвет текста светлый в тёмной теме */
-}
-/* General Button Styling */
-.btn {
-    transition: all 0.3s ease;
-    border-radius: 25px;
-    padding: 12px 30px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    border: none;
-    cursor: pointer;
-    color: white;
-    margin: 5px;
-    min-width: 150px;
-    background: linear-gradient(45deg, #4a90e2, #63b8ff); /* Мягкий синий градиент */
-    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
-}
-
-/* Общий стиль при наведении */
-.btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(74, 144, 226, 0.5);
-    background: linear-gradient(45deg, #63b8ff, #85c9ff); /* Более светлый градиент при наведении */
-}
-
-/* Общий стиль при нажатии */
-.btn:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 10px rgba(74, 144, 226, 0.3);
-}
-
-/* Existing Styles (unchanged) */
-body {
+* {
+    box-sizing: border-box;
     margin: 0;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    background-color: #f8f8f8;
-    color: #333;
-    line-height: 1.5;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* HEADER */
-header {
-    background-color: #343a40;
-    padding: 20px 0;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+body {
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-header a:hover {
-    color: #00adef !important;
+/* Animated Elements */
+.hero-title {
+    font-size: 1.8rem;
+    animation: slideInFromLeft 1s ease-out;
 }
 
-header .nav a {
-    transition: all 0.3s ease;
+.btn {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    position: relative;
 }
 
-header .nav a:hover {
-    color: #00adef;
+.btn:hover {
+    transform: translateY(-3px);
+    animation: glowingButton 2s infinite;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transition: width 0.6s ease, height 0.6s ease;
+    transform: translate(-50%, -50%);
+}
+
+.btn:active::after {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+}
+
+.feature-title {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.feature-title:hover {
+    animation: textWave 1s ease infinite;
+}
+
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.car-image:hover {
     transform: scale(1.05);
+    filter: brightness(1.1) contrast(1.1);
+}
+
+.feature-icon:hover {
+    animation: rotateIcon 1s linear infinite;
+}
+
+.price-tag:hover {
+    transform: scale(1.1);
+}
+
+/* NAVBAR */
+.custom-navbar {
+    background: var(--nav-bg) !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.navbar-brand img {
+    height: 38px;
+}
+
+.navbar-nav .nav-link {
+    color: var(--nav-link) !important;
+    margin: 0 8px;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #b6b6b6 !important;
 }
 
 /* HERO */
 .logo {
-    width: 100%;
-    height: 65vh;
-    background: linear-gradient(120deg, #000000, #333333, #555555);
-    background-size: 200% 200%;
-    animation: gradientMove 8s ease infinite;
-    margin-top: 60px;
-    position: relative;
+    height: 60vh;
+    background: var(--hero-bg);
+    overflow: hidden;
 }
 
 .logo h1 {
-    font-size: 3rem;
-    z-index: 1;
-    text-shadow: 0 4px 12px rgba(0,0,0,0.6);
+    color: var(--hero-text);
     animation: fadeInUp 1.8s ease forwards;
     opacity: 0;
     transform: translateY(20px);
 }
 
-/* ГАЛЕРЕЯ */
-.gallery-caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.6);
-    color: #fff;
-    text-align: center;
-    padding: 8px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.position-relative:hover .gallery-caption {
-    opacity: 1;
-}
-
-/* Список автомобилей */
-#car-list {
-    list-style: none;
-    padding: 0;
-}
-
-#car-list li {
-    background-color: #fff;
-    padding: 20px;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+/* ACCORDION */
+.accordion-button {
+    font-weight: 600;
+    padding: 1.25rem 1.5rem;
     transition: all 0.3s ease;
 }
 
-#car-list li:hover {
-    background-color: #f1f1f1;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* Секция с фильтрацией */
-#carListSection h2 {
-    font-size: 1.8rem;
-    color: #333;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* Accordion */
 .accordion-button:not(.collapsed) {
-    background-color: #00adef;
+    background: linear-gradient(135deg, var(--primary) 0%, #0056b3 100%);
     color: white;
-    font-weight: bold;
+    box-shadow: 0 2px 10px rgba(0, 123, 255, 0.3);
 }
 
-.accordion-button {
-    font-size: 1.1rem;
-    padding: 12px;
+.accordion-button:focus {
+    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+    border-color: #007bff;
 }
 
 .accordion-body {
-    font-size: 1rem;
-    background-color: #f9f9f9;
+    background: #f8f9fa;
+    border-left: 3px solid var(--primary);
+    font-size: 1.05rem;
+    line-height: 1.6;
 }
 
-/* Анимации */
-@keyframes fadeInUp {
-    to { opacity: 1; transform: translateY(0); }
+.accordion-item {
+    border: 1px solid #dee2e6;
+    border-radius: 0.5rem !important;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s ease;
 }
 
-@keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+.accordion-item:hover {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
 }
+
+/* GALLERY */
+.gallery-item {
+    aspect-ratio: 4/3;
+    border-radius: 12px !important;
+}
+
+.gallery-img {
+    transition: transform 0.3s;
+}
+
+.gallery-caption {
+    transform: translateY(100%);
+    transition: transform 0.3s;
+}
+
+.gallery-item:hover .gallery-img {
+    transform: scale(1.05);
+}
+
+.gallery-item:hover .gallery-caption {
+    transform: translateY(0);
+}
+
+/* CARDS */
+.hover-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hover-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.15) !important;
+}
+
+/* PRICING */
+.price-tag {
+    display: inline-block;
+    animation: fadeInUp 0.8s ease;
+    transition: transform 0.3s ease;
+}
+
+/* DARK MODE */
+.dark .card,
+.dark .card-body,
+.dark .feature-card,
+.dark .gallery-caption,
+.dark .gallery-item,
+.dark .accordion-body,
+.dark .interactive-footer,
+.dark footer,
+.dark main {
+    color: var(--text) !important;
+    background-color: var(--card-bg) !important;
+    border-color: rgba(255,255,255,0.06) !important;
+}
+
+.dark .accordion-button,
+.dark .accordion-button:not(.collapsed) {
+    color: var(--text) !important;
+    background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .hero {
+        height: 50vh;
+    }
+
+    .carousel-item img {
+        height: 300px !important;
+    }
+
+    .navbar-collapse {
+        margin-top: 15px;
+    }
+
+    .btn-group {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero {
+        height: 40vh;
+    }
+
+    .carousel-item img {
+        height: 250px !important;
+    }
+}
+/* Добавлены специфические стили для аккордеона в темной теме */
+.dark .accordion-button {
+    color: #e6eef6 !important; /* Белый текст */
+    background-color: transparent !important;
+}
+
+.dark .accordion-button:not(.collapsed) {
+    color: #e6eef6 !important; /* Белый текст */
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%) !important;
+}
+
+/* Стили для кнопок в светлой теме */
+#show-c-class,
+#show-s-class,
+#show-e-class,
+#play-sound-btn,
+#stop-sound-btn,
+#filterCarsBtn,
+#resume-sound-btn {
+    color: #222 !important; /* Черный текст в светлой теме */
+    background-color: transparent !important;
+    border: none !important;
+}
+
+/* Стили для кнопок в темной теме */
+.dark #show-c-class,
+.dark #show-s-class,
+.dark #show-e-class,
+.dark #play-sound-btn,
+.dark #stop-sound-btn,
+.dark #filterCarsBtn,
+.dark #resume-sound-btn {
+    color: #e6eef6 !important; /* Белый текст в темной теме */
+    background-color: transparent !important;
+    border: none !important;
+}
+
+/* Дополнительные стили для улучшения видимости */
+#show-c-class:hover,
+#show-s-class:hover,
+#show-e-class:hover,
+#play-sound-btn:hover,
+#filterCarsBtn,
+#stop-sound
 
 .image-container {
     position: relative;
     width: 100%;
-    max-width: 600px;
-    height: 650px;
-    overflow: hidden;
+    max-width: 800px;
     margin: 0 auto;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
 .car-slide {
@@ -229,68 +369,105 @@ header .nav a:hover {
     height: 100%;
     object-fit: cover;
     opacity: 0;
-    transition: opacity 1s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
 }
 
 .car-slide.active {
     opacity: 1;
 }
-/* Для уведомлений */
-.toast {
-    animation: fadeout 3s ease-in-out;
+
+/* Добавим индикаторы */
+.image-indicators {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
 }
 
-@keyframes fadeout {
-    0% { opacity: 1; }
-    100% { opacity: 0; display: none; }
-}
-
-/* Для кнопок копирования */
-.copy-btn {
-    margin-left: 10px;
-    padding: 5px 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.copy-btn.checked {
-    background-color: #28a745;
-}
-/* Фиксированный размер только для image1 и image2 */
-.fixed-size-image-lazy {
-    width: 400px;          /* Ширина */
-    height: 400px;         /* Высота */
-    object-fit: cover;     /* Сохранение пропорций */
-    border-radius: 8px;    /* Скругление углов */
-    margin: 20px;           /* Отступы */
-}
-.copy-btn {
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 8px;
+.indicator {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0 6px;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.5);
     transition: background-color 0.3s;
 }
 
-.copy-btn.checked {
-    background-color: #28a745;
+.indicator.active {
+    background-color: #007bff;
 }
-/* Анимация исчезновения */
-#notification {
-    animation: fadeout 3s ease-in-out;
+.hover-card {
+    transition: all 0.4s ease;
+    opacity: 0;
+    transform: translateY(20px);
 }
 
-@keyframes fadeout {
-    0% { opacity: 1; }
-    100% { opacity: 0; display: none; }
+.hover-card.appear {
+    opacity: 1;
+    transform: translateY(0);
 }
-@media (max-width: 576px) {
-    .gallery-caption {
-        font-size: 0.8rem;
+/* Стили для кнопки фильтрации */
+#filterCarsBtn {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+#filterCarsBtn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+/* Анимация загрузки */
+.spinner-border {
+    display: none !important;
+}
+
+/* Стили для секции с автомобилями */
+#carListSection {
+    transition: opacity 0.5s ease;
+}
+
+/* Анимация появления */
+.list-group {
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
     }
-    .card-title {
-        font-size: 1rem;
+    100% {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
+/* === ЗАГЛУШКА ФИЛЬТРА — ВСЕГДА ЧИТАЕМАЯ === */
+.filter-placeholder {
+    color: var(--text) !important; /* Используем цвет текста из темы */
+    opacity: 0.8;
+    transition: color 0.3s ease;
+}
+
+.filter-placeholder p {
+    margin: 0;
+    font-weight: 500;
+}
+
+.filter-placeholder strong {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+/* Убедимся, что в тёмной теме текст белый */
+body.dark .filter-placeholder {
+    color: #e6eef6 !important;
+}
+
+body.dark .filter-placeholder strong {
+    color: #66b2ff !important;
+}
+

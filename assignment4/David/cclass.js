@@ -1,57 +1,83 @@
-// Объекты и методы
 // Глобальные переменные для звука
-let sound = new Audio('notification.mp3'); // Убедитесь, что файл существует по этому пути
-let isPlaying = false; // Флаг для проверки, проигрывается ли звук
-let currentTime = 0; // Переменная для хранения текущего времени воспроизведения
+let sound = new Audio('notification.mp3');
+let isPlaying = false;
+let currentTime = 0;
 
-// Массивы и циклы
-// Пример данных автомобилей
+// Массив автомобилей с изображениями
 const cars = [
-    { model: "C-Class", price: "31 160 000 ₸", description: "A luxury sedan with top-tier features." },
-    { model: "C-Class W204", price: "50 000 000 ₸", description: "The epitome of luxury and performance." },
-    { model: "W204", price: "34 310 000 ₸", description: "A perfect blend of style and performance." },
-    { model: "W206", price: "22 500 000 ₸", description: "A compact luxury hatchback." },
-    { model: "W203", price: "29 800 000 ₸", description: "A sporty and versatile compact car." }
+    { model: "C 180", price: "31 160 000 ₸", description: "A luxury sedan with top-tier features.", image: "img/c180.jpg" },
+    { model: "C 200", price: "34 310 000 ₸", description: "The epitome of luxury and performance.", image: "img/c200.jpg" },
+    { model: "AMG C 43 4MATIC", price: "50 000 000 ₸", description: "A perfect blend of style and performance.", image: "img/amg43.jpg" },
+    { model: "W206", price: "22 500 000 ₸", description: "A compact luxury hatchback.", image: "img/c-ext1.jpg" },
+    { model: "W203", price: "29 800 000 ₸", description: "A sporty and versatile compact car.", image: "img/c-ext2.jpg" }
 ];
 
-// Функция для фильтрации автомобилей по цене
-// Higher-Order Functions
+// Функция фильтрации
 function filterCars(cars, minPrice, maxPrice) {
     return cars.filter(car => {
-        const price = parseInt(car.price.replace(/\D/g, '')); // Убираем нечисловые символы
+        const price = parseInt(car.price.replace(/\D/g, ''));
         return price >= minPrice && price <= maxPrice;
     });
 }
 
-// Отображение отфильтрованных автомобилей
+// Отображение отфильтрованных автомобилей с карточками
 function displayCars(filteredCars) {
-    const carList = document.getElementById('car-list');
-    carList.innerHTML = ''; // Очищаем предыдущие данные
+    const container = document.getElementById('filtered-cars-container');
+    container.innerHTML = ''; // Полностью очищаем
 
-    filteredCars.forEach(car => {
-        const carItem = document.createElement('li');
-        carItem.classList.add('list-group-item');
-        carItem.innerHTML = `<strong>${car.model}</strong>: ${car.price} <br> ${car.description}`;
-        carList.appendChild(carItem);
+    if (filteredCars.length === 0) {
+        container.innerHTML = `
+            <div class="col-12 text-center text-muted py-5">
+                <p class="fs-5">Нет автомобилей в выбранном диапазоне цен.</p>
+            </div>`;
+        return;
+    }
+
+    filteredCars.forEach((car, index) => {
+        const col = document.createElement('div');
+        col.className = 'col-md-4 col-sm-6';
+
+        col.innerHTML = `
+            <div class="card shadow-sm border-0 h-100 hover-card" style="opacity: 0; transform: translateY(20px);">
+                <img src="${car.image}" class="card-img-top" alt="${car.model}" style="height: 200px; object-fit: cover;">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">${car.model}</h5>
+                    <p class="text-primary fw-semibold mt-auto">${car.price}</p>
+                    <p class="text-muted small">${car.description}</p>
+                </div>
+            </div>
+        `;
+
+        container.appendChild(col);
+
+        // Анимация появления с задержкой
+        setTimeout(() => {
+            col.querySelector('.hover-card').style.opacity = '1';
+            col.querySelector('.hover-card').style.transform = 'translateY(0)';
+        }, 100 + (index * 150));
     });
 }
 
-// Обработчик кнопки фильтрации
+// === КНОПКА FILTER — ЕДИНСТВЕННЫЙ ТРИГГЕР ===
 document.getElementById('filterCarsBtn').addEventListener('click', function() {
-    const minPrice = parseInt(document.getElementById('minPrice').value);
-    const maxPrice = parseInt(document.getElementById('maxPrice').value);
+    const minPrice = parseInt(document.getElementById('minPrice').value) || 0;
+    const maxPrice = parseInt(document.getElementById('maxPrice').value) || Infinity;
+
+    if (minPrice > maxPrice) {
+        showNotification('Минимальная цена не может быть больше максимальной!');
+        return;
+    }
 
     const filteredCars = filterCars(cars, minPrice, maxPrice);
-    displayCars(filteredCars); // Показываем отфильтрованные автомобили
+    displayCars(filteredCars);
 });
 
-// Форма регистрации
+// Форма
 document.getElementById('signup-form')?.addEventListener('submit', function(event) {
-    event.preventDefault(); // Предотвращаем отправку формы и перезагрузку страницы
-
-    let name = document.getElementById('name').value;
-    let email = document.getElementById('email').value;
-    let phone = document.getElementById('phone').value;
+    event.preventDefault();
+    let name = document.getElementById('name').value.trim();
+    let email = document.getElementById('email').value.trim();
+    let phone = document.getElementById('phone').value.trim();
 
     if (!name || !email || !phone) {
         showNotification('Пожалуйста, заполните все поля!');
@@ -64,195 +90,63 @@ document.getElementById('signup-form')?.addEventListener('submit', function(even
     }
 });
 
-// Аккордеон для FAQ
-document.querySelectorAll('.accordion-button').forEach((button) => {
-    button.addEventListener('click', function() {
-        let collapse = this.getAttribute('data-bs-target');
-        let content = document.querySelector(collapse);
-        content.classList.toggle('collapse');
-    });
-});
-
-// Объекты автомобилей
+// Объекты моделей
 const carModels = {
-    "C-Class": {
-        price: "31 160 000 ₸",
-        description: "A luxury sedan with top-tier features.",
-        showInfo: function() {
-            alert(`Model: C-Class\nPrice: ${this.price}\nDescription: ${this.description}`);
-        }
-    },
-    "S-Class": {
-        price: "50 000 000 ₸",
-        description: "The epitome of luxury and performance.",
-        showInfo: function() {
-            alert(`Model: S-Class\nPrice: ${this.price}\nDescription: ${this.description}`);
-        }
-    },
-    "E-Class": {
-        price: "34 310 000 ₸",
-        description: "A perfect blend of style and performance.",
-        showInfo: function() {
-            alert(`Model: E-Class\nPrice: ${this.price}\nDescription: ${this.description}`);
-        }
-    }
+    "C-Class": { price: "31 160 000 ₸", description: "A luxury sedan with top-tier features.", showInfo: function() { alert(`Model: C-Class\nPrice: ${this.price}\nDescription: ${this.description}`); } },
+    "S-Class": { price: "50 000 000 ₸", description: "The epitome of luxury and performance.", showInfo: function() { alert(`Model: S-Class\nPrice: ${this.price}\nDescription: ${this.description}`); } },
+    "E-Class": { price: "34 310 000 ₸", description: "A perfect blend of style and performance.", showInfo: function() { alert(`Model: E-Class\nPrice: ${this.price}\nDescription: ${this.description}`); } }
 };
 
-// Добавление событий для кнопок
 document.getElementById('show-c-class').addEventListener('click', () => carModels['C-Class'].showInfo());
 document.getElementById('show-s-class').addEventListener('click', () => carModels['S-Class'].showInfo());
 document.getElementById('show-e-class').addEventListener('click', () => carModels['E-Class'].showInfo());
 
-// Воспроизведение звука
-document.getElementById('play-sound-btn').addEventListener('click', function() {
-    if (!isPlaying) {  // Если звук не проигрывается, включаем его
-        sound.play();
-        sound.currentTime = currentTime; // Начинаем с сохранённой позиции
-        isPlaying = true;
-        console.log('Звук уведомления проигран');
-    }
-});
+// Звук
+document.getElementById('play-sound-btn').addEventListener('click', () => { if (!isPlaying) { sound.play(); sound.currentTime = currentTime; isPlaying = true; } });
+document.getElementById('stop-sound-btn').addEventListener('click', () => { sound.pause(); currentTime = sound.currentTime; isPlaying = false; });
+document.getElementById('resume-sound-btn').addEventListener('click', () => { if (!isPlaying) { sound.play(); sound.currentTime = currentTime; isPlaying = true; } });
 
-// Остановка звука
-document.getElementById('stop-sound-btn').addEventListener('click', function() {
-    sound.pause();  // Приостанавливаем звук
-    currentTime = sound.currentTime;  // Сохраняем текущую позицию в звуке
-    isPlaying = false;
-    console.log('Звук приостановлен');
-});
-
-// Возобновление звука
-document.getElementById('resume-sound-btn').addEventListener('click', function() {
-    if (!isPlaying) {
-        sound.play();  // Включаем звук снова с места приостановки
-        sound.currentTime = currentTime;
-        isPlaying = true;
-        console.log('Звук возобновлён');
-    }
-});
-
-// Слайдер изображений
-let currentIndex = 0;
-const images = document.querySelectorAll('.car-slide');
-const totalImages = images.length;
-
-if (totalImages > 0) {
-    images[currentIndex].classList.add('active');
-}
-
-// Функция для переключения изображений
-function showNextImage() {
-    if (totalImages === 0) return; // Проверка на наличие изображений
-    // Удаляем класс active у текущего изображения
-    images[currentIndex].classList.remove('active');
-    // Увеличиваем индекс, возвращаемся к 0, если достигли конца
-    currentIndex = (currentIndex + 1) % totalImages;
-    // Добавляем класс active к следующему изображению
-    images[currentIndex].classList.add('active');
-}
-// Показывать следующее изображение каждые 4 секунды
-setInterval(showNextImage, 4000);
-
-// Отображение текущей даты и времени
+// Время
 function updateDateTime() {
     let now = new Date();
-    document.getElementById('date-time').innerText = now.toLocaleString();
+    document.getElementById('date-time').innerText = now.toLocaleString('ru-RU', { timeZone: 'Asia/Almaty' });
 }
-setInterval(updateDateTime, 1000); // Обновление каждую секунду
+setInterval(updateDateTime, 1000);
 
-// Обработка нажатия клавиши Пробел
+// Пробел → красный фон
 window.addEventListener('keydown', function(event) {
     if (event.code === 'Space') {
         event.preventDefault();
-        document.body.style.backgroundColor = "red"
+        document.body.style.backgroundColor = "red";
+        setTimeout(() => document.body.style.backgroundColor = "", 500);
     }
 });
 
-// Новые функции
-// task 7: Уведомления при загрузке страницы
-// Функция для отображения уведомлений
+// Уведомление
 function showNotification(message) {
     const notification = document.getElementById('notification');
     notification.textContent = message;
     notification.style.display = 'block';
     notification.style.opacity = '1';
-
-    // Скрыть уведомление через 3 секунды
     setTimeout(() => {
         notification.style.opacity = '0';
         setTimeout(() => notification.style.display = 'none', 1000);
     }, 3000);
 }
 
-// Показать приветствие при загрузке страницы
-window.addEventListener('DOMContentLoaded', () => {
-    showNotification("Добро пожаловать");
-});
-
-// Задача 8: Копирование текста (все автомобили)
+// Копирование всех авто
 document.getElementById('copy-all-cars-btn').addEventListener('click', async () => {
-    let allCarsText = '';
-
-    // Собираем информацию обо всех автомобилях
-    cars.forEach(car => {
-        allCarsText += `${car.model} - ${car.price} - ${car.description}\n\n`;
-    });
-
+    let text = cars.map(car => `${car.model} - ${car.price} - ${car.description}`).join('\n\n');
     try {
-        await navigator.clipboard.writeText(allCarsText);
-        alert('Все данные о машинах скопированы!');
+        await navigator.clipboard.writeText(text);
+        showNotification('Данные скопированы в буфер обмена!');
     } catch (err) {
-        alert('Ошибка копирования!');
+        showNotification('Ошибка копирования!');
     }
 });
 
-
-// Задача 9: Ленивая загрузка изображений
-document.addEventListener("DOMContentLoaded", function() {
-    const images = document.querySelectorAll('.lazy-load');
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.getAttribute('data-src'); // Загружаем изображение
-                img.style.opacity = 1; // Плавное появление
-                observer.unobserve(img);
-            }
-        });
-    }, { threshold: 1 });
-
-    images.forEach(img => observer.observe(img));
-});
-// Получаем элементы
-const themeToggleButton = document.getElementById('theme-toggle');
-const themeText = document.getElementById('theme-text');
-const themeIcon = document.getElementById('theme-icon');
-
-// Проверка, есть ли уже в localStorage сохранённый выбор темы
-if(localStorage.getItem('theme') === 'dark') {
-    document.body.classList.add('dark-theme');
-    themeText.textContent = 'Светлая тема';
-    themeIcon.textContent = '🌞';
-} else {
-    document.body.classList.remove('dark-theme');
-    themeText.textContent = 'Тёмная тема';
-    themeIcon.textContent = '🌙';
-}
-
-// Слушатель события для кнопки переключения темы
-themeToggleButton.addEventListener('click', () => {
-    // Переключаем класс на body
-    document.body.classList.toggle('dark-theme');
-
-    // Проверяем текущий режим и обновляем текст и иконку
-    if (document.body.classList.contains('dark-theme')) {
-        themeText.textContent = 'Светлая тема';
-        themeIcon.textContent = '🌞';
-        localStorage.setItem('theme', 'dark'); // Сохраняем выбор в localStorage
-    } else {
-        themeText.textContent = 'Тёмная тема';
-        themeIcon.textContent = '🌙';
-        localStorage.setItem('theme', 'light'); // Сохраняем выбор в localStorage
-    }
+// === БЕЗ АВТОФИЛЬТРА ПРИ ЗАГРУЗКЕ ===
+document.addEventListener('DOMContentLoaded', () => {
+    updateDateTime(); // Только время
+    // НИКАКОГО filterCarsBtn.click()!
 });
