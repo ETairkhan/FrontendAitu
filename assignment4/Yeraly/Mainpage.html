@@ -11,51 +11,39 @@
   <link rel="stylesheet" href="../navbar.css">
   <link rel="stylesheet" href="style.css">
 
-<body>
-    <!-- Bootstrap Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar fixed-top">
-        <div class="container">
-            <!-- Brand/Logo -->
-            <a class="navbar-brand" href="Mainpage.html">
-                <img src="icons/merslogo.svg" alt="Mercedes-Benz Logo">
-            </a>
-            
-            <!-- Mobile toggle button -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <!-- Navigation links -->
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="../David/cclass.html">Седаны - С класс</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../Bibarys/Eclass.html">Седаны - Е класс</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../Tairkhan/sclass.html">Седаны - S класс</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../Bibarys/news.html">Новости</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../David/special.html">Спец предложения</a>
-                    </li>
-                </ul>
-                <!-- Theme toggle -->
-                <div class="d-flex align-items-center ms-3">
-                    <button id="theme-toggle" class="btn btn-sm theme-toggle" aria-pressed="false" aria-label="Toggle light and dark mode">🌙 <span class="visually-hidden">Toggle theme</span></button>
-                </div>
-                <!-- Auth buttons -->
-                <div class="d-flex align-items-center ms-3">
-                    <a href="../signup.html" class="btn btn-outline-light btn-sm">Sign Up</a>
-                    <a href="../login.html" class="btn btn-outline-light btn-sm ms-2">Login</a>
-                </div>
-            </div>
-        </div>
-    </nav>
+</head>
+<nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top px-3">
+  <div class="container-fluid">
+
+    
+    <a class="navbar-brand" href="Mainpage.html">
+      <img src="icons/merslogo.svg" alt="Mercedes-Benz Logo" style="height:35px;">
+    </a>
+
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
+      aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+    <div class="collapse navbar-collapse" id="navbarMenu">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="../David/cclass.html">Седаны - С класс</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../Bibarys/Eclass.html">Седаны - Е класс</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../Tairkhan/sclass.html">Седаны - S класс</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../Bibarys/news.html">Новости</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../David/special.html">Спец предложения</a>
+        </li>
       </ul>
       <button id="theme-toggle" class="theme-toggle ms-3" aria-label="Toggle Dark/Light Mode">
         🌙
@@ -84,30 +72,16 @@
 
 
 <main class="glc-body">
-  <section class="glc-hero">
-    <h1>Экстерьер электрического GLC — гармония элегантности, прогрессивного дизайна и динамики будущего.</h1>
-    <p class="subtitle">
-      Философия Sensual Purity выходит на новый уровень — с новым языком дизайна и динамичным купеобразным силуэтом
-      крыши,
-      который подчёркивает уверенный статус и безупречный стиль.
-    </p>
-  </section>
-
-
-  <section class="glc-section">
-    <div class="glc-hero">
-      <h1>Экстерьер электрического GLC — гармония элегантности, прогрессивного дизайна и динамики будущего.</h1>
-      <p class="subtitle">
-        Философия Sensual Purity выходит на новый уровень — с новым языком дизайна и динамичным купеобразным силуэтом
-        крыши,
-        который подчёркивает уверенный статус и безупречный стиль.
-      </p>
-    </div>
-    <hr>
-  </section>
 
   <div class="container my-5">
     <div class="row g-4">
+
+      <div class="cars_title">
+        <h1 id="ModelTitle" >Модельный ряд</h1>
+
+        <button type="button" class="block" style="cursor: default;"> Седаны</button>
+
+      </div>
 
       <div class="col-lg-4 col-md-6 col-sm-12">
         <div class="car p-3">
@@ -136,71 +110,30 @@
         </div>
       </div>
 
+      <div class="taxtext">
+        <pre>Цены указаны с учетом 12% НДС</pre>
+
+      </div>
+
     </div>
   </div>
+</main>
 
 
-  <div style="text-align:center; margin-top:40px;">
-    <button id="openFormBtn" class="subscribe-btn">Subscribe for Mercedes News</button>
+
+<section class="hero">
+  <img src="icons/secondBackgroud.avif" class="imageback" alt="Mercedes GLC">
+
+  <div class="hero-content">
+    <h1>Новые модели</h1>
+    <p>Скоро в продаже</p>
+    
   </div>
-  <div id="subscribersCount" style="text-align:center; margin-top:20px;">
-  <p>+0 people have subscribed</p>
-</div>
-
-  <div id="overlay"></div>
-  <div id="popupForm">
-    <form id="subscriptionForm">
-      <h3>Subscribe to Mercedes-Benz News</h3>
-
-      <label for="name">Full Name:</label>
-      <input type="text" id="name" placeholder="Enter your name" required />
-
-      <label for="email">Email Address:</label>
-      <input type="email" id="email" placeholder="example@mail.com" required />
-
-      <label for="model">Favorite Mercedes Model:</label>
-      <select id="model" required>
-        <option value="">Select a model</option>
-        <option value="C-Class">C-Class</option>
-        <option value="E-Class">E-Class</option>
-        <option value="S-Class">S-Class</option>
-        <option value="GLE">GLE SUV</option>
-        <option value="AMG GT">AMG GT</option>
-      </select>
-
-      <label for="message">Your Questions or Comments:</label>
-      <textarea id="message" rows="3" placeholder="Type here..."></textarea>
-
-      <button type="submit" class="submit-btn">Submit</button>
-      <button type="button" id="closeFormBtn" class="close-btn"> Close</button>
-    </form>
-  </div>
+</section>
 
 
 
-<br><br><br>
-  <div class="accordion">
-        <div class="accordion-item">
-            <button class="accordion-header">How to order</button>
-            <div class="accordion-content">
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias esse aspernatur fugit adipisci maiores consequatur distinctio recusandae autem quos rem.</p>
-            </div>
-        </div>
-
-        <div class="accordion-item">
-            <button class="accordion-header">differences between cars</button>
-            <div class="accordion-content">
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam aliquid a, laudantium nulla excepturi vel. Quia quis exercitationem assumenda sapiente.</p>
-            </div>
-        </div>
-        
-        <div class="accordion-item">
-            <button class="accordion-header">information about testDrive</button>
-            <div class="accordion-content">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati aut nemo velit esse numquam minima odio aliquid atque in quod.</p>
-            </div>
-        </div>
-    </div>
+  
 
 
 
@@ -209,6 +142,7 @@
 
 
 
+  
 
 
 
