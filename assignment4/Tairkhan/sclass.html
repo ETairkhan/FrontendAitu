@@ -44,6 +44,11 @@
                     <div class="d-flex align-items-center ms-3">
                         <button id="theme-toggle" class="btn btn-sm theme-toggle" aria-pressed="false" aria-label="Toggle light and dark mode">🌙 <span class="visually-hidden">Toggle theme</span></button>
                     </div>
+                    <!-- Auth buttons -->
+                    <div class="d-flex align-items-center ms-3">
+                        <a href="../signup.html" class="btn btn-outline-light btn-sm">Sign Up</a>
+                        <a href="../login.html" class="btn btn-outline-light btn-sm ms-2">Login</a>
+                    </div>
             </div>
         </div>
     </nav>
@@ -102,16 +107,16 @@
         <section class="container my-5">
             <div class="row g-0 shadow rounded overflow-hidden">
                 <div class="col-12 bg-dark text-white p-4 text-center">
-                    <h2 class="h3 mb-0">Mercedes-Benz S-Class: Обзор</h2>
+                    <h2 class="h3 mb-0 feature-title">Mercedes-Benz S-Class: Обзор</h2>
                 </div>
                 <aside class="col-md-3 bg-light p-4">
-                    <h3 class="h5 mb-3">Основные характеристики</h3>
+                    <h3 class="h5 mb-3 feature-title">Основные характеристики</h3>
                     <ul class="list-unstyled ps-3">
-                        <li class="mb-2">Двигатель: 3.0L I6 Turbo</li>
-                        <li class="mb-2">Мощность: 435 л.с.</li>
-                        <li class="mb-2">Крутящий момент: 520 Н·м</li>
-                        <li class="mb-2">Разгон 0-100 км/ч: 4.9 сек</li>
-                        <li>Расход топлива: 8.5 л/100км</li>
+                        <li class="mb-2"><span class="feature-icon">⚡</span> Двигатель: 3.0L I6 Turbo</li>
+                        <li class="mb-2"><span class="feature-icon">💪</span> Мощность: 435 л.с.</li>
+                        <li class="mb-2"><span class="feature-icon">🔄</span> Крутящий момент: 520 Н·м</li>
+                        <li class="mb-2"><span class="feature-icon">🏃</span> Разгон 0-100 км/ч: 4.9 сек</li>
+                        <li><span class="feature-icon">⛽</span> Расход топлива: 8.5 л/100км</li>
                     </ul>
                 </aside>
                 <main class="col-md-9 bg-white p-4">
@@ -128,7 +133,7 @@
       <!-- Image Gallery with Bootstrap Grid -->
         <section class="py-5 bg-light">
             <div class="container">
-                <h2 class="text-center mb-5 display-5 fw-normal">Галерея Mercedes-Benz S-Class</h2>
+                <h2 class="text-center mb-5 display-5 fw-normal feature-title">Галерея Mercedes-Benz S-Class</h2>
                 <div class="row g-4">
                     <div class="col-md-6 col-lg-4">
                         <div class="gallery-item position-relative overflow-hidden rounded">
@@ -137,9 +142,11 @@
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4">
-                        <div class="gallery-item position-relative overflow-hidden rounded">
-                            <img src="icons/front.jpg" alt="S-Class Front" class="gallery-img w-100 h-100 object-fit-cover">
-                            <div class="gallery-caption position-absolute start-0 end-0 bottom-0 bg-dark bg-opacity-75 text-white p-3 text-center fw-medium">Стильная решетка радиатора</div>
+                        <div class="gallery-item position-relative overflow-hidden rounded card">
+                            <img src="icons/front.jpg" alt="S-Class Front" class="gallery-img w-100 h-100 object-fit-cover car-image">
+                            <div class="gallery-caption position-absolute start-0 end-0 bottom-0 bg-dark bg-opacity-75 text-white p-3 text-center fw-medium">
+                                <span class="price-tag" data-price="22300000">₸ 22 300 000</span>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4">
@@ -210,7 +217,7 @@
                     </div>
                 </div>
                 <div class="text-center mt-4">
-                    <p class="fs-4 text-primary fw-semibold mb-2">Стоимость Mercedes-Benz S-Class в Казахстане: от <strong>75 000 000 ₸</strong></p>
+                    <p class="fs-4 text-primary fw-semibold mb-2">Стоимость Mercedes-Benz S-Class в Казахстане: от <strong><span class="price-tag" data-price="75000000">₸ 75 000 000</span></strong></p>
                     <p class="text-muted">(Цена актуальна на сентябрь 2025, зависит от комплектации и дилера)</p>
                 </div>
             </div>

@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
     initPopupForm();
-    initColorChanger();
     initStarRating();
 });
 

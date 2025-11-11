@@ -212,3 +212,71 @@ function initTheme(){
     }
 }
 
+// -----------------------
+// Price animation (count up) for elements with class 'price-tag'
+// -----------------------
+function formatPrice(num){
+    // format integer like 24900000 -> "₸ 24 900 000"
+    if(isNaN(num)) return num;
+    const parts = num.toString().split('');
+    let out = '';
+    let count = 0;
+    for(let i = parts.length - 1; i >= 0; i--){
+        out = parts[i] + out;
+        count++;
+        if(count === 3 && i !== 0){ out = ' ' + out; count = 0; }
+    }
+    return '₸ ' + out;
+}
+
+function animateCount(el, target, duration = 1000){
+    target = Number(target) || 0;
+    const start = 0;
+    const startTime = performance.now();
+
+    function tick(now){
+        const progress = Math.min((now - startTime) / duration, 1);
+        const current = Math.floor(start + (target - start) * progress);
+        el.textContent = formatPrice(current);
+        if(progress < 1){
+            requestAnimationFrame(tick);
+        } else {
+            el.textContent = formatPrice(target); // ensure exact
+        }
+    }
+    requestAnimationFrame(tick);
+}
+
+function setupPriceAnimations(){
+    const priceEls = document.querySelectorAll('.price-tag[data-price]');
+    if(!priceEls.length) return;
+
+    // Set initial placeholder
+    priceEls.forEach(el => {
+        // show zero until animated
+        el.textContent = formatPrice(0);
+        // hover should re-trigger animation
+        el.addEventListener('mouseenter', () => {
+            animateCount(el, el.getAttribute('data-price'), 900);
+        });
+    });
+
+    // Animate when entering viewport
+    const io = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting){
+                const el = entry.target;
+                animateCount(el, el.getAttribute('data-price'), 1200);
+                obs.unobserve(el);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    priceEls.forEach(el => io.observe(el));
+}
+
+// initialize price animations on DOM ready
+document.addEventListener('DOMContentLoaded', function(){
+    setupPriceAnimations();
+});
+

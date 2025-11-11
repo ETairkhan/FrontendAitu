@@ -1,52 +1,30 @@
-function formatDateTime(date) {
-    const options = {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-        hour: 'numeric',
-        minute: '2-digit',
-        hour12: true,
-    };
-    return date.toLocaleString('ru-RU', options);
-}
-function displayDateTime() {
-    const now = new Date();
-    document.getElementById("date-time").textContent = formatDateTime(now);
-    if(now.getHours() >= 12){
-        document.getElementById("date-time").textContent = formatDateTime(now);
-    }
-}
-displayDateTime();
-setInterval(displayDateTime, 60000);
-
-const popup = document.getElementById("popupOverlay");
-function openPopup() {
-    popup.style.display = "flex";
-}
-function closePopup() {
-    popup.style.display = "none";
-}
-function outsideClick(e) {
-    if (e.target === popup) {
-        closePopup();
-    }
-}
 $(document).ready(function() {
     const $newsContainer = $('#news .row.g-4');
     const searchableElements = '.date, h3, p.text-secondary';
     const highlightClass = 'highlight';
     const $searchInput = $('#highlightSearch');
+
+    // 🧠 Restore saved search term from localStorage
+    const savedKeyword = localStorage.getItem('newsSearch');
+    if (savedKeyword) {
+        $searchInput.val(savedKeyword);
+    }
+
     function removeHighlights() {
         $newsContainer.find(`span.${highlightClass}`).each(function() {
             $(this).contents().unwrap();
         });
     }
+
     function applyHighlighting() {
         const keyword = $searchInput.val().trim();
+
+        // 💾 Save keyword to localStorage
+        localStorage.setItem('newsSearch', keyword);
+
         removeHighlights();
-        if (keyword.length === 0) {
-            return;
-        }
+
+        if (keyword.length === 0) return;
 
         const escapedKeyword = keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
         const regex = new RegExp('(' + escapedKeyword + ')', 'gi');
@@ -60,63 +38,50 @@ $(document).ready(function() {
             }
         });
     }
+
+    // 🔍 Apply highlighting live
     $searchInput.on('input', applyHighlighting);
+
+    // 🚀 Re-apply highlight after reload if keyword existed
+    applyHighlighting();
 });
-
-$(document).ready(function() {
-    const $text = $('#practice1');
-    const $button1 = $('#practice2');
-    const $division = $('#rrr');
-    function Addword() {
-        const text1 = $('#practice1').val().trim();
-        if (text1.length === 0) {
-            alert("fff")
-            return;
-        }
-        const $li = $('<li></li>').text(text1);
-        $division.append($li);
-        $text.val("");
-
+// Theme toggle functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    // Function to toggle theme
+    function toggleTheme() {
+        document.documentElement.setAttribute('data-theme', 
+            document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'
+        );
+        
+        // Update button text/icon
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        themeToggleBtn.innerHTML = isDark ? '☀️ <span class="visually-hidden">Switch to light mode</span>' : 
+                                          '🌙 <span class="visually-hidden">Switch to dark mode</span>';
+        themeToggleBtn.setAttribute('aria-pressed', isDark);
+        
+        // Save preference to localStorage
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
     }
-    $button1.on('click', Addword
-    );
-})
-$(document).ready(function() {
+
+    // Initialize theme
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-        $('body').addClass('dark-mode');
-        $('#themeToggle').text('☀️ Light Mode');
+    if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        const isDark = savedTheme === 'dark';
+        themeToggleBtn.innerHTML = isDark ? '☀️ <span class="visually-hidden">Switch to light mode</span>' : 
+                                          '🌙 <span class="visually-hidden">Switch to dark mode</span>';
+        themeToggleBtn.setAttribute('aria-pressed', isDark);
+    } else {
+        const isDark = prefersDarkScheme.matches;
+        document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+        themeToggleBtn.innerHTML = isDark ? '☀️ <span class="visually-hidden">Switch to light mode</span>' : 
+                                          '🌙 <span class="visually-hidden">Switch to dark mode</span>';
+        themeToggleBtn.setAttribute('aria-pressed', isDark);
     }
-    $('#themeToggle').on('click', function() {
-        $('body').toggleClass('dark-mode');
-        if ($('body').hasClass('dark-mode')) {
-            localStorage.setItem('theme', 'dark');
-            $(this).text('☀️ Light Mode');
-        } else {
-            localStorage.setItem('theme', 'light');
-            $(this).text('🌙 Dark Mode');
-        }
-    });
-});
 
-$(document).ready(function() {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') {
-        $('body').addClass('light-mode').removeClass('bg-black text-white');
-        $('#themeToggle').text('🌙 Dark Mode');
-    }
-    else {
-        $('body').removeClass('light-mode').addClass('bg-black text-white');
-        $('#themeToggle').text('☀️ Light Mode');
-    }
-    $('#themeToggle').on('click', function() {
-        $('body').toggleClass('light-mode bg-black text-white');
-        if ($('body').hasClass('light-mode')) {
-            $(this).text('🌙 Dark Mode');
-            localStorage.setItem('theme', 'light');
-        } else {
-            $(this).text('☀️ Light Mode');
-            localStorage.setItem('theme', 'dark');
-        }
-    });
+    // Add click handler
+    themeToggleBtn.addEventListener('click', toggleTheme);
 });

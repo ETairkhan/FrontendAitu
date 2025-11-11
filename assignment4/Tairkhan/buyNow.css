@@ -50,6 +50,20 @@ body { font-size: 1rem; }
     height: 38px;
 }
 
+/* Auth buttons styling */
+.btn-outline-light:hover {
+    background-color: #fff !important;
+    color: #000 !important;
+}
+
+
+/* Auth buttons styling */
+.btn-outline-light:hover {
+    background-color: #fff !important;
+    color: #000 !important;
+}
+
+
 .navbar-nav .nav-link {
     color: #fff !important;
     margin: 0 8px;
