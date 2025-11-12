@@ -7,5 +7,7 @@ Tairkhan, David, Yeraly, Bibarys
 
 hosting:
 https://etairkhan.github.io/FrontendAitu/assignment4/signup.html
+
+
 github:
-https://github.com/ETairkhan/FrontendAitu
+https://github.com/ETairkhan/FrontendAitu/tree/main/assignment4
