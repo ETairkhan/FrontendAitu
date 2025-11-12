@@ -86,10 +86,35 @@ document.addEventListener('DOMContentLoaded', function() {
     themeToggleBtn.addEventListener('click', toggleTheme);
 });
 async function getWeather() {
-    const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=51.17&longitude=71.43&current_weather=true');
-    const data = await res.json();
-    const w = data.current_weather;
-    document.getElementById('weatherInfo').innerHTML =
-        `🌤 ${w.temperature}°C, wind ${w.windspeed} km/h`;
+    try {
+        const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=51.17&longitude=71.43&current_weather=true');
+        const data = await res.json();
+        const w = data.current_weather;
+        const temp = w.temperature;
+        const wind = w.windspeed;
+
+        document.getElementById('weatherInfo').innerHTML =
+            `🌤 ${temp}°C, wind ${wind} km/h`;
+
+        // Add custom driving message
+        let message = '';
+        if (temp >= 20 && temp <= 30 && wind < 20) {
+            message = 'Perfect weather for a test drive! 🚗💨';
+        } else if (temp < 0) {
+            message = '❄️ A bit cold — drive safe!';
+        } else if (temp > 30) {
+            message = '☀️ Hot day — keep your car cool!';
+        } else if (wind >= 20) {
+            message = '🌬 Windy conditions — hands on the wheel!';
+        } else {
+            message = 'Good day for a comfortable Mercedes ride.';
+        }
+
+        document.getElementById('weatherMessage').textContent = message;
+    } catch (error) {
+        document.getElementById('weatherInfo').textContent = 'Unable to load weather data.';
+        console.error(error);
+    }
 }
+
 getWeather();
