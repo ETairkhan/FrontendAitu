@@ -150,3 +150,10 @@ document.addEventListener('DOMContentLoaded', () => {
     updateDateTime(); // Только время
     // НИКАКОГО filterCarsBtn.click()!
 });
+async function getRate() {
+    const res = await fetch('https://open.er-api.com/v6/latest/USD');
+    const data = await res.json();
+    const kzt = data.rates.KZT;
+    document.getElementById('rate').innerText = kzt.toFixed(2);
+}
+getRate();

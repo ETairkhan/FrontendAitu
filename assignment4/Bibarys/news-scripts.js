@@ -85,3 +85,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add click handler
     themeToggleBtn.addEventListener('click', toggleTheme);
 });
+async function getWeather() {
+    const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=51.17&longitude=71.43&current_weather=true');
+    const data = await res.json();
+    const w = data.current_weather;
+    document.getElementById('weatherInfo').innerHTML =
+        `🌤 ${w.temperature}°C, wind ${w.windspeed} km/h`;
+}
+getWeather();
