@@ -626,3 +626,19 @@ body {
     color: var(--flip-back-bg);
     transform: scale(1.05);
 }
+#weather {
+    text-align: center;
+    border-radius: 20px;
+    width: 80%;
+    margin: 40px auto;
+    padding: 40px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+#weather h2 {
+    font-weight: 500;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+#weatherInfo {
+    font-size: 1.3rem;
+}
