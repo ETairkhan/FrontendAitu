@@ -27,8 +27,8 @@ Project topic and features:
 External APIs and libraries used:
 - Bootstrap CSS/JS (via jsDelivr CDN)
 - jQuery (via Google CDN)
-- WhatsApp Click-to-Chat link (api.whatsapp.com used for contact)
-- External image resources (example: Yandex avatars used in some demo images)
+-  Weather 
+- To currency converter
 
 Hosting:
 https://etairkhan.github.io/FrontendAitu/assignment4/signup.html
